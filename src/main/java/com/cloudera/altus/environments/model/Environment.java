@@ -32,7 +32,7 @@ import java.time.ZonedDateTime;
 /**
  * Container for the environment access data.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:04.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
 public class Environment  {
 
   /**
@@ -74,6 +74,11 @@ public class Environment  {
    * The configurations for Cloudera Navigator integration.
    **/
   private NavigatorConfiguration navigatorConfiguration = null;
+
+  /**
+   * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled. Cluster volumes will be encrypted in a cloud provider specific manner.
+   **/
+  private Boolean securedClusters = null;
 
   /**
    * Getter for environmentName.
@@ -195,6 +200,21 @@ public class Environment  {
     this.navigatorConfiguration = navigatorConfiguration;
   }
 
+  /**
+   * Getter for securedClusters.
+   **/
+  @JsonProperty("securedClusters")
+  public Boolean getSecuredClusters() {
+    return securedClusters;
+  }
+
+  /**
+   * Setter for securedClusters.
+   **/
+  public void setSecuredClusters(Boolean securedClusters) {
+    this.securedClusters = securedClusters;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -228,12 +248,15 @@ public class Environment  {
     if (!Objects.equals(this.navigatorConfiguration, environment.navigatorConfiguration)) {
       return false;
     }
+    if (!Objects.equals(this.securedClusters, environment.securedClusters)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, creationDate, type, workloadAnalyticsConfiguration, azureDetails, awsDetails, navigatorConfiguration);
+    return Objects.hash(environmentName, crn, creationDate, type, workloadAnalyticsConfiguration, azureDetails, awsDetails, navigatorConfiguration, securedClusters);
   }
 
   @Override
@@ -248,6 +271,7 @@ public class Environment  {
     sb.append("    azureDetails: ").append(toIndentedString(azureDetails)).append("\n");
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
     sb.append("    navigatorConfiguration: ").append(toIndentedString(navigatorConfiguration)).append("\n");
+    sb.append("    securedClusters: ").append(toIndentedString(securedClusters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

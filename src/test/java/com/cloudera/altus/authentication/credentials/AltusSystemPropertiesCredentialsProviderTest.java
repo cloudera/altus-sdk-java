@@ -21,27 +21,23 @@ package com.cloudera.altus.authentication.credentials;
 
 import static com.cloudera.altus.authentication.credentials.AltusSystemPropertiesCredentialsProvider.ALTUS_ACCESS_KEY_ID;
 import static com.cloudera.altus.authentication.credentials.AltusSystemPropertiesCredentialsProvider.ALTUS_PRIVATE_KEY;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.util.AltusSDKTestUtils;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class AltusSystemPropertiesCredentialsProviderTest {
 
   private String originalAccessKeyId = null;
   private String originalPrivateKey = null;
 
-
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
-  @Before
+  @BeforeEach
   public void setEnvVariables() {
     originalAccessKeyId = System.getProperty(ALTUS_ACCESS_KEY_ID);
     originalPrivateKey = System.getProperty(ALTUS_PRIVATE_KEY);
@@ -49,7 +45,7 @@ public class AltusSystemPropertiesCredentialsProviderTest {
     System.clearProperty(ALTUS_ACCESS_KEY_ID);
   }
 
-  @After
+  @AfterEach
   public void resetEnvVariables() {
     if (originalAccessKeyId != null) {
       System.setProperty(ALTUS_ACCESS_KEY_ID, originalAccessKeyId);
@@ -61,36 +57,41 @@ public class AltusSystemPropertiesCredentialsProviderTest {
 
   @Test
   public void testGetCredentialsWithNullIdAndPrivateKeys() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage("Unable to load Altus credentials from Java system " +
-        "properties " + ALTUS_ACCESS_KEY_ID + " and " + ALTUS_PRIVATE_KEY);
-
     AltusSystemPropertiesCredentialsProvider aspcp =
         new AltusSystemPropertiesCredentialsProvider();
-    aspcp.getCredentials();
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      aspcp.getCredentials();
+    });
+    assertEquals("Unable to load Altus credentials from Java system " +
+                 "properties " + ALTUS_ACCESS_KEY_ID + " and " + ALTUS_PRIVATE_KEY,
+                 e.getMessage());
   }
 
   @Test
   public void testGetCredentialsForAltusKeyIdMissing() {
     System.setProperty(ALTUS_PRIVATE_KEY, "");
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage("Unable to load Altus credentials from Java system " +
-        "properties " + ALTUS_ACCESS_KEY_ID + " and " + ALTUS_PRIVATE_KEY);
     AltusSystemPropertiesCredentialsProvider aspcp =
         new AltusSystemPropertiesCredentialsProvider();
+    Throwable e = assertThrows(AltusClientException.class, () -> {
       aspcp.getCredentials();
+    });
+    assertEquals("Unable to load Altus credentials from Java system " +
+                 "properties " + ALTUS_ACCESS_KEY_ID + " and " + ALTUS_PRIVATE_KEY,
+                 e.getMessage());
   }
 
   @Test
   public void testGetCredentialsForAltusPrivateKeyMissing() {
     System.setProperty(ALTUS_ACCESS_KEY_ID,
         "c2cf4ffb-9f0a-42bf-938b-f50085e63883");
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage("Unable to load Altus credentials from Java system " +
-        "properties " + ALTUS_ACCESS_KEY_ID + " and " + ALTUS_PRIVATE_KEY);
     AltusSystemPropertiesCredentialsProvider aspcp =
         new AltusSystemPropertiesCredentialsProvider();
-    aspcp.getCredentials();
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      aspcp.getCredentials();
+    });
+    assertEquals("Unable to load Altus credentials from Java system " +
+                 "properties " + ALTUS_ACCESS_KEY_ID + " and " + ALTUS_PRIVATE_KEY,
+                 e.getMessage());
   }
 
   @Test

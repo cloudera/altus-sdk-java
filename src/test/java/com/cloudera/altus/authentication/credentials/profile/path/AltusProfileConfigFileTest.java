@@ -19,9 +19,10 @@
 
 package com.cloudera.altus.authentication.credentials.profile.path;
 
-import static org.hamcrest.core.StringStartsWith.startsWith;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.authentication.credentials.AltusCredentials;
@@ -30,60 +31,60 @@ import com.cloudera.altus.authentication.credentials.profile.AltusProfileConfigF
 import com.cloudera.altus.util.AltusSDKTestUtils;
 
 import java.io.File;
+import java.nio.file.Path;
 
-import org.hamcrest.core.IsEqual;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junitpioneer.jupiter.TempDirectory;
+import org.junitpioneer.jupiter.TempDirectory.TempDir;
 
 public class AltusProfileConfigFileTest {
 
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
-  @Rule
-  public TemporaryFolder folder = new TemporaryFolder();
-
   @Test
   public void testNullConfigFileName() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage(IsEqual.equalTo("Argument is null"));
-    new AltusProfileConfigFile((String)null);
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      new AltusProfileConfigFile((String)null);
+    });
+    assertEquals("Argument is null", e.getMessage());
   }
 
   @Test
   public void testNullConfigFileHandle() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage(IsEqual.equalTo("Argument is null"));
-    new AltusProfileConfigFile((File)null);
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      new AltusProfileConfigFile((File)null);
+    });
+    assertEquals("Argument is null", e.getMessage());
   }
 
   @Test
-  public void testNonExistantFileName() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage(startsWith("Error loading Altus profile. Altus " +
-        "profile file not found at:"));
-    new AltusProfileConfigFile(
-        folder.getRoot().getAbsolutePath() + "/junk.txt");
+  @ExtendWith(TempDirectory.class)
+  public void testNonExistantFileName(@TempDir Path folder) {
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      new AltusProfileConfigFile(folder.toAbsolutePath() + "/junk.txt");
+    });
+    assertTrue(e.getMessage().startsWith("Error loading Altus profile. Altus " +
+                                         "profile file not found at:"));
   }
 
   @Test
-  public void testNonExistantFileHandle() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage(startsWith("Error loading Altus profile. Altus " +
-        "profile file not found at:"));
-    new AltusProfileConfigFile(
-        new File(folder.getRoot().getAbsolutePath() + "/junk.txt"));
+  @ExtendWith(TempDirectory.class)
+  public void testNonExistantFileHandle(@TempDir Path folder) {
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      new AltusProfileConfigFile(
+          new File(folder.toAbsolutePath().toString(), "junk.txt"));
+    });
+    assertTrue(e.getMessage().startsWith("Error loading Altus profile. Altus " +
+                                         "profile file not found at:"));
   }
 
   @Test
   public void testNonExistantProfileName() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage("Unable to find profile named foobar");
     AltusProfileConfigFile config = new AltusProfileConfigFile(
         AltusSDKTestUtils.getTestCredentialsFileName());
-    config.getCredentials("foobar");
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      config.getCredentials("foobar");
+    });
+    assertEquals("Unable to find profile named foobar", e.getMessage());
   }
 
   @Test

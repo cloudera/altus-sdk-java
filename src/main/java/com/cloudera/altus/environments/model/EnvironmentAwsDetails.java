@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * AWS-specific environment information.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:04.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
 public class EnvironmentAwsDetails  {
 
   /**
@@ -71,6 +71,11 @@ public class EnvironmentAwsDetails  {
    * The configurations required to enable S3 consistent view (S3Guard).
    **/
   private S3GuardConfiguration s3GuardConfiguration = null;
+
+  /**
+   * The ARN of the KMS key used to encrypt non-root cluster EBS volumes. If not set, and securedClusters is true, the default AWS managed CMK for EBS will be used.
+   **/
+  private String ebsEncryptionKmsKey = null;
 
   /**
    * Getter for delegatedRoleArn.
@@ -192,6 +197,21 @@ public class EnvironmentAwsDetails  {
     this.s3GuardConfiguration = s3GuardConfiguration;
   }
 
+  /**
+   * Getter for ebsEncryptionKmsKey.
+   **/
+  @JsonProperty("ebsEncryptionKmsKey")
+  public String getEbsEncryptionKmsKey() {
+    return ebsEncryptionKmsKey;
+  }
+
+  /**
+   * Setter for ebsEncryptionKmsKey.
+   **/
+  public void setEbsEncryptionKmsKey(String ebsEncryptionKmsKey) {
+    this.ebsEncryptionKmsKey = ebsEncryptionKmsKey;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -225,12 +245,15 @@ public class EnvironmentAwsDetails  {
     if (!Objects.equals(this.s3GuardConfiguration, environmentAwsDetails.s3GuardConfiguration)) {
       return false;
     }
+    if (!Objects.equals(this.ebsEncryptionKmsKey, environmentAwsDetails.ebsEncryptionKmsKey)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegatedRoleArn, instanceProfileName, subnets, securityGroups, region, logArchiveBucketName, autoRegisterClusterSshKeys, s3GuardConfiguration);
+    return Objects.hash(delegatedRoleArn, instanceProfileName, subnets, securityGroups, region, logArchiveBucketName, autoRegisterClusterSshKeys, s3GuardConfiguration, ebsEncryptionKmsKey);
   }
 
   @Override
@@ -245,6 +268,7 @@ public class EnvironmentAwsDetails  {
     sb.append("    logArchiveBucketName: ").append(toIndentedString(logArchiveBucketName)).append("\n");
     sb.append("    autoRegisterClusterSshKeys: ").append(toIndentedString(autoRegisterClusterSshKeys)).append("\n");
     sb.append("    s3GuardConfiguration: ").append(toIndentedString(s3GuardConfiguration)).append("\n");
+    sb.append("    ebsEncryptionKmsKey: ").append(toIndentedString(ebsEncryptionKmsKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

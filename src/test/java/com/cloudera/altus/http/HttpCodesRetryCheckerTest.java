@@ -19,20 +19,23 @@
 
 package com.cloudera.altus.http;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.AltusHTTPException;
 
 import java.util.Collections;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class HttpCodesRetryCheckerTest {
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testNullSet() {
-    new HttpCodesRetryChecker(null);
+    assertThrows(AltusClientException.class, () -> {
+      new HttpCodesRetryChecker(null);
+    });
   }
 
   @Test
@@ -51,9 +54,11 @@ public class HttpCodesRetryCheckerTest {
     assertEquals(retryChecker.shouldRetry(5, exception), false);
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testEmptySet() {
-    new HttpCodesRetryChecker(Collections.emptySet());
+    assertThrows(AltusClientException.class, () -> {
+      new HttpCodesRetryChecker(Collections.emptySet());
+    });
   }
 
   @Test

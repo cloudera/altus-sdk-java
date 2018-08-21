@@ -19,20 +19,15 @@
 
 package com.cloudera.altus.authentication.credentials;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.util.AltusSDKTestUtils;
 
-import org.hamcrest.core.IsEqual;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 public class StaticAltusCredentialsProviderTest {
-
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
 
   @Test
   public void testValidCredentials() {
@@ -46,8 +41,9 @@ public class StaticAltusCredentialsProviderTest {
 
   @Test
   public void testNullCredentials() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage(IsEqual.equalTo("Argument is null"));
-    new StaticAltusCredentialsProvider(null);
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      new StaticAltusCredentialsProvider(null);
+    });
+    assertEquals("Argument is null", e.getMessage());
   }
 }

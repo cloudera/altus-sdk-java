@@ -19,49 +19,46 @@
 
 package com.cloudera.altus.authentication.credentials;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.util.AltusSDKTestUtils;
 import com.google.common.collect.Maps;
 
+import java.nio.file.Path;
 import java.util.Map;
 
-import org.hamcrest.core.IsEqual;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junitpioneer.jupiter.TempDirectory;
+import org.junitpioneer.jupiter.TempDirectory.TempDir;
 
 public class AltusProfileCredentialsProviderTest {
 
   private String originalUserHome = null;
 
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
-  @Rule
-  public TemporaryFolder folder = new TemporaryFolder();
-
-  @Before
-  public void setEnvVariables() {
+  @BeforeEach
+  @ExtendWith(TempDirectory.class)
+  public void setEnvVariables(@TempDir Path folder) {
     originalUserHome = System.getProperty("user.home");
     System.setProperty("user.home",
-        folder.getRoot().getAbsolutePath().toString());
+        folder.toAbsolutePath().toString());
     Map<String, String> newEnvironment = Maps.newHashMap();
     AltusSDKTestUtils.setEnv(newEnvironment);
   }
 
-  @After
+  @AfterEach
   public void resetEnvVariables() {
     System.setProperty("user.home", originalUserHome);
   }
 
   @Test
-  public void readFromDefaultLocationDefaultProfileName() {
+  @ExtendWith(TempDirectory.class)
+  public void readFromDefaultLocationDefaultProfileName(@TempDir Path folder) {
     AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileCredentialsProvider credentialsProvider =
         new AltusProfileCredentialsProvider();
@@ -72,7 +69,8 @@ public class AltusProfileCredentialsProviderTest {
   }
 
   @Test
-  public void readFromDefaultLocationSpecifiedProfileName() {
+  @ExtendWith(TempDirectory.class)
+  public void readFromDefaultLocationSpecifiedProfileName(@TempDir Path folder) {
     AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileCredentialsProvider credentialsProvider =
         new AltusProfileCredentialsProvider("altus_test");
@@ -83,18 +81,21 @@ public class AltusProfileCredentialsProviderTest {
   }
 
   @Test
-  public void invalidProfile() {
+  @ExtendWith(TempDirectory.class)
+  public void invalidProfile(@TempDir Path folder) {
     AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileCredentialsProvider credentialsProvider =
         new AltusProfileCredentialsProvider("nonExistingName");
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage(IsEqual.equalTo(
-        "Unable to find profile named nonExistingName"));
-    credentialsProvider.getCredentials();
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      credentialsProvider.getCredentials();
+    });
+    assertEquals("Unable to find profile named nonExistingName",
+                 e.getMessage());
   }
 
   @Test
-  public void invalidEnvVarProfile() {
+  @ExtendWith(TempDirectory.class)
+  public void invalidEnvVarProfile(@TempDir Path folder) {
     AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     Map<String, String> newEnvironment = Maps.newHashMap();
     newEnvironment.put(AltusProfileCredentialsProvider.ALTUS_DEFAULT_PROFILE,
@@ -102,13 +103,16 @@ public class AltusProfileCredentialsProviderTest {
     AltusSDKTestUtils.setEnv(newEnvironment);
     AltusProfileCredentialsProvider credentialsProvider =
         new AltusProfileCredentialsProvider();
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage("Unable to find profile named newEnvironmentprofile");
-    credentialsProvider.getCredentials();
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      credentialsProvider.getCredentials();
+    });
+    assertEquals("Unable to find profile named newEnvironmentprofile",
+                 e.getMessage());
   }
 
   @Test
-  public void readFromEnvVar() {
+  @ExtendWith(TempDirectory.class)
+  public void readFromEnvVar(@TempDir Path folder) {
     Map<String, String> newEnvironment = Maps.newHashMap();
     newEnvironment.put(AltusProfileCredentialsProvider.ALTUS_DEFAULT_PROFILE,
         "altus_test");
@@ -123,6 +127,7 @@ public class AltusProfileCredentialsProviderTest {
   }
 
   @Test
+  @ExtendWith(TempDirectory.class)
   public void readFromSpecifiedPath() {
     AltusProfileCredentialsProvider credentialsProvider =
         new AltusProfileCredentialsProvider(

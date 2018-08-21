@@ -24,7 +24,7 @@ import com.cloudera.altus.client.AltusClientBuilder;
 /**
 * This class can be used to build a IamClient object.
 **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:04.425-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
 public class IamClientBuilder extends AltusClientBuilder<IamClientBuilder> {
 
   private IamClientBuilder() {

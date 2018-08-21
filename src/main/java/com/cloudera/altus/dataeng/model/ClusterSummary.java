@@ -23,12 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.altus.client.AltusResponse;
+import com.cloudera.altus.dataeng.model.ClusterSummarySecurityConfiguration;
 import java.time.ZonedDateTime;
 
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:03.781-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
 public class ClusterSummary  {
 
   /**
@@ -80,6 +81,11 @@ public class ClusterSummary  {
    * The CRN of the environment.
    **/
   private String environmentCrn = null;
+
+  /**
+   * 
+   **/
+  private ClusterSummarySecurityConfiguration securityConfiguration = null;
 
   /**
    * Getter for clusterName.
@@ -231,6 +237,21 @@ public class ClusterSummary  {
     this.environmentCrn = environmentCrn;
   }
 
+  /**
+   * Getter for securityConfiguration.
+   **/
+  @JsonProperty("securityConfiguration")
+  public ClusterSummarySecurityConfiguration getSecurityConfiguration() {
+    return securityConfiguration;
+  }
+
+  /**
+   * Setter for securityConfiguration.
+   **/
+  public void setSecurityConfiguration(ClusterSummarySecurityConfiguration securityConfiguration) {
+    this.securityConfiguration = securityConfiguration;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -270,12 +291,15 @@ public class ClusterSummary  {
     if (!Objects.equals(this.environmentCrn, clusterSummary.environmentCrn)) {
       return false;
     }
+    if (!Objects.equals(this.securityConfiguration, clusterSummary.securityConfiguration)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, workersGroupSize, serviceType, environmentType, environmentCrn);
+    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, workersGroupSize, serviceType, environmentType, environmentCrn, securityConfiguration);
   }
 
   @Override
@@ -292,6 +316,7 @@ public class ClusterSummary  {
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    environmentType: ").append(toIndentedString(environmentType)).append("\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
+    sb.append("    securityConfiguration: ").append(toIndentedString(securityConfiguration)).append("\n");
     sb.append("}");
     return sb.toString();
   }

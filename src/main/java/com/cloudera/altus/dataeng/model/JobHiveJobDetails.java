@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Hive specific job information. This is only ever present for HIVE jobs.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:03.781-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
 public class JobHiveJobDetails  {
 
   /**

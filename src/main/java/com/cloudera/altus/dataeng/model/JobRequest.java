@@ -31,7 +31,7 @@ import com.cloudera.altus.dataeng.model.SparkJobRequest;
 /**
  * Object used to submit a job of any type.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:03.781-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
 public class JobRequest  {
 
   /**

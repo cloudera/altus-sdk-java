@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Object used to describe Disk storage configuration request. Any disks configured here are added in addition to the root volume.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:03.781-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
 public class DiskConfigurationRequest  {
 
   /**
@@ -36,14 +36,14 @@ public class DiskConfigurationRequest  {
   private Integer sizeGB = null;
 
   /**
-   * Number of volumes per instance. The default and minimum value is 1. The miximum number is 15.
-   **/
-  private Integer dataDisksPerInstance = null;
-
-  /**
    * The storage account type.
    **/
   private String storageAccountType = null;
+
+  /**
+   * Number of volumes per instance. The default and minimum value is 1. The miximum number is 15.
+   **/
+  private Integer dataDisksPerInstance = null;
 
   /**
    * Getter for sizeGB.
@@ -61,21 +61,6 @@ public class DiskConfigurationRequest  {
   }
 
   /**
-   * Getter for dataDisksPerInstance.
-   **/
-  @JsonProperty("dataDisksPerInstance")
-  public Integer getDataDisksPerInstance() {
-    return dataDisksPerInstance;
-  }
-
-  /**
-   * Setter for dataDisksPerInstance.
-   **/
-  public void setDataDisksPerInstance(Integer dataDisksPerInstance) {
-    this.dataDisksPerInstance = dataDisksPerInstance;
-  }
-
-  /**
    * Getter for storageAccountType.
    **/
   @JsonProperty("storageAccountType")
@@ -90,6 +75,21 @@ public class DiskConfigurationRequest  {
     this.storageAccountType = storageAccountType;
   }
 
+  /**
+   * Getter for dataDisksPerInstance.
+   **/
+  @JsonProperty("dataDisksPerInstance")
+  public Integer getDataDisksPerInstance() {
+    return dataDisksPerInstance;
+  }
+
+  /**
+   * Setter for dataDisksPerInstance.
+   **/
+  public void setDataDisksPerInstance(Integer dataDisksPerInstance) {
+    this.dataDisksPerInstance = dataDisksPerInstance;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -102,10 +102,10 @@ public class DiskConfigurationRequest  {
     if (!Objects.equals(this.sizeGB, diskConfigurationRequest.sizeGB)) {
       return false;
     }
-    if (!Objects.equals(this.dataDisksPerInstance, diskConfigurationRequest.dataDisksPerInstance)) {
+    if (!Objects.equals(this.storageAccountType, diskConfigurationRequest.storageAccountType)) {
       return false;
     }
-    if (!Objects.equals(this.storageAccountType, diskConfigurationRequest.storageAccountType)) {
+    if (!Objects.equals(this.dataDisksPerInstance, diskConfigurationRequest.dataDisksPerInstance)) {
       return false;
     }
     return true;
@@ -113,7 +113,7 @@ public class DiskConfigurationRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(sizeGB, dataDisksPerInstance, storageAccountType);
+    return Objects.hash(sizeGB, storageAccountType, dataDisksPerInstance);
   }
 
   @Override
@@ -121,8 +121,8 @@ public class DiskConfigurationRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class DiskConfigurationRequest {\n");
     sb.append("    sizeGB: ").append(toIndentedString(sizeGB)).append("\n");
-    sb.append("    dataDisksPerInstance: ").append(toIndentedString(dataDisksPerInstance)).append("\n");
     sb.append("    storageAccountType: ").append(toIndentedString(storageAccountType)).append("\n");
+    sb.append("    dataDisksPerInstance: ").append(toIndentedString(dataDisksPerInstance)).append("\n");
     sb.append("}");
     return sb.toString();
   }

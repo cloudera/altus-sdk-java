@@ -65,8 +65,18 @@ public abstract class AltusResponse {
   /**
    * Gets the http response headers that were returned by the Altus server.
    * @return the response headers
+   * @deprecated use getResponseHeaders instead
    */
+  @Deprecated
   public Map<String, List<String>> getResponseHeaaders() {
+    return getResponseHeaders();
+  }
+
+  /**
+   * Gets the http response headers that were returned by the Altus server.
+   * @return the response headers
+   */
+  public Map<String, List<String>> getResponseHeaders() {
     checkNotNullAndThrow(responseHeaders);
     return responseHeaders;
   }

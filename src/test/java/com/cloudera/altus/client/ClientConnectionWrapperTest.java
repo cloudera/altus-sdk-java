@@ -19,14 +19,18 @@
 
 package com.cloudera.altus.client;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import com.cloudera.altus.AltusClientException;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ClientConnectionWrapperTest {
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testNullArgument() {
+    assertThrows(AltusClientException.class, () -> {
       new ClientConnectionWrapper(null);
+    });
   }
 }

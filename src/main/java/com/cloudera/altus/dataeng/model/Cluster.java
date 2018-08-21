@@ -26,6 +26,7 @@ import com.cloudera.altus.client.AltusResponse;
 import com.cloudera.altus.dataeng.model.ClusterComputeWorkersConfiguration;
 import com.cloudera.altus.dataeng.model.ClusterNavigatorConfiguration;
 import com.cloudera.altus.dataeng.model.ClusterResourceTagResponse;
+import com.cloudera.altus.dataeng.model.ClusterSecurityConfiguration;
 import com.cloudera.altus.dataeng.model.ClusterWorkersConfiguration;
 import com.cloudera.altus.dataeng.model.Endpoint;
 import java.time.ZonedDateTime;
@@ -34,7 +35,7 @@ import java.util.*;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:03.781-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
 public class Cluster  {
 
   /**
@@ -96,6 +97,11 @@ public class Cluster  {
    * The condition under which a cluster should be automatically terminated.
    **/
   private String automaticTerminationCondition = null;
+
+  /**
+   * 
+   **/
+  private ClusterSecurityConfiguration securityConfiguration = null;
 
   /**
    * If the cluster's status is FAILED, this will be set with related failure codes.
@@ -323,6 +329,21 @@ public class Cluster  {
   }
 
   /**
+   * Getter for securityConfiguration.
+   **/
+  @JsonProperty("securityConfiguration")
+  public ClusterSecurityConfiguration getSecurityConfiguration() {
+    return securityConfiguration;
+  }
+
+  /**
+   * Setter for securityConfiguration.
+   **/
+  public void setSecurityConfiguration(ClusterSecurityConfiguration securityConfiguration) {
+    this.securityConfiguration = securityConfiguration;
+  }
+
+  /**
    * Getter for failureCodes.
    **/
   @JsonProperty("failureCodes")
@@ -502,6 +523,9 @@ public class Cluster  {
     if (!Objects.equals(this.automaticTerminationCondition, cluster.automaticTerminationCondition)) {
       return false;
     }
+    if (!Objects.equals(this.securityConfiguration, cluster.securityConfiguration)) {
+      return false;
+    }
     if (!Objects.equals(this.failureCodes, cluster.failureCodes)) {
       return false;
     }
@@ -534,7 +558,7 @@ public class Cluster  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, hasInstanceBootstrapScript, workersGroupSize, serviceType, environmentType, environmentCrn, automaticTerminationCondition, failureCodes, failureReason, logArchiveLocation, clouderaManagerEndpoint, computeWorkersConfiguration, workersConfiguration, workloadAnalyticsEnabled, navigatorConfiguration, additionalClusterResourceTags);
+    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, hasInstanceBootstrapScript, workersGroupSize, serviceType, environmentType, environmentCrn, automaticTerminationCondition, securityConfiguration, failureCodes, failureReason, logArchiveLocation, clouderaManagerEndpoint, computeWorkersConfiguration, workersConfiguration, workloadAnalyticsEnabled, navigatorConfiguration, additionalClusterResourceTags);
   }
 
   @Override
@@ -553,6 +577,7 @@ public class Cluster  {
     sb.append("    environmentType: ").append(toIndentedString(environmentType)).append("\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    automaticTerminationCondition: ").append(toIndentedString(automaticTerminationCondition)).append("\n");
+    sb.append("    securityConfiguration: ").append(toIndentedString(securityConfiguration)).append("\n");
     sb.append("    failureCodes: ").append(toIndentedString(failureCodes)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    logArchiveLocation: ").append(toIndentedString(logArchiveLocation)).append("\n");

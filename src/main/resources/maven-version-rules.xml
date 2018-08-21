@@ -35,6 +35,12 @@
         <ignoreVersion>20030911</ignoreVersion>
       </ignoreVersions>
     </rule>
+    <rule groupId="com.github.vbmacher" artifactId="java-cup-runtime">
+      <ignoreVersions>
+        <ignoreVersion>11b-20151001</ignoreVersion>
+        <ignoreVersion>11b-20160615</ignoreVersion>
+      </ignoreVersions>
+    </rule>
     <!-- There are strange pre-release versions like 7.5.0.t018 -->
     <rule groupId="org.kie">
       <ignoreVersions>
@@ -47,10 +53,35 @@
         <ignoreVersion type="regex">(6|8).*</ignoreVersion>
       </ignoreVersions>
     </rule>
+    <rule groupId="org.postgresql" artifactId="postgresql">
+      <ignoreVersions>
+        <ignoreVersion type="regex">.*jre.*</ignoreVersion>
+      </ignoreVersions>
+    </rule>
     <!-- Random jboss pollution -->
     <rule groupId="org.apache.maven" artifactId="maven-compiler-plugin">
       <ignoreVersions>
         <ignoreVersion>3.7.0-jboss-1</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <!-- Cloudera pollution! -->
+    <rule groupId="org.apache.avro" artifactId="avro">
+      <ignoreVersions>
+        <ignoreVersion>1.8.2-cdh6.0.0</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <!-- Known broken artifact versions -->
+    <rule groupId="org.codehaus.mojo" artifactId="exec-maven-plugin">
+      <ignoreVersions>
+        <!-- Bug causes crashes when exec'ing stuff. -->
+        <ignoreVersion>1.6.0</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="org.apache.maven" artifactId="maven-assembly-plugin">
+      <ignoreVersions>
+        <!-- 3.x releases are way slower than 2.x -->
+        <ignoreVersion>3.0.0</ignoreVersion>
+        <ignoreVersion>3.1.0</ignoreVersion>
       </ignoreVersions>
     </rule>
   </rules>

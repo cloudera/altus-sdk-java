@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Azure-specific environment information.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:04.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
 public class EnvironmentAzureDetails  {
 
   /**
@@ -74,11 +74,6 @@ public class EnvironmentAzureDetails  {
    * The resource group where the cluster nodes are located.
    **/
   private String clusterNodeResourceGroup = null;
-
-  /**
-   * This field is no longer supported. Use User Assigned MSI Resource Group and User Assigned MSI Name instead.
-   **/
-  private String aadGroupName = null;
 
   /**
    * The resource group where the Assigned Managed Service Identity is located.
@@ -231,21 +226,6 @@ public class EnvironmentAzureDetails  {
   }
 
   /**
-   * Getter for aadGroupName.
-   **/
-  @JsonProperty("aadGroupName")
-  public String getAadGroupName() {
-    return aadGroupName;
-  }
-
-  /**
-   * Setter for aadGroupName.
-   **/
-  public void setAadGroupName(String aadGroupName) {
-    this.aadGroupName = aadGroupName;
-  }
-
-  /**
    * Getter for userAssignedMsiResourceGroup.
    **/
   @JsonProperty("userAssignedMsiResourceGroup")
@@ -326,9 +306,6 @@ public class EnvironmentAzureDetails  {
     if (!Objects.equals(this.clusterNodeResourceGroup, environmentAzureDetails.clusterNodeResourceGroup)) {
       return false;
     }
-    if (!Objects.equals(this.aadGroupName, environmentAzureDetails.aadGroupName)) {
-      return false;
-    }
     if (!Objects.equals(this.userAssignedMsiResourceGroup, environmentAzureDetails.userAssignedMsiResourceGroup)) {
       return false;
     }
@@ -343,7 +320,7 @@ public class EnvironmentAzureDetails  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subscriptionId, aadTenantId, region, vnetResourceGroup, vnetName, subnetName, networkSecurityGroupResourceGroup, networkSecurityGroupName, clusterNodeResourceGroup, aadGroupName, userAssignedMsiResourceGroup, userAssignedMsiName, logArchiveFolderPath);
+    return Objects.hash(subscriptionId, aadTenantId, region, vnetResourceGroup, vnetName, subnetName, networkSecurityGroupResourceGroup, networkSecurityGroupName, clusterNodeResourceGroup, userAssignedMsiResourceGroup, userAssignedMsiName, logArchiveFolderPath);
   }
 
   @Override
@@ -359,7 +336,6 @@ public class EnvironmentAzureDetails  {
     sb.append("    networkSecurityGroupResourceGroup: ").append(toIndentedString(networkSecurityGroupResourceGroup)).append("\n");
     sb.append("    networkSecurityGroupName: ").append(toIndentedString(networkSecurityGroupName)).append("\n");
     sb.append("    clusterNodeResourceGroup: ").append(toIndentedString(clusterNodeResourceGroup)).append("\n");
-    sb.append("    aadGroupName: ").append(toIndentedString(aadGroupName)).append("\n");
     sb.append("    userAssignedMsiResourceGroup: ").append(toIndentedString(userAssignedMsiResourceGroup)).append("\n");
     sb.append("    userAssignedMsiName: ").append(toIndentedString(userAssignedMsiName)).append("\n");
     sb.append("    logArchiveFolderPath: ").append(toIndentedString(logArchiveFolderPath)).append("\n");

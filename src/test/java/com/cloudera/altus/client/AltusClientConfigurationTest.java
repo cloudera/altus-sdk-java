@@ -18,13 +18,13 @@
  */
 package com.cloudera.altus.client;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.cloudera.altus.http.SimpleRetryHandler;
 
 import java.time.Duration;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AltusClientConfigurationTest {
 

@@ -19,13 +19,14 @@
 
 package com.cloudera.altus.http;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cloudera.altus.AltusClientException;
 
 import java.time.Duration;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class ExponentialBackoffDelayPolicyTest {
 
@@ -35,38 +36,47 @@ public class ExponentialBackoffDelayPolicyTest {
         new ExponentialBackoffDelayPolicy(2, Duration.ofSeconds(1));
     for (int ii = 1; ii <= 10; ii++) {
       Duration expected = Duration.ofSeconds((long) Math.pow(2, ii - 1));
-      assertEquals("Iteration: " + Integer.toString(ii),
-          expected,
-          delayPolicy.delay(ii));
+      assertEquals(expected, delayPolicy.delay(ii),
+                   "Iteration: " + Integer.toString(ii));
     }
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testNullBase() {
-    new ExponentialBackoffDelayPolicy(1, null);
+    assertThrows(AltusClientException.class, () -> {
+      new ExponentialBackoffDelayPolicy(1, null);
+    });
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testZeroBase() {
-    new ExponentialBackoffDelayPolicy(1, Duration.ofMillis(0));
+    assertThrows(AltusClientException.class, () -> {
+      new ExponentialBackoffDelayPolicy(1, Duration.ofMillis(0));
+    });
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testNegativeGrowthFactor() {
-    new ExponentialBackoffDelayPolicy(-1, Duration.ofMillis(1));
+    assertThrows(AltusClientException.class, () -> {
+      new ExponentialBackoffDelayPolicy(-1, Duration.ofMillis(1));
+    });
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testNegativeAttempts() {
     ExponentialBackoffDelayPolicy delayPolicy =
       new ExponentialBackoffDelayPolicy(2, Duration.ofSeconds(1));
-    delayPolicy.delay(-1);
+    assertThrows(AltusClientException.class, () -> {
+      delayPolicy.delay(-1);
+    });
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testZeroAttempts() {
     ExponentialBackoffDelayPolicy delayPolicy =
       new ExponentialBackoffDelayPolicy(2, Duration.ofSeconds(1));
-    delayPolicy.delay(0);
+    assertThrows(AltusClientException.class, () -> {
+      delayPolicy.delay(0);
+    });
   }
 }

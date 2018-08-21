@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for a CreateAWSEnvironment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:04.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -88,6 +88,16 @@ public class CreateAWSEnvironmentRequest  {
    * The configurations for Cloudera Navigator integration.
    **/
   private AwsNavigatorConfigurationRequest navigatorConfiguration = null;
+
+  /**
+   * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled. Non-root EBS volumes will be encrypted.
+   **/
+  private Boolean securedClusters = null;
+
+  /**
+   * The ARN of the KMS key to use to encrypt non-root cluster EBS volumes. Leave this empty to use the default AWS managed CMK for EBS. This option may only be used when securedClusters is true.
+   **/
+  private String ebsEncryptionKmsKey = null;
 
   /**
    * Getter for name.
@@ -254,6 +264,36 @@ public class CreateAWSEnvironmentRequest  {
     this.navigatorConfiguration = navigatorConfiguration;
   }
 
+  /**
+   * Getter for securedClusters.
+   **/
+  @JsonProperty("securedClusters")
+  public Boolean getSecuredClusters() {
+    return securedClusters;
+  }
+
+  /**
+   * Setter for securedClusters.
+   **/
+  public void setSecuredClusters(Boolean securedClusters) {
+    this.securedClusters = securedClusters;
+  }
+
+  /**
+   * Getter for ebsEncryptionKmsKey.
+   **/
+  @JsonProperty("ebsEncryptionKmsKey")
+  public String getEbsEncryptionKmsKey() {
+    return ebsEncryptionKmsKey;
+  }
+
+  /**
+   * Setter for ebsEncryptionKmsKey.
+   **/
+  public void setEbsEncryptionKmsKey(String ebsEncryptionKmsKey) {
+    this.ebsEncryptionKmsKey = ebsEncryptionKmsKey;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -296,12 +336,18 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.navigatorConfiguration, createAWSEnvironmentRequest.navigatorConfiguration)) {
       return false;
     }
+    if (!Objects.equals(this.securedClusters, createAWSEnvironmentRequest.securedClusters)) {
+      return false;
+    }
+    if (!Objects.equals(this.ebsEncryptionKmsKey, createAWSEnvironmentRequest.ebsEncryptionKmsKey)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, delegatedRoleArn, instanceProfileName, subnets, securityGroups, region, logArchiveBucketName, autoRegisterClusterSshKeys, s3GuardConfiguration, workloadAnalyticsConfiguration, navigatorConfiguration);
+    return Objects.hash(name, delegatedRoleArn, instanceProfileName, subnets, securityGroups, region, logArchiveBucketName, autoRegisterClusterSshKeys, s3GuardConfiguration, workloadAnalyticsConfiguration, navigatorConfiguration, securedClusters, ebsEncryptionKmsKey);
   }
 
   @Override
@@ -319,6 +365,8 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    s3GuardConfiguration: ").append(toIndentedString(s3GuardConfiguration)).append("\n");
     sb.append("    workloadAnalyticsConfiguration: ").append(toIndentedString(workloadAnalyticsConfiguration)).append("\n");
     sb.append("    navigatorConfiguration: ").append(toIndentedString(navigatorConfiguration)).append("\n");
+    sb.append("    securedClusters: ").append(toIndentedString(securedClusters)).append("\n");
+    sb.append("    ebsEncryptionKmsKey: ").append(toIndentedString(ebsEncryptionKmsKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

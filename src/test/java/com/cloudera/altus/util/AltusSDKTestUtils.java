@@ -18,7 +18,7 @@
  */
 package com.cloudera.altus.util;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import com.cloudera.altus.annotation.SdkInternalApi;
 import com.cloudera.altus.client.CredentialUtilities;
@@ -28,12 +28,11 @@ import com.google.common.io.Resources;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.PrivateKey;
 import java.util.Collections;
 import java.util.Map;
-
-import org.junit.rules.TemporaryFolder;
 
 /**
  * Utility classed used in junit tests.
@@ -124,11 +123,11 @@ public class AltusSDKTestUtils {
    * @param folder - a map containing the new environment variables -
    *  names and values.
    */
-  public static void copyTestCredentialsFileToFolder(TemporaryFolder folder) {
+  public static void copyTestCredentialsFileToFolder(Path folder) {
     try {
-      folder.newFolder(".altus");
+      Files.createDirectory(Paths.get(folder.toString(), ".altus"));
       Files.copy(Paths.get(getTestCredentialsFileName()),
-        Paths.get(folder.getRoot().getAbsolutePath().toString() + DEFAULT_CREDENTIALS_PATH));
+        Paths.get(folder.toAbsolutePath().toString(), DEFAULT_CREDENTIALS_PATH));
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

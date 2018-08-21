@@ -20,8 +20,9 @@
 package com.cloudera.altus.client;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
@@ -49,16 +50,11 @@ import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.StatusType;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 public class AltusClientTest {
 
   private static final ObjectMapper MAPPER = new ObjectMapper();
-
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
 
   private Response mockResponse(int httpCode, @Nullable String requestId) {
     Response response = mock(Response.class);
@@ -125,9 +121,10 @@ public class AltusClientTest {
     Response mockResponse = mockResponse(200, "requestId");
     when(mockResponse.readEntity(any(GenericType.class))).thenReturn(null);
     TestClient client = new TestClient(mockResponse);
-    thrown.expect(AltusHTTPException.class);
-    thrown.expectMessage(String.format("200: Invalid response from server"));
-    client.invokeAPI("somePath", "", new GenericType<TestAltusResponse>(){});
+    Throwable e = assertThrows(AltusHTTPException.class, () -> {
+      client.invokeAPI("somePath", "", new GenericType<TestAltusResponse>(){});
+    });
+    assertEquals(String.format("200: Invalid response from server"), e.getMessage());
   }
 
   @Test
@@ -137,9 +134,10 @@ public class AltusClientTest {
     Response mockResponse = mockResponse(502, null);
     when(mockResponse.readEntity(String.class)).thenReturn(responseBody);
     TestClient client = new TestClient(mockResponse);
-    thrown.expect(AltusHTTPException.class);
-    thrown.expectMessage(String.format("502: %s", responseBody));
-    client.invokeAPI("somePath", "", new GenericType<TestAltusResponse>(){});
+    Throwable e = assertThrows(AltusHTTPException.class, () -> {
+      client.invokeAPI("somePath", "", new GenericType<TestAltusResponse>(){});
+    });
+    assertEquals(String.format("502: %s", responseBody), e.getMessage());
   }
 
   @Test

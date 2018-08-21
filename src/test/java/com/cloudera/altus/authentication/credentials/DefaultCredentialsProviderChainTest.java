@@ -19,56 +19,55 @@
 
 package com.cloudera.altus.authentication.credentials;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.util.AltusSDKTestUtils;
 import com.google.common.collect.Maps;
 
+import java.nio.file.Path;
 import java.util.Map;
 import java.util.UUID;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junitpioneer.jupiter.TempDirectory;
+import org.junitpioneer.jupiter.TempDirectory.TempDir;
 
 public class DefaultCredentialsProviderChainTest {
 
   private String originalUserHome = null;
 
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
-  @Rule
-  public TemporaryFolder folder = new TemporaryFolder();
-
-  @Before
-  public void setEnvVariables() {
+  @BeforeEach
+  @ExtendWith(TempDirectory.class)
+  public void setEnvVariables(@TempDir Path folder) {
     //override user home in case server has existing altus credentials file
     originalUserHome = System.getProperty("user.home");
-    System.setProperty("user.home", folder.getRoot().getAbsolutePath().toString());
+    System.setProperty("user.home", folder.toAbsolutePath().toString());
   }
 
-  @After
+  @AfterEach
   public void resetEnvVariables() {
     System.setProperty("user.home",originalUserHome);
   }
 
   @Test
+  @ExtendWith(TempDirectory.class)
   public void testNoCredentials() {
     DefaultAltusCredentialProviderChain cp = new DefaultAltusCredentialProviderChain();
 
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage("Unable to load credentials from provider files");
-
-    cp.getCredentials();
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      cp.getCredentials();
+    });
+    assertEquals("Unable to load credentials from provider files", e.getMessage());
   }
 
   @Test
+  @ExtendWith(TempDirectory.class)
   public void testValidEnvironmentVariableCredentials() {
     Map<String, String> newEnvironment = Maps.newHashMap();
     String accessKeyId = UUID.randomUUID().toString();
@@ -91,6 +90,7 @@ public class DefaultCredentialsProviderChainTest {
   }
 
   @Test
+  @ExtendWith(TempDirectory.class)
   public void testValidSystemPropertiesCredentials() {
     String accessKeyId = UUID.randomUUID().toString();
     System.setProperty(
@@ -113,7 +113,8 @@ public class DefaultCredentialsProviderChainTest {
   }
 
   @Test
-  public void testValidProfileCredentials() {
+  @ExtendWith(TempDirectory.class)
+  public void testValidProfileCredentials(@TempDir Path folder) {
     AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     DefaultAltusCredentialProviderChain cp = new DefaultAltusCredentialProviderChain();
     AltusCredentials credentials = cp.getCredentials();

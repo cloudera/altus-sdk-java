@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.cloudera.altus.iam.model;
+package com.cloudera.altus.dataeng.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,10 +25,30 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.altus.client.AltusResponse;
 
 /**
- * Response object for an assign machine user role request.
+ * AWS-specific security configuration. This will only be populated for AWS clusters with security enabled.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
-public class AssignMachineUserRoleResponse extends AltusResponse {
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+public class ClusterSecurityConfigurationAwsDetails  {
+
+  /**
+   * The ARN of the KMS key used to encrypt non-root EBS volumes. If not set, and security is enabled, the default AWS managed CMK for EBS was used.
+   **/
+  private String ebsEncryptionKmsKey = null;
+
+  /**
+   * Getter for ebsEncryptionKmsKey.
+   **/
+  @JsonProperty("ebsEncryptionKmsKey")
+  public String getEbsEncryptionKmsKey() {
+    return ebsEncryptionKmsKey;
+  }
+
+  /**
+   * Setter for ebsEncryptionKmsKey.
+   **/
+  public void setEbsEncryptionKmsKey(String ebsEncryptionKmsKey) {
+    this.ebsEncryptionKmsKey = ebsEncryptionKmsKey;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -38,7 +58,8 @@ public class AssignMachineUserRoleResponse extends AltusResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    if (!super.equals(o)) {
+    ClusterSecurityConfigurationAwsDetails clusterSecurityConfigurationAwsDetails = (ClusterSecurityConfigurationAwsDetails) o;
+    if (!Objects.equals(this.ebsEncryptionKmsKey, clusterSecurityConfigurationAwsDetails.ebsEncryptionKmsKey)) {
       return false;
     }
     return true;
@@ -46,14 +67,14 @@ public class AssignMachineUserRoleResponse extends AltusResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(ebsEncryptionKmsKey);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class AssignMachineUserRoleResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("class ClusterSecurityConfigurationAwsDetails {\n");
+    sb.append("    ebsEncryptionKmsKey: ").append(toIndentedString(ebsEncryptionKmsKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

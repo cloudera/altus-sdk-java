@@ -28,7 +28,7 @@ import com.cloudera.altus.environments.model.WorkloadAnalyticsConfigurationReque
 /**
  * Request object for a CreateAzureEnvironment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:04.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -82,11 +82,6 @@ public class CreateAzureEnvironmentRequest  {
   private String clusterNodeResourceGroup = null;
 
   /**
-   * This field is no longer supported. Use User Assigned MSI Resource Group and User Assigned MSI Name instead.
-   **/
-  private String aadGroupName = null;
-
-  /**
    * The resource group where the Assigned Managed Service Identity is located.
    **/
   private String userAssignedMsiResourceGroup = null;
@@ -105,6 +100,11 @@ public class CreateAzureEnvironmentRequest  {
    * The full URL of the ADLS folder in which cluster logs will be stored.
    **/
   private String logArchiveFolderPath = null;
+
+  /**
+   * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled.
+   **/
+  private Boolean securedClusters = null;
 
   /**
    * Getter for name.
@@ -257,21 +257,6 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
-   * Getter for aadGroupName.
-   **/
-  @JsonProperty("aadGroupName")
-  public String getAadGroupName() {
-    return aadGroupName;
-  }
-
-  /**
-   * Setter for aadGroupName.
-   **/
-  public void setAadGroupName(String aadGroupName) {
-    this.aadGroupName = aadGroupName;
-  }
-
-  /**
    * Getter for userAssignedMsiResourceGroup.
    **/
   @JsonProperty("userAssignedMsiResourceGroup")
@@ -331,6 +316,21 @@ public class CreateAzureEnvironmentRequest  {
     this.logArchiveFolderPath = logArchiveFolderPath;
   }
 
+  /**
+   * Getter for securedClusters.
+   **/
+  @JsonProperty("securedClusters")
+  public Boolean getSecuredClusters() {
+    return securedClusters;
+  }
+
+  /**
+   * Setter for securedClusters.
+   **/
+  public void setSecuredClusters(Boolean securedClusters) {
+    this.securedClusters = securedClusters;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -370,9 +370,6 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.clusterNodeResourceGroup, createAzureEnvironmentRequest.clusterNodeResourceGroup)) {
       return false;
     }
-    if (!Objects.equals(this.aadGroupName, createAzureEnvironmentRequest.aadGroupName)) {
-      return false;
-    }
     if (!Objects.equals(this.userAssignedMsiResourceGroup, createAzureEnvironmentRequest.userAssignedMsiResourceGroup)) {
       return false;
     }
@@ -385,12 +382,15 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.logArchiveFolderPath, createAzureEnvironmentRequest.logArchiveFolderPath)) {
       return false;
     }
+    if (!Objects.equals(this.securedClusters, createAzureEnvironmentRequest.securedClusters)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, subscriptionId, region, aadTenantId, vnetResourceGroup, vnetName, subnetName, networkSecurityGroupResourceGroup, networkSecurityGroupName, clusterNodeResourceGroup, aadGroupName, userAssignedMsiResourceGroup, userAssignedMsiName, workloadAnalyticsConfiguration, logArchiveFolderPath);
+    return Objects.hash(name, subscriptionId, region, aadTenantId, vnetResourceGroup, vnetName, subnetName, networkSecurityGroupResourceGroup, networkSecurityGroupName, clusterNodeResourceGroup, userAssignedMsiResourceGroup, userAssignedMsiName, workloadAnalyticsConfiguration, logArchiveFolderPath, securedClusters);
   }
 
   @Override
@@ -407,11 +407,11 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    networkSecurityGroupResourceGroup: ").append(toIndentedString(networkSecurityGroupResourceGroup)).append("\n");
     sb.append("    networkSecurityGroupName: ").append(toIndentedString(networkSecurityGroupName)).append("\n");
     sb.append("    clusterNodeResourceGroup: ").append(toIndentedString(clusterNodeResourceGroup)).append("\n");
-    sb.append("    aadGroupName: ").append(toIndentedString(aadGroupName)).append("\n");
     sb.append("    userAssignedMsiResourceGroup: ").append(toIndentedString(userAssignedMsiResourceGroup)).append("\n");
     sb.append("    userAssignedMsiName: ").append(toIndentedString(userAssignedMsiName)).append("\n");
     sb.append("    workloadAnalyticsConfiguration: ").append(toIndentedString(workloadAnalyticsConfiguration)).append("\n");
     sb.append("    logArchiveFolderPath: ").append(toIndentedString(logArchiveFolderPath)).append("\n");
+    sb.append("    securedClusters: ").append(toIndentedString(securedClusters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

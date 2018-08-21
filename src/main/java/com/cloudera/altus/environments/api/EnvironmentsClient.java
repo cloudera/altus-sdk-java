@@ -40,7 +40,7 @@ import com.cloudera.altus.environments.model.GetInfoForAzureCrossAccountAccessRe
 import com.cloudera.altus.environments.model.ListEnvironmentsRequest;
 import com.cloudera.altus.environments.model.ListEnvironmentsResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:04.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
 public class EnvironmentsClient extends AltusClient {
 
   public static final String SERVICE_NAME = "environments";

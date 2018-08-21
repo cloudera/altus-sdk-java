@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * A network endpoint that has both a public and a private IP address.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:03.781-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
 public class Endpoint  {
 
   /**

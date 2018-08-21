@@ -19,12 +19,13 @@
 
 package com.cloudera.altus.client;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.authentication.credentials.AltusCredentials;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AltusClientBuilderTest {
 
@@ -90,21 +91,27 @@ public class AltusClientBuilderTest {
 
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testNullCredentialsProvider() {
     MockClientBuilder builder = new MockClientBuilder();
-    builder.withCredentials(null);
+    assertThrows(AltusClientException.class, () -> {
+      builder.withCredentials(null);
+    });
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testNullEndPoint() {
     MockClientBuilder builder = new MockClientBuilder();
-    builder.withEndPoint(null);
+    assertThrows(AltusClientException.class, () -> {
+      builder.withEndPoint(null);
+    });
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testNullClientConfiguration() {
     MockClientBuilder builder = new MockClientBuilder();
-    builder.withClientConfiguration(null);
+    assertThrows(AltusClientException.class, () -> {
+      builder.withClientConfiguration(null);
+    });
   }
 }

@@ -23,31 +23,52 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.altus.client.AltusResponse;
+import com.cloudera.altus.dataeng.model.ClusterSecurityConfigurationAwsDetails;
 
 /**
- * Request object for a describe job request.
+ * The cluster&#39;s security configuration.
  **/
 @javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
-public class DescribeJobRequest  {
+public class ClusterSecurityConfiguration  {
 
   /**
-   * The ID or CRN of the job.
+   * Whether cluster security is enabled. If enabled, cluster services require authentication and wire encryption is enabled. Cluster volumes are encrypted in a cloud provider specific manner.
    **/
-  private String jobId = null;
+  private Boolean enabled = null;
 
   /**
-   * Getter for jobId.
+   * 
    **/
-  @JsonProperty("jobId")
-  public String getJobId() {
-    return jobId;
+  private ClusterSecurityConfigurationAwsDetails awsDetails = null;
+
+  /**
+   * Getter for enabled.
+   **/
+  @JsonProperty("enabled")
+  public Boolean getEnabled() {
+    return enabled;
   }
 
   /**
-   * Setter for jobId.
+   * Setter for enabled.
    **/
-  public void setJobId(String jobId) {
-    this.jobId = jobId;
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
+  }
+
+  /**
+   * Getter for awsDetails.
+   **/
+  @JsonProperty("awsDetails")
+  public ClusterSecurityConfigurationAwsDetails getAwsDetails() {
+    return awsDetails;
+  }
+
+  /**
+   * Setter for awsDetails.
+   **/
+  public void setAwsDetails(ClusterSecurityConfigurationAwsDetails awsDetails) {
+    this.awsDetails = awsDetails;
   }
 
   @Override
@@ -58,8 +79,11 @@ public class DescribeJobRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeJobRequest describeJobRequest = (DescribeJobRequest) o;
-    if (!Objects.equals(this.jobId, describeJobRequest.jobId)) {
+    ClusterSecurityConfiguration clusterSecurityConfiguration = (ClusterSecurityConfiguration) o;
+    if (!Objects.equals(this.enabled, clusterSecurityConfiguration.enabled)) {
+      return false;
+    }
+    if (!Objects.equals(this.awsDetails, clusterSecurityConfiguration.awsDetails)) {
       return false;
     }
     return true;
@@ -67,14 +91,15 @@ public class DescribeJobRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(jobId);
+    return Objects.hash(enabled, awsDetails);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeJobRequest {\n");
-    sb.append("    jobId: ").append(toIndentedString(jobId)).append("\n");
+    sb.append("class ClusterSecurityConfiguration {\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

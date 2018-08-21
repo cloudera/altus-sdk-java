@@ -19,14 +19,15 @@
 
 package com.cloudera.altus.client;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.http.SimpleRetryHandler;
 
 import java.time.Duration;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AltusClientConfigurationBuilderTest {
 
@@ -55,28 +56,36 @@ public class AltusClientConfigurationBuilderTest {
     assertEquals(builder.getRetryHandler().getClass(), SimpleRetryHandler.class);
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testInvalidConnectionTimeout() {
-    AltusClientConfigurationBuilder.defaultBuilder()
-      .withConnectionTimeout(Duration.ofMillis(0));
+    assertThrows(AltusClientException.class, () -> {
+      AltusClientConfigurationBuilder.defaultBuilder()
+        .withConnectionTimeout(Duration.ofMillis(0));
+    });
 }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testInvalidReadTimeout() {
-    AltusClientConfigurationBuilder.defaultBuilder()
-      .withReadTimeout(Duration.ofMillis(0));
+    assertThrows(AltusClientException.class, () -> {
+      AltusClientConfigurationBuilder.defaultBuilder()
+        .withReadTimeout(Duration.ofMillis(0));
+    });
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testInvalidClientApplicationName() {
-    AltusClientConfigurationBuilder.defaultBuilder()
-      .withClientApplicationName(null);
+    assertThrows(AltusClientException.class, () -> {
+      AltusClientConfigurationBuilder.defaultBuilder()
+        .withClientApplicationName(null);
+    });
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testInvalidRetryHandler() {
-    AltusClientConfigurationBuilder.defaultBuilder()
-      .withRetryHandler(null);
+    assertThrows(AltusClientException.class, () -> {
+      AltusClientConfigurationBuilder.defaultBuilder()
+        .withRetryHandler(null);
+    });
   }
 
 }

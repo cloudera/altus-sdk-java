@@ -19,7 +19,8 @@
 
 package com.cloudera.altus.authentication;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
 import com.cloudera.altus.AltusClientException;
@@ -30,54 +31,46 @@ import java.security.PrivateKey;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 public class RSAv1SignerTest {
-
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
 
   @Test
   public void testNulls() {
     PrivateKey mockPrivateKey = mockPrivateKey();
 
     for (int i = 1; i <= 6; i++) {
-      AltusClientException exception = null;
-      String a1, a2, a3, a4, a5;
-      a1 = a2 = a3 = a4 = a5 = "foo";
-      PrivateKey pk = mockPrivateKey;
+      final int j = i;
 
-      switch(i) {
-      case 1:
-        a1 = null;
-        break;
-      case 2:
-        a2 = null;
-        break;
-      case 3:
-        a3 = null;
-        break;
-      case 4:
-        a4 = null;
-        break;
-      case 5:
-        a5 = null;
-        break;
-      case 6:
-        pk = null;
-        break;
-      }
+      RSAv1Signer signer = new RSAv1Signer();
+      assertThrows(AltusClientException.class, () -> {
+        String a1, a2, a3, a4, a5;
+        a1 = a2 = a3 = a4 = a5 = "foo";
+        PrivateKey pk = mockPrivateKey;
 
-      try {
-        RSAv1Signer signer = new RSAv1Signer();
+        switch(j) {
+        case 1:
+          a1 = null;
+          break;
+        case 2:
+          a2 = null;
+          break;
+        case 3:
+          a3 = null;
+          break;
+        case 4:
+          a4 = null;
+          break;
+        case 5:
+          a5 = null;
+          break;
+        case 6:
+          pk = null;
+          break;
+        }
+
         signer.computeAuthHeader(a1, a2, a3, a4, a5, pk);
-      } catch (AltusClientException e) {
-        exception = e;
-      }
-
-      assertNotNull(exception);
+      });
     }
   }
 

@@ -19,29 +19,29 @@
 
 package com.cloudera.altus.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.util.AltusSDKTestUtils;
 
-import org.hamcrest.core.IsEqual;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 public class CredentialUtilitiesTest {
 
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
   @Test
   public void testWithNullKey() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage(IsEqual.equalTo("Argument is null"));
-    CredentialUtilities.decodePrivateKey(null);
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      CredentialUtilities.decodePrivateKey(null);
+    });
+    assertEquals("Argument is null", e.getMessage());
   }
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testWithInvalidKey() {
-    CredentialUtilities.decodePrivateKey("blah blah blah");
+    assertThrows(AltusClientException.class, () -> {
+      CredentialUtilities.decodePrivateKey("blah blah blah");
+    });
   }
 
   @Test

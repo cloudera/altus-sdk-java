@@ -19,42 +19,40 @@
 
 package com.cloudera.altus.authentication.credentials;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.util.AltusSDKTestUtils;
 
 import java.security.PrivateKey;
 
-import org.hamcrest.core.IsEqual;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
 public class BasicAltusCredentialsTest {
 
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
-
   @Test
   public void testNullKeyId() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage(IsEqual.equalTo("Argument is null"));
-    new BasicAltusCredentials(null, AltusSDKTestUtils.getPrivateKey());
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      new BasicAltusCredentials(null, AltusSDKTestUtils.getPrivateKey());
+    });
+    assertEquals("Argument is null", e.getMessage());
   }
 
   @Test
   public void testNullPrivateKey() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage(IsEqual.equalTo("Argument is null"));
-    new BasicAltusCredentials("foo", (PrivateKey) null);
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      new BasicAltusCredentials("foo", (PrivateKey) null);
+    });
+    assertEquals("Argument is null", e.getMessage());
   }
 
   @Test
   public void testNullPrivateKeyString() {
-    thrown.expect(AltusClientException.class);
-    thrown.expectMessage(IsEqual.equalTo("Argument is null"));
-    new BasicAltusCredentials("foo", (String) null);
+    Throwable e = assertThrows(AltusClientException.class, () -> {
+      new BasicAltusCredentials("foo", (String) null);
+    });
+    assertEquals("Argument is null", e.getMessage());
   }
 
   @Test

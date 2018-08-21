@@ -19,20 +19,18 @@
 
 package com.cloudera.altus.authentication.credentials;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import com.cloudera.altus.util.AltusSDKTestUtils;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertNotNull;
+import org.junit.jupiter.api.Test;
 
 public class AltusEnvironmentVariableCredentialsProviderTest {
-
-  @Rule
-  public ExpectedException thrown = ExpectedException.none();
 
   @Test
   public void testGetCredentialsWithNullIdAndPrivateKeys() {
@@ -40,10 +38,12 @@ public class AltusEnvironmentVariableCredentialsProviderTest {
     AltusSDKTestUtils.setEnv(newenv);
     AltusEnvironmentVariableCredentialsProvider aenvcp =
         new AltusEnvironmentVariableCredentialsProvider();
-    thrown.expect(IllegalArgumentException.class);
-    thrown.expectMessage("Invalid values for Altus credentials environment " +
-        "variables ALTUS_ACCESS_KEY_ID and ALTUS_PRIVATE_KEY");
-    aenvcp.getCredentials();
+    Throwable e = assertThrows(IllegalArgumentException.class, () -> {
+      aenvcp.getCredentials();
+    });
+    assertEquals("Invalid values for Altus credentials environment " +
+                 "variables ALTUS_ACCESS_KEY_ID and ALTUS_PRIVATE_KEY",
+                 e.getMessage());
   }
 
   @Test
@@ -54,10 +54,12 @@ public class AltusEnvironmentVariableCredentialsProviderTest {
     AltusSDKTestUtils.setEnv(newenv);
     AltusEnvironmentVariableCredentialsProvider aenvcp =
         new AltusEnvironmentVariableCredentialsProvider();
-    thrown.expect(IllegalArgumentException.class);
-    thrown.expectMessage("Invalid values for Altus credentials environment " +
-        "variables ALTUS_ACCESS_KEY_ID and ALTUS_PRIVATE_KEY");
-    aenvcp.getCredentials();
+    Throwable e = assertThrows(IllegalArgumentException.class, () -> {
+      aenvcp.getCredentials();
+    });
+    assertEquals("Invalid values for Altus credentials environment " +
+                 "variables ALTUS_ACCESS_KEY_ID and ALTUS_PRIVATE_KEY",
+                 e.getMessage());
   }
 
   @Test
@@ -68,10 +70,12 @@ public class AltusEnvironmentVariableCredentialsProviderTest {
     AltusSDKTestUtils.setEnv(newenv);
     AltusEnvironmentVariableCredentialsProvider aenvcp =
         new AltusEnvironmentVariableCredentialsProvider();
-    thrown.expect(IllegalArgumentException.class);
-    thrown.expectMessage("Invalid values for Altus credentials environment " +
-        "variables ALTUS_ACCESS_KEY_ID and ALTUS_PRIVATE_KEY");
-    aenvcp.getCredentials();
+    Throwable e = assertThrows(IllegalArgumentException.class, () -> {
+      aenvcp.getCredentials();
+    });
+    assertEquals("Invalid values for Altus credentials environment " +
+                 "variables ALTUS_ACCESS_KEY_ID and ALTUS_PRIVATE_KEY",
+                 e.getMessage());
   }
 
   @Test

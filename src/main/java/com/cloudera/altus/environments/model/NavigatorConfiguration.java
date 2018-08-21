@@ -28,7 +28,7 @@ import com.cloudera.altus.environments.model.NavigatorConfigurationAwsDetails;
 /**
  * Defines configurations required to enable Cloudera Navigator integration in an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:04.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
 public class NavigatorConfiguration  {
 
   /**

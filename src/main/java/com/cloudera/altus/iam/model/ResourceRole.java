@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Information about a resource role. A resource role is a role that grants a collection of rights to a user on resources.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-05-15T16:32:04.425-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
 public class ResourceRole  {
 
   /**

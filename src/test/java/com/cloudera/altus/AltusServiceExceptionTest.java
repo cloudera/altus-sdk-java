@@ -19,17 +19,20 @@
 
 package com.cloudera.altus;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import javax.ws.rs.core.MultivaluedHashMap;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class AltusServiceExceptionTest {
 
-  @Test(expected = AltusClientException.class)
+  @Test
   public void testAllNulls() {
-    new AltusServiceException(null, -1, null, null, null);
+    assertThrows(AltusClientException.class, () -> {
+      new AltusServiceException(null, -1, null, null, null);
+    });
   }
 
   @Test
