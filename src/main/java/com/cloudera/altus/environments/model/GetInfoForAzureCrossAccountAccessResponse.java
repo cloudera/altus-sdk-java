@@ -28,7 +28,7 @@ import com.cloudera.altus.environments.model.InfoForAzureCrossAccountAccess;
 /**
  * Response object for a GetInfoForAzureCrossAccountAccess request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class GetInfoForAzureCrossAccountAccessResponse extends AltusResponse {
 
   /**
@@ -38,6 +38,7 @@ public class GetInfoForAzureCrossAccountAccessResponse extends AltusResponse {
 
   /**
    * Getter for infoForAzureCrossAccountAccess.
+   * The information required for performing the Azure consent workflow.
    **/
   @JsonProperty("infoForAzureCrossAccountAccess")
   public InfoForAzureCrossAccountAccess getInfoForAzureCrossAccountAccess() {
@@ -46,6 +47,7 @@ public class GetInfoForAzureCrossAccountAccessResponse extends AltusResponse {
 
   /**
    * Setter for infoForAzureCrossAccountAccess.
+   * The information required for performing the Azure consent workflow.
    **/
   public void setInfoForAzureCrossAccountAccess(InfoForAzureCrossAccountAccess infoForAzureCrossAccountAccess) {
     this.infoForAzureCrossAccountAccess = infoForAzureCrossAccountAccess;

@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for an unassign user role request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class UnassignUserResourceRoleRequest  {
 
   /**
@@ -47,6 +47,7 @@ public class UnassignUserResourceRoleRequest  {
 
   /**
    * Getter for user.
+   * The user to unassign the resource role from.
    **/
   @JsonProperty("user")
   public String getUser() {
@@ -55,6 +56,7 @@ public class UnassignUserResourceRoleRequest  {
 
   /**
    * Setter for user.
+   * The user to unassign the resource role from.
    **/
   public void setUser(String user) {
     this.user = user;
@@ -62,6 +64,7 @@ public class UnassignUserResourceRoleRequest  {
 
   /**
    * Getter for resourceRoleCrn.
+   * The CRN of the resource role to unassigned from the user.
    **/
   @JsonProperty("resourceRoleCrn")
   public String getResourceRoleCrn() {
@@ -70,6 +73,7 @@ public class UnassignUserResourceRoleRequest  {
 
   /**
    * Setter for resourceRoleCrn.
+   * The CRN of the resource role to unassigned from the user.
    **/
   public void setResourceRoleCrn(String resourceRoleCrn) {
     this.resourceRoleCrn = resourceRoleCrn;
@@ -77,6 +81,7 @@ public class UnassignUserResourceRoleRequest  {
 
   /**
    * Getter for resourceCrn.
+   * The CRN of the resource for which the resource role rights will be unassigned.
    **/
   @JsonProperty("resourceCrn")
   public String getResourceCrn() {
@@ -85,6 +90,7 @@ public class UnassignUserResourceRoleRequest  {
 
   /**
    * Setter for resourceCrn.
+   * The CRN of the resource for which the resource role rights will be unassigned.
    **/
   public void setResourceCrn(String resourceCrn) {
     this.resourceCrn = resourceCrn;

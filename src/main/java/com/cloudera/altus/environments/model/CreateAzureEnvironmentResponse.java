@@ -28,7 +28,7 @@ import com.cloudera.altus.environments.model.Environment;
 /**
  * Response object for a CreateAzureEnvironment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class CreateAzureEnvironmentResponse extends AltusResponse {
 
   /**
@@ -38,6 +38,7 @@ public class CreateAzureEnvironmentResponse extends AltusResponse {
 
   /**
    * Getter for environment.
+   * Created environment object.
    **/
   @JsonProperty("environment")
   public Environment getEnvironment() {
@@ -46,6 +47,7 @@ public class CreateAzureEnvironmentResponse extends AltusResponse {
 
   /**
    * Setter for environment.
+   * Created environment object.
    **/
   public void setEnvironment(Environment environment) {
     this.environment = environment;

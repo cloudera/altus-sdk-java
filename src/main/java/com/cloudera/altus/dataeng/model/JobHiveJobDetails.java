@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Hive specific job information. This is only ever present for HIVE jobs.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class JobHiveJobDetails  {
 
   /**
@@ -48,6 +48,7 @@ public class JobHiveJobDetails  {
 
   /**
    * Getter for script.
+   * The actual content of the Hive script to execute. This script can be templatized with variables of the form ${VARIABLE} that will be provided as params.
    **/
   @JsonProperty("script")
   public String getScript() {
@@ -56,6 +57,7 @@ public class JobHiveJobDetails  {
 
   /**
    * Setter for script.
+   * The actual content of the Hive script to execute. This script can be templatized with variables of the form ${VARIABLE} that will be provided as params.
    **/
   public void setScript(String script) {
     this.script = script;
@@ -63,6 +65,7 @@ public class JobHiveJobDetails  {
 
   /**
    * Getter for params.
+   * Parameters to be passed to the Hive script. For example: InputDir&#x3D;/home/input-data or OutputDir&#x3D;/output.
    **/
   @JsonProperty("params")
   public List<String> getParams() {
@@ -71,6 +74,7 @@ public class JobHiveJobDetails  {
 
   /**
    * Setter for params.
+   * Parameters to be passed to the Hive script. For example: InputDir&#x3D;/home/input-data or OutputDir&#x3D;/output.
    **/
   public void setParams(List<String> params) {
     this.params = params;
@@ -78,6 +82,7 @@ public class JobHiveJobDetails  {
 
   /**
    * Getter for jobXml.
+   * XML document containing configuration for Beeline.
    **/
   @JsonProperty("jobXml")
   public String getJobXml() {
@@ -86,6 +91,7 @@ public class JobHiveJobDetails  {
 
   /**
    * Setter for jobXml.
+   * XML document containing configuration for Beeline.
    **/
   public void setJobXml(String jobXml) {
     this.jobXml = jobXml;

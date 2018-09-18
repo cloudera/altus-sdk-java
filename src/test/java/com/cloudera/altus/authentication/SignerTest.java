@@ -19,7 +19,6 @@
 
 package com.cloudera.altus.authentication;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
 
@@ -33,7 +32,7 @@ import java.security.interfaces.RSAPublicKey;
 
 import org.junit.jupiter.api.Test;
 
-public class RSAv1SignerTest {
+public class SignerTest {
 
   @Test
   public void testNulls() {
@@ -42,7 +41,7 @@ public class RSAv1SignerTest {
     for (int i = 1; i <= 6; i++) {
       final int j = i;
 
-      RSAv1Signer signer = new RSAv1Signer();
+      Signer signer = new Signer();
       assertThrows(AltusClientException.class, () -> {
         String a1, a2, a3, a4, a5;
         a1 = a2 = a3 = a4 = a5 = "foo";
@@ -75,10 +74,17 @@ public class RSAv1SignerTest {
   }
 
   @Test
-  public void testValidKey() {
-    RSAv1Signer signer = new RSAv1Signer();
+  public void testValidRSAKey() {
+    Signer signer = new Signer();
     signer.computeAuthHeader("foo", "foo", "foo", "foo", "foo",
-        AltusSDKTestUtils.getPrivateKey());
+        AltusSDKTestUtils.getRSAPrivateKey());
+  }
+
+  @Test
+  public void testValidEd25519Key() {
+    Signer signer = new Signer();
+    signer.computeAuthHeader("foo", "foo", "foo", "foo", "foo",
+        AltusSDKTestUtils.getEd25519PrivateKey());
   }
 
   private PrivateKey mockPrivateKey() {

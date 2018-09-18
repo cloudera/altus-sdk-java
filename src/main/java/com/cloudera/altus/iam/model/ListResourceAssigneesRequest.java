@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a list resource assignees request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class ListResourceAssigneesRequest  {
 
   /**
@@ -47,6 +47,7 @@ public class ListResourceAssigneesRequest  {
 
   /**
    * Getter for resourceCrn.
+   * The resource CRN for which to list the assignees.
    **/
   @JsonProperty("resourceCrn")
   public String getResourceCrn() {
@@ -55,6 +56,7 @@ public class ListResourceAssigneesRequest  {
 
   /**
    * Setter for resourceCrn.
+   * The resource CRN for which to list the assignees.
    **/
   public void setResourceCrn(String resourceCrn) {
     this.resourceCrn = resourceCrn;
@@ -62,6 +64,7 @@ public class ListResourceAssigneesRequest  {
 
   /**
    * Getter for pageSize.
+   * The size of each page.
    **/
   @JsonProperty("pageSize")
   public Integer getPageSize() {
@@ -70,6 +73,7 @@ public class ListResourceAssigneesRequest  {
 
   /**
    * Setter for pageSize.
+   * The size of each page.
    **/
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
@@ -77,6 +81,7 @@ public class ListResourceAssigneesRequest  {
 
   /**
    * Getter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   @JsonProperty("startingToken")
   public String getStartingToken() {
@@ -85,6 +90,7 @@ public class ListResourceAssigneesRequest  {
 
   /**
    * Setter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   public void setStartingToken(String startingToken) {
     this.startingToken = startingToken;

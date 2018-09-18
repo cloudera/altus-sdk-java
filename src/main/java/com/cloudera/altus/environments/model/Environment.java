@@ -32,7 +32,7 @@ import java.time.ZonedDateTime;
 /**
  * Container for the environment access data.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class Environment  {
 
   /**
@@ -54,6 +54,11 @@ public class Environment  {
    * The type of the environment.
    **/
   private String type = null;
+
+  /**
+   * The CRN of the creator of the environment.
+   **/
+  private String creatorCrn = null;
 
   /**
    * Configurations for integration with Altus Workload Analytics.
@@ -82,6 +87,7 @@ public class Environment  {
 
   /**
    * Getter for environmentName.
+   * The name of the environment.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -90,6 +96,7 @@ public class Environment  {
 
   /**
    * Setter for environmentName.
+   * The name of the environment.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -97,6 +104,7 @@ public class Environment  {
 
   /**
    * Getter for crn.
+   * The CRN of the environment.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -105,6 +113,7 @@ public class Environment  {
 
   /**
    * Setter for crn.
+   * The CRN of the environment.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -112,6 +121,7 @@ public class Environment  {
 
   /**
    * Getter for creationDate.
+   * The date when the cloud account was created.
    **/
   @JsonProperty("creationDate")
   public ZonedDateTime getCreationDate() {
@@ -120,6 +130,7 @@ public class Environment  {
 
   /**
    * Setter for creationDate.
+   * The date when the cloud account was created.
    **/
   public void setCreationDate(ZonedDateTime creationDate) {
     this.creationDate = creationDate;
@@ -127,6 +138,7 @@ public class Environment  {
 
   /**
    * Getter for type.
+   * The type of the environment.
    **/
   @JsonProperty("type")
   public String getType() {
@@ -135,13 +147,32 @@ public class Environment  {
 
   /**
    * Setter for type.
+   * The type of the environment.
    **/
   public void setType(String type) {
     this.type = type;
   }
 
   /**
+   * Getter for creatorCrn.
+   * The CRN of the creator of the environment.
+   **/
+  @JsonProperty("creatorCrn")
+  public String getCreatorCrn() {
+    return creatorCrn;
+  }
+
+  /**
+   * Setter for creatorCrn.
+   * The CRN of the creator of the environment.
+   **/
+  public void setCreatorCrn(String creatorCrn) {
+    this.creatorCrn = creatorCrn;
+  }
+
+  /**
    * Getter for workloadAnalyticsConfiguration.
+   * Configurations for integration with Altus Workload Analytics.
    **/
   @JsonProperty("workloadAnalyticsConfiguration")
   public WorkloadAnalyticsConfiguration getWorkloadAnalyticsConfiguration() {
@@ -150,6 +181,7 @@ public class Environment  {
 
   /**
    * Setter for workloadAnalyticsConfiguration.
+   * Configurations for integration with Altus Workload Analytics.
    **/
   public void setWorkloadAnalyticsConfiguration(WorkloadAnalyticsConfiguration workloadAnalyticsConfiguration) {
     this.workloadAnalyticsConfiguration = workloadAnalyticsConfiguration;
@@ -157,6 +189,7 @@ public class Environment  {
 
   /**
    * Getter for azureDetails.
+   * 
    **/
   @JsonProperty("azureDetails")
   public EnvironmentAzureDetails getAzureDetails() {
@@ -165,6 +198,7 @@ public class Environment  {
 
   /**
    * Setter for azureDetails.
+   * 
    **/
   public void setAzureDetails(EnvironmentAzureDetails azureDetails) {
     this.azureDetails = azureDetails;
@@ -172,6 +206,7 @@ public class Environment  {
 
   /**
    * Getter for awsDetails.
+   * 
    **/
   @JsonProperty("awsDetails")
   public EnvironmentAwsDetails getAwsDetails() {
@@ -180,6 +215,7 @@ public class Environment  {
 
   /**
    * Setter for awsDetails.
+   * 
    **/
   public void setAwsDetails(EnvironmentAwsDetails awsDetails) {
     this.awsDetails = awsDetails;
@@ -187,6 +223,7 @@ public class Environment  {
 
   /**
    * Getter for navigatorConfiguration.
+   * The configurations for Cloudera Navigator integration.
    **/
   @JsonProperty("navigatorConfiguration")
   public NavigatorConfiguration getNavigatorConfiguration() {
@@ -195,6 +232,7 @@ public class Environment  {
 
   /**
    * Setter for navigatorConfiguration.
+   * The configurations for Cloudera Navigator integration.
    **/
   public void setNavigatorConfiguration(NavigatorConfiguration navigatorConfiguration) {
     this.navigatorConfiguration = navigatorConfiguration;
@@ -202,6 +240,7 @@ public class Environment  {
 
   /**
    * Getter for securedClusters.
+   * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled. Cluster volumes will be encrypted in a cloud provider specific manner.
    **/
   @JsonProperty("securedClusters")
   public Boolean getSecuredClusters() {
@@ -210,6 +249,7 @@ public class Environment  {
 
   /**
    * Setter for securedClusters.
+   * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled. Cluster volumes will be encrypted in a cloud provider specific manner.
    **/
   public void setSecuredClusters(Boolean securedClusters) {
     this.securedClusters = securedClusters;
@@ -236,6 +276,9 @@ public class Environment  {
     if (!Objects.equals(this.type, environment.type)) {
       return false;
     }
+    if (!Objects.equals(this.creatorCrn, environment.creatorCrn)) {
+      return false;
+    }
     if (!Objects.equals(this.workloadAnalyticsConfiguration, environment.workloadAnalyticsConfiguration)) {
       return false;
     }
@@ -256,7 +299,7 @@ public class Environment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, creationDate, type, workloadAnalyticsConfiguration, azureDetails, awsDetails, navigatorConfiguration, securedClusters);
+    return Objects.hash(environmentName, crn, creationDate, type, creatorCrn, workloadAnalyticsConfiguration, azureDetails, awsDetails, navigatorConfiguration, securedClusters);
   }
 
   @Override
@@ -267,6 +310,7 @@ public class Environment  {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    creatorCrn: ").append(toIndentedString(creatorCrn)).append("\n");
     sb.append("    workloadAnalyticsConfiguration: ").append(toIndentedString(workloadAnalyticsConfiguration)).append("\n");
     sb.append("    azureDetails: ").append(toIndentedString(azureDetails)).append("\n");
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");

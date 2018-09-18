@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for an unassign machine user role request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class UnassignMachineUserRoleRequest  {
 
   /**
@@ -42,6 +42,7 @@ public class UnassignMachineUserRoleRequest  {
 
   /**
    * Getter for machineUserName.
+   * The machine user to unassigned the roles from. Can be the machine user&#39;s name or CRN.
    **/
   @JsonProperty("machineUserName")
   public String getMachineUserName() {
@@ -50,6 +51,7 @@ public class UnassignMachineUserRoleRequest  {
 
   /**
    * Setter for machineUserName.
+   * The machine user to unassigned the roles from. Can be the machine user&#39;s name or CRN.
    **/
   public void setMachineUserName(String machineUserName) {
     this.machineUserName = machineUserName;
@@ -57,6 +59,7 @@ public class UnassignMachineUserRoleRequest  {
 
   /**
    * Getter for role.
+   * The role to unassigned from the user. Can be the role&#39;s name or CRN.
    **/
   @JsonProperty("role")
   public String getRole() {
@@ -65,6 +68,7 @@ public class UnassignMachineUserRoleRequest  {
 
   /**
    * Setter for role.
+   * The role to unassigned from the user. Can be the role&#39;s name or CRN.
    **/
   public void setRole(String role) {
     this.role = role;

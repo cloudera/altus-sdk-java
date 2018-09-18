@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * AWS-specific security configuration. This will only be populated for AWS clusters with security enabled.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ClusterSecurityConfigurationAwsDetails  {
 
   /**
@@ -37,6 +37,7 @@ public class ClusterSecurityConfigurationAwsDetails  {
 
   /**
    * Getter for ebsEncryptionKmsKey.
+   * The ARN of the KMS key used to encrypt non-root EBS volumes. If not set, and security is enabled, the default AWS managed CMK for EBS was used.
    **/
   @JsonProperty("ebsEncryptionKmsKey")
   public String getEbsEncryptionKmsKey() {
@@ -45,6 +46,7 @@ public class ClusterSecurityConfigurationAwsDetails  {
 
   /**
    * Setter for ebsEncryptionKmsKey.
+   * The ARN of the KMS key used to encrypt non-root EBS volumes. If not set, and security is enabled, the default AWS managed CMK for EBS was used.
    **/
   public void setEbsEncryptionKmsKey(String ebsEncryptionKmsKey) {
     this.ebsEncryptionKmsKey = ebsEncryptionKmsKey;

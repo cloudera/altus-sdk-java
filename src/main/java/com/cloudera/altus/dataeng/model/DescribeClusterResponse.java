@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.Cluster;
 /**
  * Response object for a describe cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class DescribeClusterResponse extends AltusResponse {
 
   /**
@@ -38,6 +38,7 @@ public class DescribeClusterResponse extends AltusResponse {
 
   /**
    * Getter for cluster.
+   * The cluster.
    **/
   @JsonProperty("cluster")
   public Cluster getCluster() {
@@ -46,6 +47,7 @@ public class DescribeClusterResponse extends AltusResponse {
 
   /**
    * Setter for cluster.
+   * The cluster.
    **/
   public void setCluster(Cluster cluster) {
     this.cluster = cluster;

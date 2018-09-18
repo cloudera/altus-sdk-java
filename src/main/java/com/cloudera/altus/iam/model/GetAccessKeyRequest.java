@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a get access key request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class GetAccessKeyRequest  {
 
   /**
@@ -37,6 +37,7 @@ public class GetAccessKeyRequest  {
 
   /**
    * Getter for accessKeyId.
+   * The ID of the access key to get information about. If it is not included, it defaults to the access key used to make the request.
    **/
   @JsonProperty("accessKeyId")
   public String getAccessKeyId() {
@@ -45,6 +46,7 @@ public class GetAccessKeyRequest  {
 
   /**
    * Setter for accessKeyId.
+   * The ID of the access key to get information about. If it is not included, it defaults to the access key used to make the request.
    **/
   public void setAccessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;

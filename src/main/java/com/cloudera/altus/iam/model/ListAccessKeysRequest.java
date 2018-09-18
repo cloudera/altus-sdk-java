@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for a list access keys request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class ListAccessKeysRequest  {
 
   /**
@@ -48,6 +48,7 @@ public class ListAccessKeysRequest  {
 
   /**
    * Getter for accessKeyIds.
+   * The access key IDs or CRNs of the access keys.
    **/
   @JsonProperty("accessKeyIds")
   public List<String> getAccessKeyIds() {
@@ -56,6 +57,7 @@ public class ListAccessKeysRequest  {
 
   /**
    * Setter for accessKeyIds.
+   * The access key IDs or CRNs of the access keys.
    **/
   public void setAccessKeyIds(List<String> accessKeyIds) {
     this.accessKeyIds = accessKeyIds;
@@ -63,6 +65,7 @@ public class ListAccessKeysRequest  {
 
   /**
    * Getter for pageSize.
+   * The size of each page.
    **/
   @JsonProperty("pageSize")
   public Integer getPageSize() {
@@ -71,6 +74,7 @@ public class ListAccessKeysRequest  {
 
   /**
    * Setter for pageSize.
+   * The size of each page.
    **/
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
@@ -78,6 +82,7 @@ public class ListAccessKeysRequest  {
 
   /**
    * Getter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   @JsonProperty("startingToken")
   public String getStartingToken() {
@@ -86,6 +91,7 @@ public class ListAccessKeysRequest  {
 
   /**
    * Setter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   public void setStartingToken(String startingToken) {
     this.startingToken = startingToken;

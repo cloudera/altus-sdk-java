@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Information about the resource role assignee for the resource.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class ResourceAssignee  {
 
   /**
@@ -42,6 +42,7 @@ public class ResourceAssignee  {
 
   /**
    * Getter for assigneeCrn.
+   * The CRN of the assignee.
    **/
   @JsonProperty("assigneeCrn")
   public String getAssigneeCrn() {
@@ -50,6 +51,7 @@ public class ResourceAssignee  {
 
   /**
    * Setter for assigneeCrn.
+   * The CRN of the assignee.
    **/
   public void setAssigneeCrn(String assigneeCrn) {
     this.assigneeCrn = assigneeCrn;
@@ -57,6 +59,7 @@ public class ResourceAssignee  {
 
   /**
    * Getter for resourceRoleCrn.
+   * The assigned resource role CRN.
    **/
   @JsonProperty("resourceRoleCrn")
   public String getResourceRoleCrn() {
@@ -65,6 +68,7 @@ public class ResourceAssignee  {
 
   /**
    * Setter for resourceRoleCrn.
+   * The assigned resource role CRN.
    **/
   public void setResourceRoleCrn(String resourceRoleCrn) {
     this.resourceRoleCrn = resourceRoleCrn;

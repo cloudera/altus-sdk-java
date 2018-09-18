@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.EbsConfigurationRequest;
 /**
  * Defines compute workers group configuration, such as, size, bidding price and custom volume configurations.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class CreateAWSClusterRequestComputeWorkersConfiguration  {
 
   /**
@@ -53,6 +53,7 @@ public class CreateAWSClusterRequestComputeWorkersConfiguration  {
 
   /**
    * Getter for groupSize.
+   * The compute workers group size.
    **/
   @JsonProperty("groupSize")
   public Integer getGroupSize() {
@@ -61,6 +62,7 @@ public class CreateAWSClusterRequestComputeWorkersConfiguration  {
 
   /**
    * Setter for groupSize.
+   * The compute workers group size.
    **/
   public void setGroupSize(Integer groupSize) {
     this.groupSize = groupSize;
@@ -68,6 +70,7 @@ public class CreateAWSClusterRequestComputeWorkersConfiguration  {
 
   /**
    * Getter for useSpot.
+   * Use AWS spot instances for this group (bidUSDPerHr becomes mandatory).
    **/
   @JsonProperty("useSpot")
   public Boolean getUseSpot() {
@@ -76,6 +79,7 @@ public class CreateAWSClusterRequestComputeWorkersConfiguration  {
 
   /**
    * Setter for useSpot.
+   * Use AWS spot instances for this group (bidUSDPerHr becomes mandatory).
    **/
   public void setUseSpot(Boolean useSpot) {
     this.useSpot = useSpot;
@@ -83,6 +87,7 @@ public class CreateAWSClusterRequestComputeWorkersConfiguration  {
 
   /**
    * Getter for bidUSDPerHr.
+   * Bid price for AWS Spot instances in USD per hour.
    **/
   @JsonProperty("bidUSDPerHr")
   public Float getBidUSDPerHr() {
@@ -91,6 +96,7 @@ public class CreateAWSClusterRequestComputeWorkersConfiguration  {
 
   /**
    * Setter for bidUSDPerHr.
+   * Bid price for AWS Spot instances in USD per hour.
    **/
   public void setBidUSDPerHr(Float bidUSDPerHr) {
     this.bidUSDPerHr = bidUSDPerHr;
@@ -98,6 +104,7 @@ public class CreateAWSClusterRequestComputeWorkersConfiguration  {
 
   /**
    * Getter for ebsConfiguration.
+   * Defines an EBS configuration. Any EBS disks configured here are added in addition to the root volume.
    **/
   @JsonProperty("ebsConfiguration")
   public EbsConfigurationRequest getEbsConfiguration() {
@@ -106,6 +113,7 @@ public class CreateAWSClusterRequestComputeWorkersConfiguration  {
 
   /**
    * Setter for ebsConfiguration.
+   * Defines an EBS configuration. Any EBS disks configured here are added in addition to the root volume.
    **/
   public void setEbsConfiguration(EbsConfigurationRequest ebsConfiguration) {
     this.ebsConfiguration = ebsConfiguration;

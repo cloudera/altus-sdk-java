@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a get user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class GetUserRequest  {
 
   /**
@@ -37,6 +37,7 @@ public class GetUserRequest  {
 
   /**
    * Getter for userId.
+   * The ID of the user to get information about. If it is not included, it defaults to the user making the request.
    **/
   @JsonProperty("userId")
   public String getUserId() {
@@ -45,6 +46,7 @@ public class GetUserRequest  {
 
   /**
    * Setter for userId.
+   * The ID of the user to get information about. If it is not included, it defaults to the user making the request.
    **/
   public void setUserId(String userId) {
     this.userId = userId;

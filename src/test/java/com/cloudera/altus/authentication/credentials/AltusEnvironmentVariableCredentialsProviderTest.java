@@ -84,7 +84,7 @@ public class AltusEnvironmentVariableCredentialsProviderTest {
     newenv.put(AltusEnvironmentVariableCredentialsProvider.ALTUS_ACCESS_KEY_ID,
         "somekey");
     newenv.put(AltusEnvironmentVariableCredentialsProvider.ALTUS_PRIVATE_KEY,
-        AltusSDKTestUtils.getEncodedPrivateKey());
+        AltusSDKTestUtils.getEncodedRSAPrivateKey());
     AltusSDKTestUtils.setEnv(newenv);
     AltusEnvironmentVariableCredentialsProvider aenvcp =
         new AltusEnvironmentVariableCredentialsProvider();

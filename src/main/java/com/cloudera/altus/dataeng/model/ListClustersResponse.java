@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for a list clusters request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ListClustersResponse extends AltusResponse {
 
   /**
@@ -44,6 +44,7 @@ public class ListClustersResponse extends AltusResponse {
 
   /**
    * Getter for clusters.
+   * The clusters.
    **/
   @JsonProperty("clusters")
   public List<ClusterSummary> getClusters() {
@@ -52,6 +53,7 @@ public class ListClustersResponse extends AltusResponse {
 
   /**
    * Setter for clusters.
+   * The clusters.
    **/
   public void setClusters(List<ClusterSummary> clusters) {
     this.clusters = clusters;
@@ -59,6 +61,7 @@ public class ListClustersResponse extends AltusResponse {
 
   /**
    * Getter for nextToken.
+   * The token to use when requesting the next set of results. If not present, there are no additional results.
    **/
   @JsonProperty("nextToken")
   public String getNextToken() {
@@ -67,6 +70,7 @@ public class ListClustersResponse extends AltusResponse {
 
   /**
    * Setter for nextToken.
+   * The token to use when requesting the next set of results. If not present, there are no additional results.
    **/
   public void setNextToken(String nextToken) {
     this.nextToken = nextToken;

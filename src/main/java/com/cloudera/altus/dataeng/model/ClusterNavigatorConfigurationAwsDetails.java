@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * AWS-specific Cloudera Navigator integration configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ClusterNavigatorConfigurationAwsDetails  {
 
   /**
@@ -37,6 +37,7 @@ public class ClusterNavigatorConfigurationAwsDetails  {
 
   /**
    * Getter for navigatorDataBucket.
+   * The S3 bucket where metadata and lineage information used by Cloudera Navigator is stored.
    **/
   @JsonProperty("navigatorDataBucket")
   public String getNavigatorDataBucket() {
@@ -45,6 +46,7 @@ public class ClusterNavigatorConfigurationAwsDetails  {
 
   /**
    * Setter for navigatorDataBucket.
+   * The S3 bucket where metadata and lineage information used by Cloudera Navigator is stored.
    **/
   public void setNavigatorDataBucket(String navigatorDataBucket) {
     this.navigatorDataBucket = navigatorDataBucket;

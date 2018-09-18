@@ -28,7 +28,7 @@ import com.cloudera.altus.environments.model.InfoForAWSCrossAccountAccess;
 /**
  * Response object for a GetInfoForAWSCrossAccountAccess request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class GetInfoForAWSCrossAccountAccessResponse extends AltusResponse {
 
   /**
@@ -38,6 +38,7 @@ public class GetInfoForAWSCrossAccountAccessResponse extends AltusResponse {
 
   /**
    * Getter for infoForAWSCrossAccountAccess.
+   * The information required for setting up an AWS cross-account access.
    **/
   @JsonProperty("infoForAWSCrossAccountAccess")
   public InfoForAWSCrossAccountAccess getInfoForAWSCrossAccountAccess() {
@@ -46,6 +47,7 @@ public class GetInfoForAWSCrossAccountAccessResponse extends AltusResponse {
 
   /**
    * Setter for infoForAWSCrossAccountAccess.
+   * The information required for setting up an AWS cross-account access.
    **/
   public void setInfoForAWSCrossAccountAccess(InfoForAWSCrossAccountAccess infoForAWSCrossAccountAccess) {
     this.infoForAWSCrossAccountAccess = infoForAWSCrossAccountAccess;

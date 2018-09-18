@@ -31,7 +31,7 @@ import com.cloudera.altus.dataeng.model.SparkJobRequest;
 /**
  * Object used to submit a job of any type.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class JobRequest  {
 
   /**
@@ -66,6 +66,7 @@ public class JobRequest  {
 
   /**
    * Getter for name.
+   * A name for the job. If not specified, the job name depends on whether the job was submitted individually or in a list of jobs. If submitted individually the job name will be the job ID. If submitted in a list of jobs, the job will be named after the job submission group and the job&#39;s index in the list. This name must have at least one character and a maximum of 128 characters. It must contain only alphanumeric characters, spaces, colons, hyphens and underscores, and can only start and end with alphanumeric characters and underscores. Names are case-sensitive.
    **/
   @JsonProperty("name")
   public String getName() {
@@ -74,6 +75,7 @@ public class JobRequest  {
 
   /**
    * Setter for name.
+   * A name for the job. If not specified, the job name depends on whether the job was submitted individually or in a list of jobs. If submitted individually the job name will be the job ID. If submitted in a list of jobs, the job will be named after the job submission group and the job&#39;s index in the list. This name must have at least one character and a maximum of 128 characters. It must contain only alphanumeric characters, spaces, colons, hyphens and underscores, and can only start and end with alphanumeric characters and underscores. Names are case-sensitive.
    **/
   public void setName(String name) {
     this.name = name;
@@ -81,6 +83,7 @@ public class JobRequest  {
 
   /**
    * Getter for failureAction.
+   * The action taken on failure if an error is encountered processing the job. If not specified, INTERRUPT_JOB_QUEUE will be used for the job.
    **/
   @JsonProperty("failureAction")
   public String getFailureAction() {
@@ -89,6 +92,7 @@ public class JobRequest  {
 
   /**
    * Setter for failureAction.
+   * The action taken on failure if an error is encountered processing the job. If not specified, INTERRUPT_JOB_QUEUE will be used for the job.
    **/
   public void setFailureAction(String failureAction) {
     this.failureAction = failureAction;
@@ -96,6 +100,7 @@ public class JobRequest  {
 
   /**
    * Getter for hiveJob.
+   * The Hive specific portion of the job request. This must be set for a Hive job and must not be set for other job types.
    **/
   @JsonProperty("hiveJob")
   public HiveJobRequest getHiveJob() {
@@ -104,6 +109,7 @@ public class JobRequest  {
 
   /**
    * Setter for hiveJob.
+   * The Hive specific portion of the job request. This must be set for a Hive job and must not be set for other job types.
    **/
   public void setHiveJob(HiveJobRequest hiveJob) {
     this.hiveJob = hiveJob;
@@ -111,6 +117,7 @@ public class JobRequest  {
 
   /**
    * Getter for sparkJob.
+   * The Spark specific portion of the job request. This must be set for a Spark job and must not be set for other job types.
    **/
   @JsonProperty("sparkJob")
   public SparkJobRequest getSparkJob() {
@@ -119,6 +126,7 @@ public class JobRequest  {
 
   /**
    * Setter for sparkJob.
+   * The Spark specific portion of the job request. This must be set for a Spark job and must not be set for other job types.
    **/
   public void setSparkJob(SparkJobRequest sparkJob) {
     this.sparkJob = sparkJob;
@@ -126,6 +134,7 @@ public class JobRequest  {
 
   /**
    * Getter for pySparkJob.
+   * The PySpark specific portion of the job request. This must be set for a PySpark job and must not be set for other job types.
    **/
   @JsonProperty("pySparkJob")
   public PySparkJobRequest getPySparkJob() {
@@ -134,6 +143,7 @@ public class JobRequest  {
 
   /**
    * Setter for pySparkJob.
+   * The PySpark specific portion of the job request. This must be set for a PySpark job and must not be set for other job types.
    **/
   public void setPySparkJob(PySparkJobRequest pySparkJob) {
     this.pySparkJob = pySparkJob;
@@ -141,6 +151,7 @@ public class JobRequest  {
 
   /**
    * Getter for mr2Job.
+   * The MR2 specific portion of the job request. This must be set for an MR2 job and must not be set for other job types.
    **/
   @JsonProperty("mr2Job")
   public MR2JobRequest getMr2Job() {
@@ -149,6 +160,7 @@ public class JobRequest  {
 
   /**
    * Setter for mr2Job.
+   * The MR2 specific portion of the job request. This must be set for an MR2 job and must not be set for other job types.
    **/
   public void setMr2Job(MR2JobRequest mr2Job) {
     this.mr2Job = mr2Job;

@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * The configuration for integration with Altus Workload Analytics.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class WorkloadAnalyticsConfiguration  {
 
   /**
@@ -37,6 +37,7 @@ public class WorkloadAnalyticsConfiguration  {
 
   /**
    * Getter for enable.
+   * Whether Altus Workload Analytics integration is enabled.
    **/
   @JsonProperty("enable")
   public Boolean getEnable() {
@@ -45,6 +46,7 @@ public class WorkloadAnalyticsConfiguration  {
 
   /**
    * Setter for enable.
+   * Whether Altus Workload Analytics integration is enabled.
    **/
   public void setEnable(Boolean enable) {
     this.enable = enable;

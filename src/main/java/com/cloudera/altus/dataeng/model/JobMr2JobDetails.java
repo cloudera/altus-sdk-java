@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * MR2 specific details of job. This will be set if the jobType is MR2.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class JobMr2JobDetails  {
 
   /**
@@ -58,6 +58,7 @@ public class JobMr2JobDetails  {
 
   /**
    * Getter for mainClass.
+   * MR2 application main class.
    **/
   @JsonProperty("mainClass")
   public String getMainClass() {
@@ -66,6 +67,7 @@ public class JobMr2JobDetails  {
 
   /**
    * Setter for mainClass.
+   * MR2 application main class.
    **/
   public void setMainClass(String mainClass) {
     this.mainClass = mainClass;
@@ -73,6 +75,7 @@ public class JobMr2JobDetails  {
 
   /**
    * Getter for jars.
+   * A list of jar files.
    **/
   @JsonProperty("jars")
   public List<String> getJars() {
@@ -81,6 +84,7 @@ public class JobMr2JobDetails  {
 
   /**
    * Setter for jars.
+   * A list of jar files.
    **/
   public void setJars(List<String> jars) {
     this.jars = jars;
@@ -88,6 +92,7 @@ public class JobMr2JobDetails  {
 
   /**
    * Getter for arguments.
+   * Arguments for the MR2 application.
    **/
   @JsonProperty("arguments")
   public List<String> getArguments() {
@@ -96,6 +101,7 @@ public class JobMr2JobDetails  {
 
   /**
    * Setter for arguments.
+   * Arguments for the MR2 application.
    **/
   public void setArguments(List<String> arguments) {
     this.arguments = arguments;
@@ -103,6 +109,7 @@ public class JobMr2JobDetails  {
 
   /**
    * Getter for javaOpts.
+   * A list of Java JVM options.
    **/
   @JsonProperty("javaOpts")
   public String getJavaOpts() {
@@ -111,6 +118,7 @@ public class JobMr2JobDetails  {
 
   /**
    * Setter for javaOpts.
+   * A list of Java JVM options.
    **/
   public void setJavaOpts(String javaOpts) {
     this.javaOpts = javaOpts;
@@ -118,6 +126,7 @@ public class JobMr2JobDetails  {
 
   /**
    * Getter for jobXml.
+   * XML document containing configuration for MR2.
    **/
   @JsonProperty("jobXml")
   public String getJobXml() {
@@ -126,6 +135,7 @@ public class JobMr2JobDetails  {
 
   /**
    * Setter for jobXml.
+   * XML document containing configuration for MR2.
    **/
   public void setJobXml(String jobXml) {
     this.jobXml = jobXml;

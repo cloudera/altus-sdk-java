@@ -28,7 +28,7 @@ import com.cloudera.altus.iam.model.AccessKey;
 /**
  * Response object for a create machine user access key request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class CreateMachineUserAccessKeyResponse extends AltusResponse {
 
   /**
@@ -43,6 +43,7 @@ public class CreateMachineUserAccessKeyResponse extends AltusResponse {
 
   /**
    * Getter for accessKey.
+   * The access key that was created.
    **/
   @JsonProperty("accessKey")
   public AccessKey getAccessKey() {
@@ -51,6 +52,7 @@ public class CreateMachineUserAccessKeyResponse extends AltusResponse {
 
   /**
    * Setter for accessKey.
+   * The access key that was created.
    **/
   public void setAccessKey(AccessKey accessKey) {
     this.accessKey = accessKey;
@@ -58,6 +60,7 @@ public class CreateMachineUserAccessKeyResponse extends AltusResponse {
 
   /**
    * Getter for privateKey.
+   * The private key associated with this access key. This string is the contents of a PEM file containing a PKCS#8 private key.
    **/
   @JsonProperty("privateKey")
   public String getPrivateKey() {
@@ -66,6 +69,7 @@ public class CreateMachineUserAccessKeyResponse extends AltusResponse {
 
   /**
    * Setter for privateKey.
+   * The private key associated with this access key. This string is the contents of a PEM file containing a PKCS#8 private key.
    **/
   public void setPrivateKey(String privateKey) {
     this.privateKey = privateKey;

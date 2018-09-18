@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.ClusterNavigatorConfigurationAwsDetails;
 /**
  * Navigator integration configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ClusterNavigatorConfiguration  {
 
   /**
@@ -43,6 +43,7 @@ public class ClusterNavigatorConfiguration  {
 
   /**
    * Getter for clouderaNavigatorIntegrationEnabled.
+   * Whether this cluster was configured to be integrated with Cloudera Navigator.
    **/
   @JsonProperty("clouderaNavigatorIntegrationEnabled")
   public Boolean getClouderaNavigatorIntegrationEnabled() {
@@ -51,6 +52,7 @@ public class ClusterNavigatorConfiguration  {
 
   /**
    * Setter for clouderaNavigatorIntegrationEnabled.
+   * Whether this cluster was configured to be integrated with Cloudera Navigator.
    **/
   public void setClouderaNavigatorIntegrationEnabled(Boolean clouderaNavigatorIntegrationEnabled) {
     this.clouderaNavigatorIntegrationEnabled = clouderaNavigatorIntegrationEnabled;
@@ -58,6 +60,7 @@ public class ClusterNavigatorConfiguration  {
 
   /**
    * Getter for awsDetails.
+   * 
    **/
   @JsonProperty("awsDetails")
   public ClusterNavigatorConfigurationAwsDetails getAwsDetails() {
@@ -66,6 +69,7 @@ public class ClusterNavigatorConfiguration  {
 
   /**
    * Setter for awsDetails.
+   * 
    **/
   public void setAwsDetails(ClusterNavigatorConfigurationAwsDetails awsDetails) {
     this.awsDetails = awsDetails;

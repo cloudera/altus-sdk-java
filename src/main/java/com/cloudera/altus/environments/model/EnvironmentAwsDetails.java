@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * AWS-specific environment information.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class EnvironmentAwsDetails  {
 
   /**
@@ -79,6 +79,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Getter for delegatedRoleArn.
+   * The ARN of the delegated role.
    **/
   @JsonProperty("delegatedRoleArn")
   public String getDelegatedRoleArn() {
@@ -87,6 +88,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Setter for delegatedRoleArn.
+   * The ARN of the delegated role.
    **/
   public void setDelegatedRoleArn(String delegatedRoleArn) {
     this.delegatedRoleArn = delegatedRoleArn;
@@ -94,6 +96,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Getter for instanceProfileName.
+   * The name of the IAM instance profile.
    **/
   @JsonProperty("instanceProfileName")
   public String getInstanceProfileName() {
@@ -102,6 +105,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Setter for instanceProfileName.
+   * The name of the IAM instance profile.
    **/
   public void setInstanceProfileName(String instanceProfileName) {
     this.instanceProfileName = instanceProfileName;
@@ -109,6 +113,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Getter for subnets.
+   * The network subnets.
    **/
   @JsonProperty("subnets")
   public List<String> getSubnets() {
@@ -117,6 +122,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Setter for subnets.
+   * The network subnets.
    **/
   public void setSubnets(List<String> subnets) {
     this.subnets = subnets;
@@ -124,6 +130,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Getter for securityGroups.
+   * The security groups.
    **/
   @JsonProperty("securityGroups")
   public List<String> getSecurityGroups() {
@@ -132,6 +139,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Setter for securityGroups.
+   * The security groups.
    **/
   public void setSecurityGroups(List<String> securityGroups) {
     this.securityGroups = securityGroups;
@@ -139,6 +147,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Getter for region.
+   * The network region.
    **/
   @JsonProperty("region")
   public String getRegion() {
@@ -147,6 +156,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Setter for region.
+   * The network region.
    **/
   public void setRegion(String region) {
     this.region = region;
@@ -154,6 +164,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Getter for logArchiveBucketName.
+   * The name of the S3 log archive bucket in which cluster logs will be stored.
    **/
   @JsonProperty("logArchiveBucketName")
   public String getLogArchiveBucketName() {
@@ -162,6 +173,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Setter for logArchiveBucketName.
+   * The name of the S3 log archive bucket in which cluster logs will be stored.
    **/
   public void setLogArchiveBucketName(String logArchiveBucketName) {
     this.logArchiveBucketName = logArchiveBucketName;
@@ -169,6 +181,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Getter for autoRegisterClusterSshKeys.
+   * The flag to allow auto registration of SSH keys provided during cluster creation. Key pairs will be imported with name \\&#39;CLOUDERA-\\&#39; followed by the corresponding private key fingerprint.
    **/
   @JsonProperty("autoRegisterClusterSshKeys")
   public Boolean getAutoRegisterClusterSshKeys() {
@@ -177,6 +190,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Setter for autoRegisterClusterSshKeys.
+   * The flag to allow auto registration of SSH keys provided during cluster creation. Key pairs will be imported with name \\&#39;CLOUDERA-\\&#39; followed by the corresponding private key fingerprint.
    **/
   public void setAutoRegisterClusterSshKeys(Boolean autoRegisterClusterSshKeys) {
     this.autoRegisterClusterSshKeys = autoRegisterClusterSshKeys;
@@ -184,6 +198,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Getter for s3GuardConfiguration.
+   * The configurations required to enable S3 consistent view (S3Guard).
    **/
   @JsonProperty("s3GuardConfiguration")
   public S3GuardConfiguration getS3GuardConfiguration() {
@@ -192,6 +207,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Setter for s3GuardConfiguration.
+   * The configurations required to enable S3 consistent view (S3Guard).
    **/
   public void setS3GuardConfiguration(S3GuardConfiguration s3GuardConfiguration) {
     this.s3GuardConfiguration = s3GuardConfiguration;
@@ -199,6 +215,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Getter for ebsEncryptionKmsKey.
+   * The ARN of the KMS key used to encrypt non-root cluster EBS volumes. If not set, and securedClusters is true, the default AWS managed CMK for EBS will be used.
    **/
   @JsonProperty("ebsEncryptionKmsKey")
   public String getEbsEncryptionKmsKey() {
@@ -207,6 +224,7 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Setter for ebsEncryptionKmsKey.
+   * The ARN of the KMS key used to encrypt non-root cluster EBS volumes. If not set, and securedClusters is true, the default AWS managed CMK for EBS will be used.
    **/
   public void setEbsEncryptionKmsKey(String ebsEncryptionKmsKey) {
     this.ebsEncryptionKmsKey = ebsEncryptionKmsKey;

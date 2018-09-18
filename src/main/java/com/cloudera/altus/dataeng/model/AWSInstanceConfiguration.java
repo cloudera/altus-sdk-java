@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.EbsConfiguration;
 /**
  * AWS-specific instance configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class AWSInstanceConfiguration  {
 
   /**
@@ -48,6 +48,7 @@ public class AWSInstanceConfiguration  {
 
   /**
    * Getter for useSpot.
+   * Use AWS spot instances for this group (bidUSDPerHr becomes mandatory).
    **/
   @JsonProperty("useSpot")
   public Boolean getUseSpot() {
@@ -56,6 +57,7 @@ public class AWSInstanceConfiguration  {
 
   /**
    * Setter for useSpot.
+   * Use AWS spot instances for this group (bidUSDPerHr becomes mandatory).
    **/
   public void setUseSpot(Boolean useSpot) {
     this.useSpot = useSpot;
@@ -63,6 +65,7 @@ public class AWSInstanceConfiguration  {
 
   /**
    * Getter for bidUSDPerHr.
+   * Bid price for AWS Spot instances in USD / hour.
    **/
   @JsonProperty("bidUSDPerHr")
   public Float getBidUSDPerHr() {
@@ -71,6 +74,7 @@ public class AWSInstanceConfiguration  {
 
   /**
    * Setter for bidUSDPerHr.
+   * Bid price for AWS Spot instances in USD / hour.
    **/
   public void setBidUSDPerHr(Float bidUSDPerHr) {
     this.bidUSDPerHr = bidUSDPerHr;
@@ -78,6 +82,7 @@ public class AWSInstanceConfiguration  {
 
   /**
    * Getter for ebsConfiguration.
+   * The per-instance EBS configuration.
    **/
   @JsonProperty("ebsConfiguration")
   public EbsConfiguration getEbsConfiguration() {
@@ -86,6 +91,7 @@ public class AWSInstanceConfiguration  {
 
   /**
    * Setter for ebsConfiguration.
+   * The per-instance EBS configuration.
    **/
   public void setEbsConfiguration(EbsConfiguration ebsConfiguration) {
     this.ebsConfiguration = ebsConfiguration;

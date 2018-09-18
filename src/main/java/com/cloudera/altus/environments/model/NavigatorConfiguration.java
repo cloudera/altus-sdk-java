@@ -28,7 +28,7 @@ import com.cloudera.altus.environments.model.NavigatorConfigurationAwsDetails;
 /**
  * Defines configurations required to enable Cloudera Navigator integration in an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class NavigatorConfiguration  {
 
   /**
@@ -43,6 +43,7 @@ public class NavigatorConfiguration  {
 
   /**
    * Getter for enable.
+   * Whether Cloudera Navigator integration is enabled.
    **/
   @JsonProperty("enable")
   public Boolean getEnable() {
@@ -51,6 +52,7 @@ public class NavigatorConfiguration  {
 
   /**
    * Setter for enable.
+   * Whether Cloudera Navigator integration is enabled.
    **/
   public void setEnable(Boolean enable) {
     this.enable = enable;
@@ -58,6 +60,7 @@ public class NavigatorConfiguration  {
 
   /**
    * Getter for awsDetails.
+   * 
    **/
   @JsonProperty("awsDetails")
   public NavigatorConfigurationAwsDetails getAwsDetails() {
@@ -66,6 +69,7 @@ public class NavigatorConfiguration  {
 
   /**
    * Setter for awsDetails.
+   * 
    **/
   public void setAwsDetails(NavigatorConfigurationAwsDetails awsDetails) {
     this.awsDetails = awsDetails;

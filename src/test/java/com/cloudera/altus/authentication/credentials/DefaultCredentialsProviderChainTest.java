@@ -76,14 +76,14 @@ public class DefaultCredentialsProviderChainTest {
         accessKeyId);
     newEnvironment.put(
         AltusEnvironmentVariableCredentialsProvider.ALTUS_PRIVATE_KEY,
-        AltusSDKTestUtils.getEncodedPrivateKey());
+        AltusSDKTestUtils.getEncodedRSAPrivateKey());
     AltusSDKTestUtils.setEnv(newEnvironment);
 
     DefaultAltusCredentialProviderChain cp = new DefaultAltusCredentialProviderChain();
     AltusCredentials credentials = cp.getCredentials();
 
     assertEquals(accessKeyId, credentials.getAccessKeyId());
-    assertEquals(AltusSDKTestUtils.getPrivateKey(), credentials.getPrivateKey());
+    assertEquals(AltusSDKTestUtils.getRSAPrivateKey(), credentials.getPrivateKey());
 
     newEnvironment = Maps.newHashMap();
     AltusSDKTestUtils.setEnv(newEnvironment);
@@ -98,13 +98,13 @@ public class DefaultCredentialsProviderChainTest {
         accessKeyId);
     System.setProperty(
         AltusSystemPropertiesCredentialsProvider.ALTUS_PRIVATE_KEY,
-        AltusSDKTestUtils.getEncodedPrivateKey());
+        AltusSDKTestUtils.getEncodedRSAPrivateKey());
 
     DefaultAltusCredentialProviderChain cp = new DefaultAltusCredentialProviderChain();
     AltusCredentials credentials = cp.getCredentials();
 
     assertEquals(accessKeyId, credentials.getAccessKeyId());
-    assertEquals(AltusSDKTestUtils.getPrivateKey(), credentials.getPrivateKey());
+    assertEquals(AltusSDKTestUtils.getRSAPrivateKey(), credentials.getPrivateKey());
 
     System.clearProperty(
         AltusSystemPropertiesCredentialsProvider.ALTUS_PRIVATE_KEY);

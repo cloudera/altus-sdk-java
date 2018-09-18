@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * An object returned on an error.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class Error  {
 
   /**
@@ -42,6 +42,7 @@ public class Error  {
 
   /**
    * Getter for code.
+   * The error code.
    **/
   @JsonProperty("code")
   public String getCode() {
@@ -50,6 +51,7 @@ public class Error  {
 
   /**
    * Setter for code.
+   * The error code.
    **/
   public void setCode(String code) {
     this.code = code;
@@ -57,6 +59,7 @@ public class Error  {
 
   /**
    * Getter for message.
+   * The error message.
    **/
   @JsonProperty("message")
   public String getMessage() {
@@ -65,6 +68,7 @@ public class Error  {
 
   /**
    * Setter for message.
+   * The error message.
    **/
   public void setMessage(String message) {
     this.message = message;

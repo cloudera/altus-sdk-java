@@ -28,7 +28,7 @@ import com.cloudera.altus.iam.model.MachineUser;
 /**
  * Response object for create machine user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class CreateMachineUserResponse extends AltusResponse {
 
   /**
@@ -38,6 +38,7 @@ public class CreateMachineUserResponse extends AltusResponse {
 
   /**
    * Getter for machineUser.
+   * Information about the machine user.
    **/
   @JsonProperty("machineUser")
   public MachineUser getMachineUser() {
@@ -46,6 +47,7 @@ public class CreateMachineUserResponse extends AltusResponse {
 
   /**
    * Setter for machineUser.
+   * Information about the machine user.
    **/
   public void setMachineUser(MachineUser machineUser) {
     this.machineUser = machineUser;

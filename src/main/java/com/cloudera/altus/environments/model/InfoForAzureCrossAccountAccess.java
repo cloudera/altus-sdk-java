@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Container for information required to set up an Azure cross-account access role.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class InfoForAzureCrossAccountAccess  {
 
   /**
@@ -37,6 +37,7 @@ public class InfoForAzureCrossAccountAccess  {
 
   /**
    * Getter for applicationId.
+   * The application ID that will be used by Cloudera to access resources in the customer Azure subscription.
    **/
   @JsonProperty("applicationId")
   public String getApplicationId() {
@@ -45,6 +46,7 @@ public class InfoForAzureCrossAccountAccess  {
 
   /**
    * Setter for applicationId.
+   * The application ID that will be used by Cloudera to access resources in the customer Azure subscription.
    **/
   public void setApplicationId(String applicationId) {
     this.applicationId = applicationId;

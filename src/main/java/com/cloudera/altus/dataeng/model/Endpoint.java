@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * A network endpoint that has both a public and a private IP address.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class Endpoint  {
 
   /**
@@ -47,6 +47,7 @@ public class Endpoint  {
 
   /**
    * Getter for privateIpAddress.
+   * A private IP address. This is only accessible from within the local network.
    **/
   @JsonProperty("privateIpAddress")
   public String getPrivateIpAddress() {
@@ -55,6 +56,7 @@ public class Endpoint  {
 
   /**
    * Setter for privateIpAddress.
+   * A private IP address. This is only accessible from within the local network.
    **/
   public void setPrivateIpAddress(String privateIpAddress) {
     this.privateIpAddress = privateIpAddress;
@@ -62,6 +64,7 @@ public class Endpoint  {
 
   /**
    * Getter for publicIpAddress.
+   * A public IP address. This is internet routable.
    **/
   @JsonProperty("publicIpAddress")
   public String getPublicIpAddress() {
@@ -70,6 +73,7 @@ public class Endpoint  {
 
   /**
    * Setter for publicIpAddress.
+   * A public IP address. This is internet routable.
    **/
   public void setPublicIpAddress(String publicIpAddress) {
     this.publicIpAddress = publicIpAddress;
@@ -77,6 +81,7 @@ public class Endpoint  {
 
   /**
    * Getter for port.
+   * A port.
    **/
   @JsonProperty("port")
   public Integer getPort() {
@@ -85,6 +90,7 @@ public class Endpoint  {
 
   /**
    * Setter for port.
+   * A port.
    **/
   public void setPort(Integer port) {
     this.port = port;

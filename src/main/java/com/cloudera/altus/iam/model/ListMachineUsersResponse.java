@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for a list machine users request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class ListMachineUsersResponse extends AltusResponse {
 
   /**
@@ -44,6 +44,7 @@ public class ListMachineUsersResponse extends AltusResponse {
 
   /**
    * Getter for machineUsers.
+   * The machine users.
    **/
   @JsonProperty("machineUsers")
   public List<MachineUser> getMachineUsers() {
@@ -52,6 +53,7 @@ public class ListMachineUsersResponse extends AltusResponse {
 
   /**
    * Setter for machineUsers.
+   * The machine users.
    **/
   public void setMachineUsers(List<MachineUser> machineUsers) {
     this.machineUsers = machineUsers;
@@ -59,6 +61,7 @@ public class ListMachineUsersResponse extends AltusResponse {
 
   /**
    * Getter for nextToken.
+   * The token to use when requesting the next set of results. If not present, there are no additional results.
    **/
   @JsonProperty("nextToken")
   public String getNextToken() {
@@ -67,6 +70,7 @@ public class ListMachineUsersResponse extends AltusResponse {
 
   /**
    * Setter for nextToken.
+   * The token to use when requesting the next set of results. If not present, there are no additional results.
    **/
   public void setNextToken(String nextToken) {
     this.nextToken = nextToken;

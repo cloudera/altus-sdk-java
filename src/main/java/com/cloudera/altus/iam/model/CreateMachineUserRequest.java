@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for create machine user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class CreateMachineUserRequest  {
 
   /**
@@ -37,6 +37,7 @@ public class CreateMachineUserRequest  {
 
   /**
    * Getter for machineUserName.
+   * The name to use for the new machine user. The name should be an alpha numeric string, including &#39;-&#39; and &#39;_&#39;, no longer than 128 characters long. Only one machine user with this name can be exist at a given time in an account.
    **/
   @JsonProperty("machineUserName")
   public String getMachineUserName() {
@@ -45,6 +46,7 @@ public class CreateMachineUserRequest  {
 
   /**
    * Setter for machineUserName.
+   * The name to use for the new machine user. The name should be an alpha numeric string, including &#39;-&#39; and &#39;_&#39;, no longer than 128 characters long. Only one machine user with this name can be exist at a given time in an account.
    **/
   public void setMachineUserName(String machineUserName) {
     this.machineUserName = machineUserName;

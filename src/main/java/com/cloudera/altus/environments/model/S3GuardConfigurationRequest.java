@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Defines configurations required to enable S3 consistent view (S3Guard).
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class S3GuardConfigurationRequest  {
 
   /**
@@ -42,6 +42,7 @@ public class S3GuardConfigurationRequest  {
 
   /**
    * Getter for enable.
+   * Enable S3Guard for operations in the environment. Only applies to clusters using CDH 5.11 and higher. Note that S3Guard tracks S3 metadata using an AWS DynamoDB database, so you will incur AWS charges for using that database.
    **/
   @JsonProperty("enable")
   public Boolean getEnable() {
@@ -50,6 +51,7 @@ public class S3GuardConfigurationRequest  {
 
   /**
    * Setter for enable.
+   * Enable S3Guard for operations in the environment. Only applies to clusters using CDH 5.11 and higher. Note that S3Guard tracks S3 metadata using an AWS DynamoDB database, so you will incur AWS charges for using that database.
    **/
   public void setEnable(Boolean enable) {
     this.enable = enable;
@@ -57,6 +59,7 @@ public class S3GuardConfigurationRequest  {
 
   /**
    * Getter for tableName.
+   * The name of the DynamoDB table that stores the S3Guard Metadata (default s3guard-metadata).
    **/
   @JsonProperty("tableName")
   public String getTableName() {
@@ -65,6 +68,7 @@ public class S3GuardConfigurationRequest  {
 
   /**
    * Setter for tableName.
+   * The name of the DynamoDB table that stores the S3Guard Metadata (default s3guard-metadata).
    **/
   public void setTableName(String tableName) {
     this.tableName = tableName;

@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for an assign user role request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class AssignUserRoleRequest  {
 
   /**
@@ -42,6 +42,7 @@ public class AssignUserRoleRequest  {
 
   /**
    * Getter for user.
+   * The user the role is assigned to. Can be the user&#39;s CRN or id.
    **/
   @JsonProperty("user")
   public String getUser() {
@@ -50,6 +51,7 @@ public class AssignUserRoleRequest  {
 
   /**
    * Setter for user.
+   * The user the role is assigned to. Can be the user&#39;s CRN or id.
    **/
   public void setUser(String user) {
     this.user = user;
@@ -57,6 +59,7 @@ public class AssignUserRoleRequest  {
 
   /**
    * Getter for role.
+   * The role to assign to the user. Can be the role&#39;s CRN or name.
    **/
   @JsonProperty("role")
   public String getRole() {
@@ -65,6 +68,7 @@ public class AssignUserRoleRequest  {
 
   /**
    * Setter for role.
+   * The role to assign to the user. Can be the role&#39;s CRN or name.
    **/
   public void setRole(String role) {
     this.role = role;

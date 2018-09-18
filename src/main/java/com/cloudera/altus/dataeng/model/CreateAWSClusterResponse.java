@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.Cluster;
 /**
  * Response object for a create AWS cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class CreateAWSClusterResponse extends AltusResponse {
 
   /**
@@ -48,6 +48,7 @@ public class CreateAWSClusterResponse extends AltusResponse {
 
   /**
    * Getter for cluster.
+   * The cluster that was created.
    **/
   @JsonProperty("cluster")
   public Cluster getCluster() {
@@ -56,6 +57,7 @@ public class CreateAWSClusterResponse extends AltusResponse {
 
   /**
    * Setter for cluster.
+   * The cluster that was created.
    **/
   public void setCluster(Cluster cluster) {
     this.cluster = cluster;
@@ -63,6 +65,7 @@ public class CreateAWSClusterResponse extends AltusResponse {
 
   /**
    * Getter for clouderaManagerUsername.
+   * The username that was created to login to cluster&#39;s Cloudera Manager as a readonly user. This value cannot be retrieved later.
    **/
   @JsonProperty("clouderaManagerUsername")
   public String getClouderaManagerUsername() {
@@ -71,6 +74,7 @@ public class CreateAWSClusterResponse extends AltusResponse {
 
   /**
    * Setter for clouderaManagerUsername.
+   * The username that was created to login to cluster&#39;s Cloudera Manager as a readonly user. This value cannot be retrieved later.
    **/
   public void setClouderaManagerUsername(String clouderaManagerUsername) {
     this.clouderaManagerUsername = clouderaManagerUsername;
@@ -78,6 +82,7 @@ public class CreateAWSClusterResponse extends AltusResponse {
 
   /**
    * Getter for clouderaManagerPassword.
+   * The password that was created to login to cluster&#39;s Cloudera Manager as a readonly user. This value cannot be retrieved later.
    **/
   @JsonProperty("clouderaManagerPassword")
   public String getClouderaManagerPassword() {
@@ -86,6 +91,7 @@ public class CreateAWSClusterResponse extends AltusResponse {
 
   /**
    * Setter for clouderaManagerPassword.
+   * The password that was created to login to cluster&#39;s Cloudera Manager as a readonly user. This value cannot be retrieved later.
    **/
   public void setClouderaManagerPassword(String clouderaManagerPassword) {
     this.clouderaManagerPassword = clouderaManagerPassword;

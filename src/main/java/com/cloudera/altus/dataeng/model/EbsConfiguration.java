@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * An EBS configuration for an instance. Any EBS disks configured are added in addition to the root volume.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class EbsConfiguration  {
 
   /**
@@ -41,12 +41,13 @@ public class EbsConfiguration  {
   private String volumeType = null;
 
   /**
-   * Number of volumes per instance. The default and minimum value is 1. The miximum number is 15.
+   * Number of volumes per instance. The default and minimum number is 1. The maximum number is 15.
    **/
   private Integer volumesPerInstance = null;
 
   /**
    * Getter for sizeInGiB.
+   * Size for each volume in GiB.
    **/
   @JsonProperty("sizeInGiB")
   public Integer getSizeInGiB() {
@@ -55,6 +56,7 @@ public class EbsConfiguration  {
 
   /**
    * Setter for sizeInGiB.
+   * Size for each volume in GiB.
    **/
   public void setSizeInGiB(Integer sizeInGiB) {
     this.sizeInGiB = sizeInGiB;
@@ -62,6 +64,7 @@ public class EbsConfiguration  {
 
   /**
    * Getter for volumeType.
+   * The volume type.
    **/
   @JsonProperty("volumeType")
   public String getVolumeType() {
@@ -70,6 +73,7 @@ public class EbsConfiguration  {
 
   /**
    * Setter for volumeType.
+   * The volume type.
    **/
   public void setVolumeType(String volumeType) {
     this.volumeType = volumeType;
@@ -77,6 +81,7 @@ public class EbsConfiguration  {
 
   /**
    * Getter for volumesPerInstance.
+   * Number of volumes per instance. The default and minimum number is 1. The maximum number is 15.
    **/
   @JsonProperty("volumesPerInstance")
   public Integer getVolumesPerInstance() {
@@ -85,6 +90,7 @@ public class EbsConfiguration  {
 
   /**
    * Setter for volumesPerInstance.
+   * Number of volumes per instance. The default and minimum number is 1. The maximum number is 15.
    **/
   public void setVolumesPerInstance(Integer volumesPerInstance) {
     this.volumesPerInstance = volumesPerInstance;

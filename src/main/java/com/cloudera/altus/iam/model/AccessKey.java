@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a Cloudera Altus access key.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class AccessKey  {
 
   /**
@@ -64,6 +64,7 @@ public class AccessKey  {
 
   /**
    * Getter for accessKeyId.
+   * The ID of the access key.
    **/
   @JsonProperty("accessKeyId")
   public String getAccessKeyId() {
@@ -72,6 +73,7 @@ public class AccessKey  {
 
   /**
    * Setter for accessKeyId.
+   * The ID of the access key.
    **/
   public void setAccessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;
@@ -79,6 +81,7 @@ public class AccessKey  {
 
   /**
    * Getter for crn.
+   * The CRN of the access key.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -87,6 +90,7 @@ public class AccessKey  {
 
   /**
    * Setter for crn.
+   * The CRN of the access key.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -94,6 +98,7 @@ public class AccessKey  {
 
   /**
    * Getter for actorCrn.
+   * The CRN of the actor with which this access key is associated.
    **/
   @JsonProperty("actorCrn")
   public String getActorCrn() {
@@ -102,6 +107,7 @@ public class AccessKey  {
 
   /**
    * Setter for actorCrn.
+   * The CRN of the actor with which this access key is associated.
    **/
   public void setActorCrn(String actorCrn) {
     this.actorCrn = actorCrn;
@@ -109,6 +115,7 @@ public class AccessKey  {
 
   /**
    * Getter for creationDate.
+   * The date when the access key was created.
    **/
   @JsonProperty("creationDate")
   public ZonedDateTime getCreationDate() {
@@ -117,6 +124,7 @@ public class AccessKey  {
 
   /**
    * Setter for creationDate.
+   * The date when the access key was created.
    **/
   public void setCreationDate(ZonedDateTime creationDate) {
     this.creationDate = creationDate;
@@ -124,6 +132,7 @@ public class AccessKey  {
 
   /**
    * Getter for status.
+   * The status of an access key.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -132,6 +141,7 @@ public class AccessKey  {
 
   /**
    * Setter for status.
+   * The status of an access key.
    **/
   public void setStatus(String status) {
     this.status = status;
@@ -139,6 +149,7 @@ public class AccessKey  {
 
   /**
    * Getter for lastUsage.
+   * Information on the last time this access key was used.
    **/
   @JsonProperty("lastUsage")
   public AccessKeyLastUsage getLastUsage() {
@@ -147,6 +158,7 @@ public class AccessKey  {
 
   /**
    * Setter for lastUsage.
+   * Information on the last time this access key was used.
    **/
   public void setLastUsage(AccessKeyLastUsage lastUsage) {
     this.lastUsage = lastUsage;

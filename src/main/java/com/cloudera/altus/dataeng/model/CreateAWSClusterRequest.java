@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for a create AWS cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class CreateAWSClusterRequest  {
 
   /**
@@ -66,7 +66,7 @@ public class CreateAWSClusterRequest  {
   private Integer workersGroupSize = null;
 
   /**
-   * The ssh private key.
+   * The ssh private key. Deprecated please use public key instead.
    **/
   private String sshPrivateKey = null;
 
@@ -84,6 +84,11 @@ public class CreateAWSClusterRequest  {
    * 
    **/
   private CreateAWSClusterRequestWorkersConfiguration workersConfiguration = null;
+
+  /**
+   * A name or a CRN of an existing Altus SDX namespace.
+   **/
+  private String namespaceName = null;
 
   /**
    * The username to login to cluster's Cloudera Manager as readonly user. The default is 'guest'.
@@ -122,6 +127,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for clusterName.
+   * The name of the cluster. This name must be unique, must have a maximum of 128 characters, and must contain only alphanumeric characters and hyphens. Names are case-sensitive.
    **/
   @JsonProperty("clusterName")
   public String getClusterName() {
@@ -130,6 +136,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for clusterName.
+   * The name of the cluster. This name must be unique, must have a maximum of 128 characters, and must contain only alphanumeric characters and hyphens. Names are case-sensitive.
    **/
   public void setClusterName(String clusterName) {
     this.clusterName = clusterName;
@@ -137,6 +144,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for cdhVersion.
+   * The CDH version.
    **/
   @JsonProperty("cdhVersion")
   public String getCdhVersion() {
@@ -145,6 +153,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for cdhVersion.
+   * The CDH version.
    **/
   public void setCdhVersion(String cdhVersion) {
     this.cdhVersion = cdhVersion;
@@ -152,6 +161,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for instanceType.
+   * The EC2 instance type for the worker nodes.
    **/
   @JsonProperty("instanceType")
   public String getInstanceType() {
@@ -160,6 +170,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for instanceType.
+   * The EC2 instance type for the worker nodes.
    **/
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
@@ -167,6 +178,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for serviceType.
+   * The service type.
    **/
   @JsonProperty("serviceType")
   public String getServiceType() {
@@ -175,6 +187,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for serviceType.
+   * The service type.
    **/
   public void setServiceType(String serviceType) {
     this.serviceType = serviceType;
@@ -182,6 +195,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for environmentName.
+   * Name or CRN of the environment to use when creating the the cluster. The environment must be an AWS environment.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -190,6 +204,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for environmentName.
+   * Name or CRN of the environment to use when creating the the cluster. The environment must be an AWS environment.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -197,6 +212,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for workersGroupSize.
+   * The worker nodes group size.
    **/
   @JsonProperty("workersGroupSize")
   public Integer getWorkersGroupSize() {
@@ -205,6 +221,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for workersGroupSize.
+   * The worker nodes group size.
    **/
   public void setWorkersGroupSize(Integer workersGroupSize) {
     this.workersGroupSize = workersGroupSize;
@@ -212,7 +229,9 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for sshPrivateKey.
+   * The ssh private key. Deprecated please use public key instead.
    **/
+  @Deprecated
   @JsonProperty("sshPrivateKey")
   public String getSshPrivateKey() {
     return sshPrivateKey;
@@ -220,13 +239,16 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for sshPrivateKey.
+   * The ssh private key. Deprecated please use public key instead.
    **/
+  @Deprecated
   public void setSshPrivateKey(String sshPrivateKey) {
     this.sshPrivateKey = sshPrivateKey;
   }
 
   /**
    * Getter for instanceBootstrapScript.
+   * Instance bootstrap script that is executed on all the cluster instances immediately after startup before any services are configured and started. You can use it to install additional OS packages or application dependencies. This is not intended to be a mechanism for cluster configuration.
    **/
   @JsonProperty("instanceBootstrapScript")
   public String getInstanceBootstrapScript() {
@@ -235,6 +257,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for instanceBootstrapScript.
+   * Instance bootstrap script that is executed on all the cluster instances immediately after startup before any services are configured and started. You can use it to install additional OS packages or application dependencies. This is not intended to be a mechanism for cluster configuration.
    **/
   public void setInstanceBootstrapScript(String instanceBootstrapScript) {
     this.instanceBootstrapScript = instanceBootstrapScript;
@@ -242,6 +265,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for computeWorkersConfiguration.
+   * 
    **/
   @JsonProperty("computeWorkersConfiguration")
   public CreateAWSClusterRequestComputeWorkersConfiguration getComputeWorkersConfiguration() {
@@ -250,6 +274,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for computeWorkersConfiguration.
+   * 
    **/
   public void setComputeWorkersConfiguration(CreateAWSClusterRequestComputeWorkersConfiguration computeWorkersConfiguration) {
     this.computeWorkersConfiguration = computeWorkersConfiguration;
@@ -257,6 +282,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for workersConfiguration.
+   * 
    **/
   @JsonProperty("workersConfiguration")
   public CreateAWSClusterRequestWorkersConfiguration getWorkersConfiguration() {
@@ -265,13 +291,32 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for workersConfiguration.
+   * 
    **/
   public void setWorkersConfiguration(CreateAWSClusterRequestWorkersConfiguration workersConfiguration) {
     this.workersConfiguration = workersConfiguration;
   }
 
   /**
+   * Getter for namespaceName.
+   * A name or a CRN of an existing Altus SDX namespace.
+   **/
+  @JsonProperty("namespaceName")
+  public String getNamespaceName() {
+    return namespaceName;
+  }
+
+  /**
+   * Setter for namespaceName.
+   * A name or a CRN of an existing Altus SDX namespace.
+   **/
+  public void setNamespaceName(String namespaceName) {
+    this.namespaceName = namespaceName;
+  }
+
+  /**
    * Getter for clouderaManagerUsername.
+   * The username to login to cluster&#39;s Cloudera Manager as readonly user. The default is &#39;guest&#39;.
    **/
   @JsonProperty("clouderaManagerUsername")
   public String getClouderaManagerUsername() {
@@ -280,6 +325,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for clouderaManagerUsername.
+   * The username to login to cluster&#39;s Cloudera Manager as readonly user. The default is &#39;guest&#39;.
    **/
   public void setClouderaManagerUsername(String clouderaManagerUsername) {
     this.clouderaManagerUsername = clouderaManagerUsername;
@@ -287,6 +333,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for clouderaManagerPassword.
+   * The password to login to cluster&#39;s Cloudera Manager as readonly user. The default is autogenerated random UUID.
    **/
   @JsonProperty("clouderaManagerPassword")
   public String getClouderaManagerPassword() {
@@ -295,6 +342,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for clouderaManagerPassword.
+   * The password to login to cluster&#39;s Cloudera Manager as readonly user. The default is autogenerated random UUID.
    **/
   public void setClouderaManagerPassword(String clouderaManagerPassword) {
     this.clouderaManagerPassword = clouderaManagerPassword;
@@ -302,6 +350,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for automaticTerminationCondition.
+   * The condition under which a cluster should be automatically terminated. If not specified, NONE will be used. If EMPTY_JOB_QUEUE is specified, then a list of jobs must also be specified as part of the cluster creation request.
    **/
   @JsonProperty("automaticTerminationCondition")
   public String getAutomaticTerminationCondition() {
@@ -310,6 +359,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for automaticTerminationCondition.
+   * The condition under which a cluster should be automatically terminated. If not specified, NONE will be used. If EMPTY_JOB_QUEUE is specified, then a list of jobs must also be specified as part of the cluster creation request.
    **/
   public void setAutomaticTerminationCondition(String automaticTerminationCondition) {
     this.automaticTerminationCondition = automaticTerminationCondition;
@@ -317,6 +367,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for jobSubmissionGroupName.
+   * A name for the group of submitted jobs. If not specified and this is a request to submit a single, named job, the job submission group name will match the job name. Otherwise, the job submission group name will match the generated job submission group ID. This name must have a maximum of 128 characters, and must contain only alphanumeric characters, spaces, colons, hyphens and underscores. Names are case-sensitive.
    **/
   @JsonProperty("jobSubmissionGroupName")
   public String getJobSubmissionGroupName() {
@@ -325,6 +376,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for jobSubmissionGroupName.
+   * A name for the group of submitted jobs. If not specified and this is a request to submit a single, named job, the job submission group name will match the job name. Otherwise, the job submission group name will match the generated job submission group ID. This name must have a maximum of 128 characters, and must contain only alphanumeric characters, spaces, colons, hyphens and underscores. Names are case-sensitive.
    **/
   public void setJobSubmissionGroupName(String jobSubmissionGroupName) {
     this.jobSubmissionGroupName = jobSubmissionGroupName;
@@ -332,6 +384,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for jobs.
+   * A list of jobs to submit to the cluster. Each job in the list should specify only one of hiveJob, sparkJob, pySparkJob, or mr2Job.
    **/
   @JsonProperty("jobs")
   public List<JobRequest> getJobs() {
@@ -340,6 +393,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for jobs.
+   * A list of jobs to submit to the cluster. Each job in the list should specify only one of hiveJob, sparkJob, pySparkJob, or mr2Job.
    **/
   public void setJobs(List<JobRequest> jobs) {
     this.jobs = jobs;
@@ -347,6 +401,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for publicKey.
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
    **/
   @JsonProperty("publicKey")
   public String getPublicKey() {
@@ -355,6 +410,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for publicKey.
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
    **/
   public void setPublicKey(String publicKey) {
     this.publicKey = publicKey;
@@ -362,6 +418,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for additionalClusterResourceTags.
+   * Tags added to cluster-associated resources at cluster creation time. These tags are in addition to those that the Altus service sets. See the AWS documentation for tagging restrictions.
    **/
   @JsonProperty("additionalClusterResourceTags")
   public List<ClusterResourceTagRequest> getAdditionalClusterResourceTags() {
@@ -370,6 +427,7 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for additionalClusterResourceTags.
+   * Tags added to cluster-associated resources at cluster creation time. These tags are in addition to those that the Altus service sets. See the AWS documentation for tagging restrictions.
    **/
   public void setAdditionalClusterResourceTags(List<ClusterResourceTagRequest> additionalClusterResourceTags) {
     this.additionalClusterResourceTags = additionalClusterResourceTags;
@@ -414,6 +472,9 @@ public class CreateAWSClusterRequest  {
     if (!Objects.equals(this.workersConfiguration, createAWSClusterRequest.workersConfiguration)) {
       return false;
     }
+    if (!Objects.equals(this.namespaceName, createAWSClusterRequest.namespaceName)) {
+      return false;
+    }
     if (!Objects.equals(this.clouderaManagerUsername, createAWSClusterRequest.clouderaManagerUsername)) {
       return false;
     }
@@ -440,7 +501,7 @@ public class CreateAWSClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, cdhVersion, instanceType, serviceType, environmentName, workersGroupSize, sshPrivateKey, instanceBootstrapScript, computeWorkersConfiguration, workersConfiguration, clouderaManagerUsername, clouderaManagerPassword, automaticTerminationCondition, jobSubmissionGroupName, jobs, publicKey, additionalClusterResourceTags);
+    return Objects.hash(clusterName, cdhVersion, instanceType, serviceType, environmentName, workersGroupSize, sshPrivateKey, instanceBootstrapScript, computeWorkersConfiguration, workersConfiguration, namespaceName, clouderaManagerUsername, clouderaManagerPassword, automaticTerminationCondition, jobSubmissionGroupName, jobs, publicKey, additionalClusterResourceTags);
   }
 
   @Override
@@ -457,6 +518,7 @@ public class CreateAWSClusterRequest  {
     sb.append("    instanceBootstrapScript: ").append(toIndentedString(instanceBootstrapScript)).append("\n");
     sb.append("    computeWorkersConfiguration: ").append(toIndentedString(computeWorkersConfiguration)).append("\n");
     sb.append("    workersConfiguration: ").append(toIndentedString(workersConfiguration)).append("\n");
+    sb.append("    namespaceName: ").append(toIndentedString(namespaceName)).append("\n");
     sb.append("    clouderaManagerUsername: ").append(toIndentedString(clouderaManagerUsername)).append("\n");
     sb.append("    clouderaManagerPassword: ").append(toIndentedString(clouderaManagerPassword)).append("\n");
     sb.append("    automaticTerminationCondition: ").append(toIndentedString(automaticTerminationCondition)).append("\n");

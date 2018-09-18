@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Object used to submit a MR2 job.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class MR2JobRequest  {
 
   /**
@@ -58,6 +58,7 @@ public class MR2JobRequest  {
 
   /**
    * Getter for mainClass.
+   * MR2 application main class. The entry point for your application.
    **/
   @JsonProperty("mainClass")
   public String getMainClass() {
@@ -66,6 +67,7 @@ public class MR2JobRequest  {
 
   /**
    * Setter for mainClass.
+   * MR2 application main class. The entry point for your application.
    **/
   public void setMainClass(String mainClass) {
     this.mainClass = mainClass;
@@ -73,6 +75,7 @@ public class MR2JobRequest  {
 
   /**
    * Getter for jars.
+   * A list of jars to be added to the classpath (e.g. s3a://bucket-name/wordcount.jar).
    **/
   @JsonProperty("jars")
   public List<String> getJars() {
@@ -81,6 +84,7 @@ public class MR2JobRequest  {
 
   /**
    * Setter for jars.
+   * A list of jars to be added to the classpath (e.g. s3a://bucket-name/wordcount.jar).
    **/
   public void setJars(List<String> jars) {
     this.jars = jars;
@@ -88,6 +92,7 @@ public class MR2JobRequest  {
 
   /**
    * Getter for arguments.
+   * Arguments for the MR2 application. They will be passed to the main method of the main class.
    **/
   @JsonProperty("arguments")
   public List<String> getArguments() {
@@ -96,6 +101,7 @@ public class MR2JobRequest  {
 
   /**
    * Setter for arguments.
+   * Arguments for the MR2 application. They will be passed to the main method of the main class.
    **/
   public void setArguments(List<String> arguments) {
     this.arguments = arguments;
@@ -103,6 +109,7 @@ public class MR2JobRequest  {
 
   /**
    * Getter for javaOpts.
+   * A list of Java options for the JVM.
    **/
   @JsonProperty("javaOpts")
   public String getJavaOpts() {
@@ -111,6 +118,7 @@ public class MR2JobRequest  {
 
   /**
    * Setter for javaOpts.
+   * A list of Java options for the JVM.
    **/
   public void setJavaOpts(String javaOpts) {
     this.javaOpts = javaOpts;
@@ -118,6 +126,7 @@ public class MR2JobRequest  {
 
   /**
    * Getter for jobXml.
+   * An optional XML document containing client configurations for MR2 or a local path when using the CLI (e.g. file:///absolute/path/to/job1.xml).
    **/
   @JsonProperty("jobXml")
   public String getJobXml() {
@@ -126,6 +135,7 @@ public class MR2JobRequest  {
 
   /**
    * Setter for jobXml.
+   * An optional XML document containing client configurations for MR2 or a local path when using the CLI (e.g. file:///absolute/path/to/job1.xml).
    **/
   public void setJobXml(String jobXml) {
     this.jobXml = jobXml;

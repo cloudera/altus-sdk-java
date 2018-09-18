@@ -32,7 +32,7 @@ public class StaticAltusCredentialsProviderTest {
   @Test
   public void testValidCredentials() {
     BasicAltusCredentials credentials =
-        new BasicAltusCredentials("foo", AltusSDKTestUtils.getPrivateKey());
+        new BasicAltusCredentials("foo", AltusSDKTestUtils.getRSAPrivateKey());
     StaticAltusCredentialsProvider credentialsProvider =
         new StaticAltusCredentialsProvider(credentials);
     assertEquals(credentials, credentialsProvider.getCredentials());

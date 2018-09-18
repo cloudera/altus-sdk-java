@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a DeleteEnvironment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class DeleteEnvironmentRequest  {
 
   /**
@@ -37,6 +37,7 @@ public class DeleteEnvironmentRequest  {
 
   /**
    * Getter for environmentName.
+   * The name or CRN of the environment.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -45,6 +46,7 @@ public class DeleteEnvironmentRequest  {
 
   /**
    * Setter for environmentName.
+   * The name or CRN of the environment.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;

@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Tag for a cluster resource.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ClusterResourceTagResponse extends AltusResponse {
 
   /**
@@ -42,6 +42,7 @@ public class ClusterResourceTagResponse extends AltusResponse {
 
   /**
    * Getter for key.
+   * The key of tag.
    **/
   @JsonProperty("key")
   public String getKey() {
@@ -50,6 +51,7 @@ public class ClusterResourceTagResponse extends AltusResponse {
 
   /**
    * Setter for key.
+   * The key of tag.
    **/
   public void setKey(String key) {
     this.key = key;
@@ -57,6 +59,7 @@ public class ClusterResourceTagResponse extends AltusResponse {
 
   /**
    * Getter for value.
+   * The value of the tag.
    **/
   @JsonProperty("value")
   public String getValue() {
@@ -65,6 +68,7 @@ public class ClusterResourceTagResponse extends AltusResponse {
 
   /**
    * Setter for value.
+   * The value of the tag.
    **/
   public void setValue(String value) {
     this.value = value;

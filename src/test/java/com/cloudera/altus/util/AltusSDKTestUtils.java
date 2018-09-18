@@ -39,7 +39,9 @@ import java.util.Map;
  */
 @SdkInternalApi
 public class AltusSDKTestUtils {
-  private static final String PRIVATE_KEY;
+  private static final String RSA_PRIVATE_KEY;
+  private static final String ED25519_PRIVATE_KEY =
+      "37yMdtdkJANPn62X5KDKKI3iv5hbAAKvqxHdgIj22bo=";
   public static String DEFAULT_CREDENTIALS_FILENAME = "credentials";
   public static String DEFAULT_CREDENTIALS_FOLDERNAME = ".altus";
   public static String DEFAULT_CREDENTIALS_PATH = "/" + DEFAULT_CREDENTIALS_FOLDERNAME
@@ -59,7 +61,7 @@ public class AltusSDKTestUtils {
     } catch (IOException e) {
       fail("Could not find private key resource.");
     }
-    PRIVATE_KEY = privateKey;
+    RSA_PRIVATE_KEY = privateKey;
   }
 
   private void AltusSDKTestUtils() {}
@@ -138,8 +140,17 @@ public class AltusSDKTestUtils {
    * key is valid but has no access to Altus.
    * @return an encoded test private key
    */
-  public static String getEncodedPrivateKey() {
-      return PRIVATE_KEY;
+  public static String getEncodedRSAPrivateKey() {
+      return RSA_PRIVATE_KEY;
+  }
+
+  /**
+   * Returns a private key which can be used in test encoded as a string. The
+   * key is valid but has no access to Altus.
+   * @return an encoded test private key
+   */
+  public static String getEncodedEd25519PrivateKey() {
+      return ED25519_PRIVATE_KEY;
   }
 
   /**
@@ -147,8 +158,16 @@ public class AltusSDKTestUtils {
    * no access to Altus.
    * @return a test private key
    */
-  public static PrivateKey getPrivateKey() {
-      return CredentialUtilities.decodePrivateKey(PRIVATE_KEY);
+  public static PrivateKey getRSAPrivateKey() {
+      return CredentialUtilities.decodePrivateKey(RSA_PRIVATE_KEY);
   }
 
+  /**
+   * Returns a private key which can be used in test. The key is valid but has
+   * no access to Altus.
+   * @return a test private key
+   */
+  public static PrivateKey getEd25519PrivateKey() {
+      return CredentialUtilities.decodePrivateKey(ED25519_PRIVATE_KEY);
+  }
 }

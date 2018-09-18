@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for delete machine user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class DeleteMachineUserRequest  {
 
   /**
@@ -37,6 +37,7 @@ public class DeleteMachineUserRequest  {
 
   /**
    * Getter for machineUserName.
+   * The name or CRN of the machine user to delete.
    **/
   @JsonProperty("machineUserName")
   public String getMachineUserName() {
@@ -45,6 +46,7 @@ public class DeleteMachineUserRequest  {
 
   /**
    * Setter for machineUserName.
+   * The name or CRN of the machine user to delete.
    **/
   public void setMachineUserName(String machineUserName) {
     this.machineUserName = machineUserName;

@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Azure-specific environment information.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class EnvironmentAzureDetails  {
 
   /**
@@ -92,6 +92,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for subscriptionId.
+   * The subscription ID.
    **/
   @JsonProperty("subscriptionId")
   public String getSubscriptionId() {
@@ -100,6 +101,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for subscriptionId.
+   * The subscription ID.
    **/
   public void setSubscriptionId(String subscriptionId) {
     this.subscriptionId = subscriptionId;
@@ -107,6 +109,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for aadTenantId.
+   * The Azure AD tenant ID for the Azure subscription.
    **/
   @JsonProperty("aadTenantId")
   public String getAadTenantId() {
@@ -115,6 +118,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for aadTenantId.
+   * The Azure AD tenant ID for the Azure subscription.
    **/
   public void setAadTenantId(String aadTenantId) {
     this.aadTenantId = aadTenantId;
@@ -122,6 +126,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for region.
+   * The network region.
    **/
   @JsonProperty("region")
   public String getRegion() {
@@ -130,6 +135,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for region.
+   * The network region.
    **/
   public void setRegion(String region) {
     this.region = region;
@@ -137,6 +143,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for vnetResourceGroup.
+   * The resource group where the virtual network is located.
    **/
   @JsonProperty("vnetResourceGroup")
   public String getVnetResourceGroup() {
@@ -145,6 +152,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for vnetResourceGroup.
+   * The resource group where the virtual network is located.
    **/
   public void setVnetResourceGroup(String vnetResourceGroup) {
     this.vnetResourceGroup = vnetResourceGroup;
@@ -152,6 +160,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for vnetName.
+   * The virtual network name.
    **/
   @JsonProperty("vnetName")
   public String getVnetName() {
@@ -160,6 +169,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for vnetName.
+   * The virtual network name.
    **/
   public void setVnetName(String vnetName) {
     this.vnetName = vnetName;
@@ -167,6 +177,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for subnetName.
+   * The subnet name.
    **/
   @JsonProperty("subnetName")
   public String getSubnetName() {
@@ -175,6 +186,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for subnetName.
+   * The subnet name.
    **/
   public void setSubnetName(String subnetName) {
     this.subnetName = subnetName;
@@ -182,6 +194,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for networkSecurityGroupResourceGroup.
+   * The resource group where the network security group is located.
    **/
   @JsonProperty("networkSecurityGroupResourceGroup")
   public String getNetworkSecurityGroupResourceGroup() {
@@ -190,6 +203,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for networkSecurityGroupResourceGroup.
+   * The resource group where the network security group is located.
    **/
   public void setNetworkSecurityGroupResourceGroup(String networkSecurityGroupResourceGroup) {
     this.networkSecurityGroupResourceGroup = networkSecurityGroupResourceGroup;
@@ -197,6 +211,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for networkSecurityGroupName.
+   * The network security group name.
    **/
   @JsonProperty("networkSecurityGroupName")
   public String getNetworkSecurityGroupName() {
@@ -205,6 +220,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for networkSecurityGroupName.
+   * The network security group name.
    **/
   public void setNetworkSecurityGroupName(String networkSecurityGroupName) {
     this.networkSecurityGroupName = networkSecurityGroupName;
@@ -212,6 +228,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for clusterNodeResourceGroup.
+   * The resource group where the cluster nodes are located.
    **/
   @JsonProperty("clusterNodeResourceGroup")
   public String getClusterNodeResourceGroup() {
@@ -220,6 +237,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for clusterNodeResourceGroup.
+   * The resource group where the cluster nodes are located.
    **/
   public void setClusterNodeResourceGroup(String clusterNodeResourceGroup) {
     this.clusterNodeResourceGroup = clusterNodeResourceGroup;
@@ -227,6 +245,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for userAssignedMsiResourceGroup.
+   * The resource group where the Assigned Managed Service Identity is located.
    **/
   @JsonProperty("userAssignedMsiResourceGroup")
   public String getUserAssignedMsiResourceGroup() {
@@ -235,6 +254,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for userAssignedMsiResourceGroup.
+   * The resource group where the Assigned Managed Service Identity is located.
    **/
   public void setUserAssignedMsiResourceGroup(String userAssignedMsiResourceGroup) {
     this.userAssignedMsiResourceGroup = userAssignedMsiResourceGroup;
@@ -242,6 +262,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for userAssignedMsiName.
+   * The User Assigned Managed Service Identity Name.
    **/
   @JsonProperty("userAssignedMsiName")
   public String getUserAssignedMsiName() {
@@ -250,6 +271,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for userAssignedMsiName.
+   * The User Assigned Managed Service Identity Name.
    **/
   public void setUserAssignedMsiName(String userAssignedMsiName) {
     this.userAssignedMsiName = userAssignedMsiName;
@@ -257,6 +279,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for logArchiveFolderPath.
+   * The full URL of the ADLS folder in which cluster logs will be stored.
    **/
   @JsonProperty("logArchiveFolderPath")
   public String getLogArchiveFolderPath() {
@@ -265,6 +288,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for logArchiveFolderPath.
+   * The full URL of the ADLS folder in which cluster logs will be stored.
    **/
   public void setLogArchiveFolderPath(String logArchiveFolderPath) {
     this.logArchiveFolderPath = logArchiveFolderPath;

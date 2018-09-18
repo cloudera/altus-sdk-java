@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for an update access key request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class UpdateAccessKeyRequest  {
 
   /**
@@ -42,6 +42,7 @@ public class UpdateAccessKeyRequest  {
 
   /**
    * Getter for accessKeyId.
+   * The ID of the access key to update.
    **/
   @JsonProperty("accessKeyId")
   public String getAccessKeyId() {
@@ -50,6 +51,7 @@ public class UpdateAccessKeyRequest  {
 
   /**
    * Setter for accessKeyId.
+   * The ID of the access key to update.
    **/
   public void setAccessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;
@@ -57,6 +59,7 @@ public class UpdateAccessKeyRequest  {
 
   /**
    * Getter for status.
+   * The status to assign to the access key.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -65,6 +68,7 @@ public class UpdateAccessKeyRequest  {
 
   /**
    * Setter for status.
+   * The status to assign to the access key.
    **/
   public void setStatus(String status) {
     this.status = status;

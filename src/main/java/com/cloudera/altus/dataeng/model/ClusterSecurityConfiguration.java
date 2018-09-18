@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.ClusterSecurityConfigurationAwsDetails;
 /**
  * The cluster&#39;s security configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ClusterSecurityConfiguration  {
 
   /**
@@ -43,6 +43,7 @@ public class ClusterSecurityConfiguration  {
 
   /**
    * Getter for enabled.
+   * Whether cluster security is enabled. If enabled, cluster services require authentication and wire encryption is enabled. Cluster volumes are encrypted in a cloud provider specific manner.
    **/
   @JsonProperty("enabled")
   public Boolean getEnabled() {
@@ -51,6 +52,7 @@ public class ClusterSecurityConfiguration  {
 
   /**
    * Setter for enabled.
+   * Whether cluster security is enabled. If enabled, cluster services require authentication and wire encryption is enabled. Cluster volumes are encrypted in a cloud provider specific manner.
    **/
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
@@ -58,6 +60,7 @@ public class ClusterSecurityConfiguration  {
 
   /**
    * Getter for awsDetails.
+   * 
    **/
   @JsonProperty("awsDetails")
   public ClusterSecurityConfigurationAwsDetails getAwsDetails() {
@@ -66,6 +69,7 @@ public class ClusterSecurityConfiguration  {
 
   /**
    * Setter for awsDetails.
+   * 
    **/
   public void setAwsDetails(ClusterSecurityConfigurationAwsDetails awsDetails) {
     this.awsDetails = awsDetails;

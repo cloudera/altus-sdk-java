@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for a list roles request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class ListRolesRequest  {
 
   /**
@@ -48,6 +48,7 @@ public class ListRolesRequest  {
 
   /**
    * Getter for roleNames.
+   * The roles names or CRNs to retrieve. If empty all roles will be returned.
    **/
   @JsonProperty("roleNames")
   public List<String> getRoleNames() {
@@ -56,6 +57,7 @@ public class ListRolesRequest  {
 
   /**
    * Setter for roleNames.
+   * The roles names or CRNs to retrieve. If empty all roles will be returned.
    **/
   public void setRoleNames(List<String> roleNames) {
     this.roleNames = roleNames;
@@ -63,6 +65,7 @@ public class ListRolesRequest  {
 
   /**
    * Getter for pageSize.
+   * The size of each page.
    **/
   @JsonProperty("pageSize")
   public Integer getPageSize() {
@@ -71,6 +74,7 @@ public class ListRolesRequest  {
 
   /**
    * Setter for pageSize.
+   * The size of each page.
    **/
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
@@ -78,6 +82,7 @@ public class ListRolesRequest  {
 
   /**
    * Getter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   @JsonProperty("startingToken")
   public String getStartingToken() {
@@ -86,6 +91,7 @@ public class ListRolesRequest  {
 
   /**
    * Setter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   public void setStartingToken(String startingToken) {
     this.startingToken = startingToken;

@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Object used to describe Disk storage configuration request. Any disks configured here are added in addition to the root volume.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class DiskConfigurationRequest  {
 
   /**
@@ -41,12 +41,13 @@ public class DiskConfigurationRequest  {
   private String storageAccountType = null;
 
   /**
-   * Number of volumes per instance. The default and minimum value is 1. The miximum number is 15.
+   * Number of data disks per instance. The default and minimum number is 1. The maximum number is 15.
    **/
   private Integer dataDisksPerInstance = null;
 
   /**
    * Getter for sizeGB.
+   * Size of each data disk in GB.
    **/
   @JsonProperty("sizeGB")
   public Integer getSizeGB() {
@@ -55,6 +56,7 @@ public class DiskConfigurationRequest  {
 
   /**
    * Setter for sizeGB.
+   * Size of each data disk in GB.
    **/
   public void setSizeGB(Integer sizeGB) {
     this.sizeGB = sizeGB;
@@ -62,6 +64,7 @@ public class DiskConfigurationRequest  {
 
   /**
    * Getter for storageAccountType.
+   * The storage account type.
    **/
   @JsonProperty("storageAccountType")
   public String getStorageAccountType() {
@@ -70,6 +73,7 @@ public class DiskConfigurationRequest  {
 
   /**
    * Setter for storageAccountType.
+   * The storage account type.
    **/
   public void setStorageAccountType(String storageAccountType) {
     this.storageAccountType = storageAccountType;
@@ -77,6 +81,7 @@ public class DiskConfigurationRequest  {
 
   /**
    * Getter for dataDisksPerInstance.
+   * Number of data disks per instance. The default and minimum number is 1. The maximum number is 15.
    **/
   @JsonProperty("dataDisksPerInstance")
   public Integer getDataDisksPerInstance() {
@@ -85,6 +90,7 @@ public class DiskConfigurationRequest  {
 
   /**
    * Setter for dataDisksPerInstance.
+   * Number of data disks per instance. The default and minimum number is 1. The maximum number is 15.
    **/
   public void setDataDisksPerInstance(Integer dataDisksPerInstance) {
     this.dataDisksPerInstance = dataDisksPerInstance;

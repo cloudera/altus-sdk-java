@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a create user access key request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class CreateUserAccessKeyRequest  {
 
   /**
@@ -37,6 +37,7 @@ public class CreateUserAccessKeyRequest  {
 
   /**
    * Getter for user.
+   * The ID or CRN of the user to whom this access key will be associated. If it is not included, it defaults to the user making the request.
    **/
   @JsonProperty("user")
   public String getUser() {
@@ -45,6 +46,7 @@ public class CreateUserAccessKeyRequest  {
 
   /**
    * Setter for user.
+   * The ID or CRN of the user to whom this access key will be associated. If it is not included, it defaults to the user making the request.
    **/
   public void setUser(String user) {
     this.user = user;

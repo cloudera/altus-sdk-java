@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a GetClientAccountSetupCloudFormationTemplate request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class GetClientAccountSetupCloudFormationTemplateRequest  {
 
   /**
@@ -37,6 +37,7 @@ public class GetClientAccountSetupCloudFormationTemplateRequest  {
 
   /**
    * Getter for templateType.
+   * The type of a client account setup template, COMBINED by default.
    **/
   @JsonProperty("templateType")
   public String getTemplateType() {
@@ -45,6 +46,7 @@ public class GetClientAccountSetupCloudFormationTemplateRequest  {
 
   /**
    * Setter for templateType.
+   * The type of a client account setup template, COMBINED by default.
    **/
   public void setTemplateType(String templateType) {
     this.templateType = templateType;

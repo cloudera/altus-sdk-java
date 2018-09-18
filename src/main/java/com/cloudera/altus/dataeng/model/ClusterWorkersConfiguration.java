@@ -29,7 +29,7 @@ import com.cloudera.altus.dataeng.model.AzureInstanceConfiguration;
 /**
  * Workers group configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ClusterWorkersConfiguration  {
 
   /**
@@ -44,6 +44,7 @@ public class ClusterWorkersConfiguration  {
 
   /**
    * Getter for awsDetails.
+   * AWS-specific instance configuration.
    **/
   @JsonProperty("awsDetails")
   public AWSInstanceConfiguration getAwsDetails() {
@@ -52,6 +53,7 @@ public class ClusterWorkersConfiguration  {
 
   /**
    * Setter for awsDetails.
+   * AWS-specific instance configuration.
    **/
   public void setAwsDetails(AWSInstanceConfiguration awsDetails) {
     this.awsDetails = awsDetails;
@@ -59,6 +61,7 @@ public class ClusterWorkersConfiguration  {
 
   /**
    * Getter for azureDetails.
+   * Azure-specific instance configuration.
    **/
   @JsonProperty("azureDetails")
   public AzureInstanceConfiguration getAzureDetails() {
@@ -67,6 +70,7 @@ public class ClusterWorkersConfiguration  {
 
   /**
    * Setter for azureDetails.
+   * Azure-specific instance configuration.
    **/
   public void setAzureDetails(AzureInstanceConfiguration azureDetails) {
     this.azureDetails = azureDetails;

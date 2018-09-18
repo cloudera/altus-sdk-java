@@ -98,7 +98,7 @@ public class AltusSystemPropertiesCredentialsProviderTest {
   public void testValidCredentials() {
     System.setProperty(ALTUS_ACCESS_KEY_ID, "somekey");
     System.setProperty(ALTUS_PRIVATE_KEY,
-        AltusSDKTestUtils.getEncodedPrivateKey());
+        AltusSDKTestUtils.getEncodedRSAPrivateKey());
     AltusSystemPropertiesCredentialsProvider aspcp =
         new AltusSystemPropertiesCredentialsProvider();
     AltusCredentials credentials = aspcp.getCredentials();

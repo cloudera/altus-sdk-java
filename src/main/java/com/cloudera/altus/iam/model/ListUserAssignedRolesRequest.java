@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a list user assigned roles request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class ListUserAssignedRolesRequest  {
 
   /**
@@ -47,6 +47,7 @@ public class ListUserAssignedRolesRequest  {
 
   /**
    * Getter for user.
+   * The user to list the assigned roles for. Can be the user&#39;s CRN or id. If it is not included, it defaults to the user making the request.
    **/
   @JsonProperty("user")
   public String getUser() {
@@ -55,6 +56,7 @@ public class ListUserAssignedRolesRequest  {
 
   /**
    * Setter for user.
+   * The user to list the assigned roles for. Can be the user&#39;s CRN or id. If it is not included, it defaults to the user making the request.
    **/
   public void setUser(String user) {
     this.user = user;
@@ -62,6 +64,7 @@ public class ListUserAssignedRolesRequest  {
 
   /**
    * Getter for pageSize.
+   * The size of each page.
    **/
   @JsonProperty("pageSize")
   public Integer getPageSize() {
@@ -70,6 +73,7 @@ public class ListUserAssignedRolesRequest  {
 
   /**
    * Setter for pageSize.
+   * The size of each page.
    **/
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
@@ -77,6 +81,7 @@ public class ListUserAssignedRolesRequest  {
 
   /**
    * Getter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   @JsonProperty("startingToken")
   public String getStartingToken() {
@@ -85,6 +90,7 @@ public class ListUserAssignedRolesRequest  {
 
   /**
    * Setter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   public void setStartingToken(String startingToken) {
     this.startingToken = startingToken;

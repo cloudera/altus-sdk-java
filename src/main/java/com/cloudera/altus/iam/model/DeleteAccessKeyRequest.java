@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a delete access key request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class DeleteAccessKeyRequest  {
 
   /**
@@ -37,6 +37,7 @@ public class DeleteAccessKeyRequest  {
 
   /**
    * Getter for accessKeyId.
+   * The ID of the access key.
    **/
   @JsonProperty("accessKeyId")
   public String getAccessKeyId() {
@@ -45,6 +46,7 @@ public class DeleteAccessKeyRequest  {
 
   /**
    * Setter for accessKeyId.
+   * The ID of the access key.
    **/
   public void setAccessKeyId(String accessKeyId) {
     this.accessKeyId = accessKeyId;

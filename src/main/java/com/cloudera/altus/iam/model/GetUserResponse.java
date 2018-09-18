@@ -28,7 +28,7 @@ import com.cloudera.altus.iam.model.User;
 /**
  * Response object for a get user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class GetUserResponse extends AltusResponse {
 
   /**
@@ -38,6 +38,7 @@ public class GetUserResponse extends AltusResponse {
 
   /**
    * Getter for user.
+   * Information about the user.
    **/
   @JsonProperty("user")
   public User getUser() {
@@ -46,6 +47,7 @@ public class GetUserResponse extends AltusResponse {
 
   /**
    * Setter for user.
+   * Information about the user.
    **/
   public void setUser(User user) {
     this.user = user;

@@ -28,7 +28,7 @@ import com.cloudera.altus.environments.model.WorkloadAnalyticsConfigurationReque
 /**
  * Request object for a CreateAzureEnvironment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -108,6 +108,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for name.
+   * The name of the environment. This name must be unique, must have a maximum of 128 characters, and must contain only alphanumeric characters and hyphens. Names are case-sensitive.
    **/
   @JsonProperty("name")
   public String getName() {
@@ -116,6 +117,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for name.
+   * The name of the environment. This name must be unique, must have a maximum of 128 characters, and must contain only alphanumeric characters and hyphens. Names are case-sensitive.
    **/
   public void setName(String name) {
     this.name = name;
@@ -123,6 +125,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for subscriptionId.
+   * The subscription ID.
    **/
   @JsonProperty("subscriptionId")
   public String getSubscriptionId() {
@@ -131,6 +134,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for subscriptionId.
+   * The subscription ID.
    **/
   public void setSubscriptionId(String subscriptionId) {
     this.subscriptionId = subscriptionId;
@@ -138,6 +142,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for region.
+   * Supported Azure regions. Altus Data Engineering supports Azure regions with the Azure Data Lake Store service.
    **/
   @JsonProperty("region")
   public String getRegion() {
@@ -146,6 +151,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for region.
+   * Supported Azure regions. Altus Data Engineering supports Azure regions with the Azure Data Lake Store service.
    **/
   public void setRegion(String region) {
     this.region = region;
@@ -153,6 +159,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for aadTenantId.
+   * The Azure AD tenant ID for the Azure subscription.
    **/
   @JsonProperty("aadTenantId")
   public String getAadTenantId() {
@@ -161,6 +168,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for aadTenantId.
+   * The Azure AD tenant ID for the Azure subscription.
    **/
   public void setAadTenantId(String aadTenantId) {
     this.aadTenantId = aadTenantId;
@@ -168,6 +176,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for vnetResourceGroup.
+   * The resource group where the virtual network is located.
    **/
   @JsonProperty("vnetResourceGroup")
   public String getVnetResourceGroup() {
@@ -176,6 +185,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for vnetResourceGroup.
+   * The resource group where the virtual network is located.
    **/
   public void setVnetResourceGroup(String vnetResourceGroup) {
     this.vnetResourceGroup = vnetResourceGroup;
@@ -183,6 +193,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for vnetName.
+   * The virtual network name.
    **/
   @JsonProperty("vnetName")
   public String getVnetName() {
@@ -191,6 +202,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for vnetName.
+   * The virtual network name.
    **/
   public void setVnetName(String vnetName) {
     this.vnetName = vnetName;
@@ -198,6 +210,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for subnetName.
+   * The subnet name.
    **/
   @JsonProperty("subnetName")
   public String getSubnetName() {
@@ -206,6 +219,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for subnetName.
+   * The subnet name.
    **/
   public void setSubnetName(String subnetName) {
     this.subnetName = subnetName;
@@ -213,6 +227,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for networkSecurityGroupResourceGroup.
+   * The resource group where the network security group is located.
    **/
   @JsonProperty("networkSecurityGroupResourceGroup")
   public String getNetworkSecurityGroupResourceGroup() {
@@ -221,6 +236,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for networkSecurityGroupResourceGroup.
+   * The resource group where the network security group is located.
    **/
   public void setNetworkSecurityGroupResourceGroup(String networkSecurityGroupResourceGroup) {
     this.networkSecurityGroupResourceGroup = networkSecurityGroupResourceGroup;
@@ -228,6 +244,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for networkSecurityGroupName.
+   * The network security group name.
    **/
   @JsonProperty("networkSecurityGroupName")
   public String getNetworkSecurityGroupName() {
@@ -236,6 +253,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for networkSecurityGroupName.
+   * The network security group name.
    **/
   public void setNetworkSecurityGroupName(String networkSecurityGroupName) {
     this.networkSecurityGroupName = networkSecurityGroupName;
@@ -243,6 +261,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for clusterNodeResourceGroup.
+   * The resource group where the cluster nodes are located.
    **/
   @JsonProperty("clusterNodeResourceGroup")
   public String getClusterNodeResourceGroup() {
@@ -251,6 +270,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for clusterNodeResourceGroup.
+   * The resource group where the cluster nodes are located.
    **/
   public void setClusterNodeResourceGroup(String clusterNodeResourceGroup) {
     this.clusterNodeResourceGroup = clusterNodeResourceGroup;
@@ -258,6 +278,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for userAssignedMsiResourceGroup.
+   * The resource group where the Assigned Managed Service Identity is located.
    **/
   @JsonProperty("userAssignedMsiResourceGroup")
   public String getUserAssignedMsiResourceGroup() {
@@ -266,6 +287,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for userAssignedMsiResourceGroup.
+   * The resource group where the Assigned Managed Service Identity is located.
    **/
   public void setUserAssignedMsiResourceGroup(String userAssignedMsiResourceGroup) {
     this.userAssignedMsiResourceGroup = userAssignedMsiResourceGroup;
@@ -273,6 +295,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for userAssignedMsiName.
+   * The User Assigned Managed Service Identity Name.
    **/
   @JsonProperty("userAssignedMsiName")
   public String getUserAssignedMsiName() {
@@ -281,6 +304,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for userAssignedMsiName.
+   * The User Assigned Managed Service Identity Name.
    **/
   public void setUserAssignedMsiName(String userAssignedMsiName) {
     this.userAssignedMsiName = userAssignedMsiName;
@@ -288,6 +312,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for workloadAnalyticsConfiguration.
+   * Configuration for integration with Altus Workload Analytics.
    **/
   @JsonProperty("workloadAnalyticsConfiguration")
   public WorkloadAnalyticsConfigurationRequest getWorkloadAnalyticsConfiguration() {
@@ -296,6 +321,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for workloadAnalyticsConfiguration.
+   * Configuration for integration with Altus Workload Analytics.
    **/
   public void setWorkloadAnalyticsConfiguration(WorkloadAnalyticsConfigurationRequest workloadAnalyticsConfiguration) {
     this.workloadAnalyticsConfiguration = workloadAnalyticsConfiguration;
@@ -303,6 +329,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for logArchiveFolderPath.
+   * The full URL of the ADLS folder in which cluster logs will be stored.
    **/
   @JsonProperty("logArchiveFolderPath")
   public String getLogArchiveFolderPath() {
@@ -311,6 +338,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for logArchiveFolderPath.
+   * The full URL of the ADLS folder in which cluster logs will be stored.
    **/
   public void setLogArchiveFolderPath(String logArchiveFolderPath) {
     this.logArchiveFolderPath = logArchiveFolderPath;
@@ -318,6 +346,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for securedClusters.
+   * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled.
    **/
   @JsonProperty("securedClusters")
   public Boolean getSecuredClusters() {
@@ -326,6 +355,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for securedClusters.
+   * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled.
    **/
   public void setSecuredClusters(Boolean securedClusters) {
     this.securedClusters = securedClusters;

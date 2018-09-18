@@ -46,6 +46,6 @@ public class CredentialUtilitiesTest {
 
   @Test
   public void testWithValidKey() {
-    AltusSDKTestUtils.getPrivateKey();
+    AltusSDKTestUtils.getRSAPrivateKey();
   }
 }

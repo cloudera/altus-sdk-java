@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ClusterSummary  {
 
   /**
@@ -88,7 +88,13 @@ public class ClusterSummary  {
   private ClusterSummarySecurityConfiguration securityConfiguration = null;
 
   /**
+   * The CRN of the cluster's Altus SDX namespace.
+   **/
+  private String namespaceCrn = null;
+
+  /**
    * Getter for clusterName.
+   * The name of the cluster.
    **/
   @JsonProperty("clusterName")
   public String getClusterName() {
@@ -97,6 +103,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for clusterName.
+   * The name of the cluster.
    **/
   public void setClusterName(String clusterName) {
     this.clusterName = clusterName;
@@ -104,6 +111,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for crn.
+   * The CRN of the cluster.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -112,6 +120,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for crn.
+   * The CRN of the cluster.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -119,6 +128,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for creationDate.
+   * The date when the cluster was created.
    **/
   @JsonProperty("creationDate")
   public ZonedDateTime getCreationDate() {
@@ -127,6 +137,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for creationDate.
+   * The date when the cluster was created.
    **/
   public void setCreationDate(ZonedDateTime creationDate) {
     this.creationDate = creationDate;
@@ -134,6 +145,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for status.
+   * The status of the cluster.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -142,6 +154,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for status.
+   * The status of the cluster.
    **/
   public void setStatus(String status) {
     this.status = status;
@@ -149,6 +162,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for cdhVersion.
+   * The CDH version for the cluster.
    **/
   @JsonProperty("cdhVersion")
   public String getCdhVersion() {
@@ -157,6 +171,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for cdhVersion.
+   * The CDH version for the cluster.
    **/
   public void setCdhVersion(String cdhVersion) {
     this.cdhVersion = cdhVersion;
@@ -164,6 +179,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for instanceType.
+   * The instance type for the worker instances.
    **/
   @JsonProperty("instanceType")
   public String getInstanceType() {
@@ -172,6 +188,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for instanceType.
+   * The instance type for the worker instances.
    **/
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
@@ -179,6 +196,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for workersGroupSize.
+   * The worker group size.
    **/
   @JsonProperty("workersGroupSize")
   public Integer getWorkersGroupSize() {
@@ -187,6 +205,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for workersGroupSize.
+   * The worker group size.
    **/
   public void setWorkersGroupSize(Integer workersGroupSize) {
     this.workersGroupSize = workersGroupSize;
@@ -194,6 +213,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for serviceType.
+   * The service type for the cluster.
    **/
   @JsonProperty("serviceType")
   public String getServiceType() {
@@ -202,6 +222,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for serviceType.
+   * The service type for the cluster.
    **/
   public void setServiceType(String serviceType) {
     this.serviceType = serviceType;
@@ -209,6 +230,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for environmentType.
+   * The type of the environment.
    **/
   @JsonProperty("environmentType")
   public String getEnvironmentType() {
@@ -217,6 +239,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for environmentType.
+   * The type of the environment.
    **/
   public void setEnvironmentType(String environmentType) {
     this.environmentType = environmentType;
@@ -224,6 +247,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for environmentCrn.
+   * The CRN of the environment.
    **/
   @JsonProperty("environmentCrn")
   public String getEnvironmentCrn() {
@@ -232,6 +256,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for environmentCrn.
+   * The CRN of the environment.
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
@@ -239,6 +264,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for securityConfiguration.
+   * 
    **/
   @JsonProperty("securityConfiguration")
   public ClusterSummarySecurityConfiguration getSecurityConfiguration() {
@@ -247,9 +273,27 @@ public class ClusterSummary  {
 
   /**
    * Setter for securityConfiguration.
+   * 
    **/
   public void setSecurityConfiguration(ClusterSummarySecurityConfiguration securityConfiguration) {
     this.securityConfiguration = securityConfiguration;
+  }
+
+  /**
+   * Getter for namespaceCrn.
+   * The CRN of the cluster&#39;s Altus SDX namespace.
+   **/
+  @JsonProperty("namespaceCrn")
+  public String getNamespaceCrn() {
+    return namespaceCrn;
+  }
+
+  /**
+   * Setter for namespaceCrn.
+   * The CRN of the cluster&#39;s Altus SDX namespace.
+   **/
+  public void setNamespaceCrn(String namespaceCrn) {
+    this.namespaceCrn = namespaceCrn;
   }
 
   @Override
@@ -294,12 +338,15 @@ public class ClusterSummary  {
     if (!Objects.equals(this.securityConfiguration, clusterSummary.securityConfiguration)) {
       return false;
     }
+    if (!Objects.equals(this.namespaceCrn, clusterSummary.namespaceCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, workersGroupSize, serviceType, environmentType, environmentCrn, securityConfiguration);
+    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, workersGroupSize, serviceType, environmentType, environmentCrn, securityConfiguration, namespaceCrn);
   }
 
   @Override
@@ -317,6 +364,7 @@ public class ClusterSummary  {
     sb.append("    environmentType: ").append(toIndentedString(environmentType)).append("\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    securityConfiguration: ").append(toIndentedString(securityConfiguration)).append("\n");
+    sb.append("    namespaceCrn: ").append(toIndentedString(namespaceCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

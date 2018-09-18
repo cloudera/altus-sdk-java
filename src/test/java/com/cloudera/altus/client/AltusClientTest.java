@@ -78,7 +78,7 @@ public class AltusClientTest {
 
     TestClient(Response response) {
       super(new BasicAltusCredentials("accessKeyID",
-                                      AltusSDKTestUtils.getPrivateKey()),
+                                      AltusSDKTestUtils.getRSAPrivateKey()),
             "endpoint",
             AltusClientConfigurationBuilder.defaultBuilder()
             .withRetryHandler(

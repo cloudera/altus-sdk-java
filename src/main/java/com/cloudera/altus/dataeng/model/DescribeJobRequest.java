@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a describe job request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class DescribeJobRequest  {
 
   /**
@@ -37,6 +37,7 @@ public class DescribeJobRequest  {
 
   /**
    * Getter for jobId.
+   * The ID or CRN of the job.
    **/
   @JsonProperty("jobId")
   public String getJobId() {
@@ -45,6 +46,7 @@ public class DescribeJobRequest  {
 
   /**
    * Setter for jobId.
+   * The ID or CRN of the job.
    **/
   public void setJobId(String jobId) {
     this.jobId = jobId;

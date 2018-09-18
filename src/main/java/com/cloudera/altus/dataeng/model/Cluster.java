@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class Cluster  {
 
   /**
@@ -149,7 +149,13 @@ public class Cluster  {
   private List<ClusterResourceTagResponse> additionalClusterResourceTags = new ArrayList<ClusterResourceTagResponse>();
 
   /**
+   * The CRN of the cluster's Altus SDX namespace.
+   **/
+  private String namespaceCrn = null;
+
+  /**
    * Getter for clusterName.
+   * The name of the cluster.
    **/
   @JsonProperty("clusterName")
   public String getClusterName() {
@@ -158,6 +164,7 @@ public class Cluster  {
 
   /**
    * Setter for clusterName.
+   * The name of the cluster.
    **/
   public void setClusterName(String clusterName) {
     this.clusterName = clusterName;
@@ -165,6 +172,7 @@ public class Cluster  {
 
   /**
    * Getter for crn.
+   * The CRN of the cluster.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -173,6 +181,7 @@ public class Cluster  {
 
   /**
    * Setter for crn.
+   * The CRN of the cluster.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -180,6 +189,7 @@ public class Cluster  {
 
   /**
    * Getter for creationDate.
+   * The date when the cluster was created.
    **/
   @JsonProperty("creationDate")
   public ZonedDateTime getCreationDate() {
@@ -188,6 +198,7 @@ public class Cluster  {
 
   /**
    * Setter for creationDate.
+   * The date when the cluster was created.
    **/
   public void setCreationDate(ZonedDateTime creationDate) {
     this.creationDate = creationDate;
@@ -195,6 +206,7 @@ public class Cluster  {
 
   /**
    * Getter for status.
+   * The status of the cluster.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -203,6 +215,7 @@ public class Cluster  {
 
   /**
    * Setter for status.
+   * The status of the cluster.
    **/
   public void setStatus(String status) {
     this.status = status;
@@ -210,6 +223,7 @@ public class Cluster  {
 
   /**
    * Getter for cdhVersion.
+   * The CDH version for the cluster.
    **/
   @JsonProperty("cdhVersion")
   public String getCdhVersion() {
@@ -218,6 +232,7 @@ public class Cluster  {
 
   /**
    * Setter for cdhVersion.
+   * The CDH version for the cluster.
    **/
   public void setCdhVersion(String cdhVersion) {
     this.cdhVersion = cdhVersion;
@@ -225,6 +240,7 @@ public class Cluster  {
 
   /**
    * Getter for instanceType.
+   * The instance type for the worker instances.
    **/
   @JsonProperty("instanceType")
   public String getInstanceType() {
@@ -233,6 +249,7 @@ public class Cluster  {
 
   /**
    * Setter for instanceType.
+   * The instance type for the worker instances.
    **/
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
@@ -240,6 +257,7 @@ public class Cluster  {
 
   /**
    * Getter for hasInstanceBootstrapScript.
+   * A flag indicating if a bootstrap script was provided or not during the cluster create request. The script content is not returned because it may be sensitive.
    **/
   @JsonProperty("hasInstanceBootstrapScript")
   public Boolean getHasInstanceBootstrapScript() {
@@ -248,6 +266,7 @@ public class Cluster  {
 
   /**
    * Setter for hasInstanceBootstrapScript.
+   * A flag indicating if a bootstrap script was provided or not during the cluster create request. The script content is not returned because it may be sensitive.
    **/
   public void setHasInstanceBootstrapScript(Boolean hasInstanceBootstrapScript) {
     this.hasInstanceBootstrapScript = hasInstanceBootstrapScript;
@@ -255,6 +274,7 @@ public class Cluster  {
 
   /**
    * Getter for workersGroupSize.
+   * The worker group size.
    **/
   @JsonProperty("workersGroupSize")
   public Integer getWorkersGroupSize() {
@@ -263,6 +283,7 @@ public class Cluster  {
 
   /**
    * Setter for workersGroupSize.
+   * The worker group size.
    **/
   public void setWorkersGroupSize(Integer workersGroupSize) {
     this.workersGroupSize = workersGroupSize;
@@ -270,6 +291,7 @@ public class Cluster  {
 
   /**
    * Getter for serviceType.
+   * The service type for the cluster.
    **/
   @JsonProperty("serviceType")
   public String getServiceType() {
@@ -278,6 +300,7 @@ public class Cluster  {
 
   /**
    * Setter for serviceType.
+   * The service type for the cluster.
    **/
   public void setServiceType(String serviceType) {
     this.serviceType = serviceType;
@@ -285,6 +308,7 @@ public class Cluster  {
 
   /**
    * Getter for environmentType.
+   * The type of the environment.
    **/
   @JsonProperty("environmentType")
   public String getEnvironmentType() {
@@ -293,6 +317,7 @@ public class Cluster  {
 
   /**
    * Setter for environmentType.
+   * The type of the environment.
    **/
   public void setEnvironmentType(String environmentType) {
     this.environmentType = environmentType;
@@ -300,6 +325,7 @@ public class Cluster  {
 
   /**
    * Getter for environmentCrn.
+   * The CRN of the environment.
    **/
   @JsonProperty("environmentCrn")
   public String getEnvironmentCrn() {
@@ -308,6 +334,7 @@ public class Cluster  {
 
   /**
    * Setter for environmentCrn.
+   * The CRN of the environment.
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
@@ -315,6 +342,7 @@ public class Cluster  {
 
   /**
    * Getter for automaticTerminationCondition.
+   * The condition under which a cluster should be automatically terminated.
    **/
   @JsonProperty("automaticTerminationCondition")
   public String getAutomaticTerminationCondition() {
@@ -323,6 +351,7 @@ public class Cluster  {
 
   /**
    * Setter for automaticTerminationCondition.
+   * The condition under which a cluster should be automatically terminated.
    **/
   public void setAutomaticTerminationCondition(String automaticTerminationCondition) {
     this.automaticTerminationCondition = automaticTerminationCondition;
@@ -330,6 +359,7 @@ public class Cluster  {
 
   /**
    * Getter for securityConfiguration.
+   * 
    **/
   @JsonProperty("securityConfiguration")
   public ClusterSecurityConfiguration getSecurityConfiguration() {
@@ -338,6 +368,7 @@ public class Cluster  {
 
   /**
    * Setter for securityConfiguration.
+   * 
    **/
   public void setSecurityConfiguration(ClusterSecurityConfiguration securityConfiguration) {
     this.securityConfiguration = securityConfiguration;
@@ -345,6 +376,7 @@ public class Cluster  {
 
   /**
    * Getter for failureCodes.
+   * If the cluster&#39;s status is FAILED, this will be set with related failure codes.
    **/
   @JsonProperty("failureCodes")
   public List<String> getFailureCodes() {
@@ -353,6 +385,7 @@ public class Cluster  {
 
   /**
    * Setter for failureCodes.
+   * If the cluster&#39;s status is FAILED, this will be set with related failure codes.
    **/
   public void setFailureCodes(List<String> failureCodes) {
     this.failureCodes = failureCodes;
@@ -360,6 +393,7 @@ public class Cluster  {
 
   /**
    * Getter for failureReason.
+   * If the cluster&#39;s status is FAILED, this will be set with a message explaining the reason.
    **/
   @JsonProperty("failureReason")
   public String getFailureReason() {
@@ -368,6 +402,7 @@ public class Cluster  {
 
   /**
    * Setter for failureReason.
+   * If the cluster&#39;s status is FAILED, this will be set with a message explaining the reason.
    **/
   public void setFailureReason(String failureReason) {
     this.failureReason = failureReason;
@@ -375,6 +410,7 @@ public class Cluster  {
 
   /**
    * Getter for logArchiveLocation.
+   * The location where cluster and job logs will be placed.
    **/
   @JsonProperty("logArchiveLocation")
   public String getLogArchiveLocation() {
@@ -383,6 +419,7 @@ public class Cluster  {
 
   /**
    * Setter for logArchiveLocation.
+   * The location where cluster and job logs will be placed.
    **/
   public void setLogArchiveLocation(String logArchiveLocation) {
     this.logArchiveLocation = logArchiveLocation;
@@ -390,6 +427,7 @@ public class Cluster  {
 
   /**
    * Getter for clouderaManagerEndpoint.
+   * The connection endpoint of the cluster&#39;s Cloudera Manager.
    **/
   @JsonProperty("clouderaManagerEndpoint")
   public Endpoint getClouderaManagerEndpoint() {
@@ -398,6 +436,7 @@ public class Cluster  {
 
   /**
    * Setter for clouderaManagerEndpoint.
+   * The connection endpoint of the cluster&#39;s Cloudera Manager.
    **/
   public void setClouderaManagerEndpoint(Endpoint clouderaManagerEndpoint) {
     this.clouderaManagerEndpoint = clouderaManagerEndpoint;
@@ -405,6 +444,7 @@ public class Cluster  {
 
   /**
    * Getter for computeWorkersConfiguration.
+   * 
    **/
   @JsonProperty("computeWorkersConfiguration")
   public ClusterComputeWorkersConfiguration getComputeWorkersConfiguration() {
@@ -413,6 +453,7 @@ public class Cluster  {
 
   /**
    * Setter for computeWorkersConfiguration.
+   * 
    **/
   public void setComputeWorkersConfiguration(ClusterComputeWorkersConfiguration computeWorkersConfiguration) {
     this.computeWorkersConfiguration = computeWorkersConfiguration;
@@ -420,6 +461,7 @@ public class Cluster  {
 
   /**
    * Getter for workersConfiguration.
+   * 
    **/
   @JsonProperty("workersConfiguration")
   public ClusterWorkersConfiguration getWorkersConfiguration() {
@@ -428,6 +470,7 @@ public class Cluster  {
 
   /**
    * Setter for workersConfiguration.
+   * 
    **/
   public void setWorkersConfiguration(ClusterWorkersConfiguration workersConfiguration) {
     this.workersConfiguration = workersConfiguration;
@@ -435,6 +478,7 @@ public class Cluster  {
 
   /**
    * Getter for workloadAnalyticsEnabled.
+   * Whether this cluster was configured to send data to Altus Workload Analytics.
    **/
   @JsonProperty("workloadAnalyticsEnabled")
   public Boolean getWorkloadAnalyticsEnabled() {
@@ -443,6 +487,7 @@ public class Cluster  {
 
   /**
    * Setter for workloadAnalyticsEnabled.
+   * Whether this cluster was configured to send data to Altus Workload Analytics.
    **/
   public void setWorkloadAnalyticsEnabled(Boolean workloadAnalyticsEnabled) {
     this.workloadAnalyticsEnabled = workloadAnalyticsEnabled;
@@ -450,6 +495,7 @@ public class Cluster  {
 
   /**
    * Getter for navigatorConfiguration.
+   * 
    **/
   @JsonProperty("navigatorConfiguration")
   public ClusterNavigatorConfiguration getNavigatorConfiguration() {
@@ -458,6 +504,7 @@ public class Cluster  {
 
   /**
    * Setter for navigatorConfiguration.
+   * 
    **/
   public void setNavigatorConfiguration(ClusterNavigatorConfiguration navigatorConfiguration) {
     this.navigatorConfiguration = navigatorConfiguration;
@@ -465,6 +512,7 @@ public class Cluster  {
 
   /**
    * Getter for additionalClusterResourceTags.
+   * Tags that were added to cluster-associated resources at cluster creation time. This list does not include those that the Altus service sets.
    **/
   @JsonProperty("additionalClusterResourceTags")
   public List<ClusterResourceTagResponse> getAdditionalClusterResourceTags() {
@@ -473,9 +521,27 @@ public class Cluster  {
 
   /**
    * Setter for additionalClusterResourceTags.
+   * Tags that were added to cluster-associated resources at cluster creation time. This list does not include those that the Altus service sets.
    **/
   public void setAdditionalClusterResourceTags(List<ClusterResourceTagResponse> additionalClusterResourceTags) {
     this.additionalClusterResourceTags = additionalClusterResourceTags;
+  }
+
+  /**
+   * Getter for namespaceCrn.
+   * The CRN of the cluster&#39;s Altus SDX namespace.
+   **/
+  @JsonProperty("namespaceCrn")
+  public String getNamespaceCrn() {
+    return namespaceCrn;
+  }
+
+  /**
+   * Setter for namespaceCrn.
+   * The CRN of the cluster&#39;s Altus SDX namespace.
+   **/
+  public void setNamespaceCrn(String namespaceCrn) {
+    this.namespaceCrn = namespaceCrn;
   }
 
   @Override
@@ -553,12 +619,15 @@ public class Cluster  {
     if (!Objects.equals(this.additionalClusterResourceTags, cluster.additionalClusterResourceTags)) {
       return false;
     }
+    if (!Objects.equals(this.namespaceCrn, cluster.namespaceCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, hasInstanceBootstrapScript, workersGroupSize, serviceType, environmentType, environmentCrn, automaticTerminationCondition, securityConfiguration, failureCodes, failureReason, logArchiveLocation, clouderaManagerEndpoint, computeWorkersConfiguration, workersConfiguration, workloadAnalyticsEnabled, navigatorConfiguration, additionalClusterResourceTags);
+    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, hasInstanceBootstrapScript, workersGroupSize, serviceType, environmentType, environmentCrn, automaticTerminationCondition, securityConfiguration, failureCodes, failureReason, logArchiveLocation, clouderaManagerEndpoint, computeWorkersConfiguration, workersConfiguration, workloadAnalyticsEnabled, navigatorConfiguration, additionalClusterResourceTags, namespaceCrn);
   }
 
   @Override
@@ -587,6 +656,7 @@ public class Cluster  {
     sb.append("    workloadAnalyticsEnabled: ").append(toIndentedString(workloadAnalyticsEnabled)).append("\n");
     sb.append("    navigatorConfiguration: ").append(toIndentedString(navigatorConfiguration)).append("\n");
     sb.append("    additionalClusterResourceTags: ").append(toIndentedString(additionalClusterResourceTags)).append("\n");
+    sb.append("    namespaceCrn: ").append(toIndentedString(namespaceCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

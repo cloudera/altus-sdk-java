@@ -34,7 +34,7 @@ public class BasicAltusCredentialsTest {
   @Test
   public void testNullKeyId() {
     Throwable e = assertThrows(AltusClientException.class, () -> {
-      new BasicAltusCredentials(null, AltusSDKTestUtils.getPrivateKey());
+      new BasicAltusCredentials(null, AltusSDKTestUtils.getRSAPrivateKey());
     });
     assertEquals("Argument is null", e.getMessage());
   }
@@ -57,7 +57,7 @@ public class BasicAltusCredentialsTest {
 
   @Test
   public void testExpectedValues() {
-    PrivateKey privateKey = AltusSDKTestUtils.getPrivateKey();
+    PrivateKey privateKey = AltusSDKTestUtils.getRSAPrivateKey();
     BasicAltusCredentials credentials =
         new BasicAltusCredentials("foo", privateKey);
     assertEquals("foo", credentials.getAccessKeyId());

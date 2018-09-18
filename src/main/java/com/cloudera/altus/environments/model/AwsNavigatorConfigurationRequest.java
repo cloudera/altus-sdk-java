@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Defines configurations required to enable Cloudera Navigator integration in an AWS environment
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class AwsNavigatorConfigurationRequest  {
 
   /**
@@ -42,6 +42,7 @@ public class AwsNavigatorConfigurationRequest  {
 
   /**
    * Getter for enable.
+   * Whether Cloudera Navigator integration is enabled.
    **/
   @JsonProperty("enable")
   public Boolean getEnable() {
@@ -50,6 +51,7 @@ public class AwsNavigatorConfigurationRequest  {
 
   /**
    * Setter for enable.
+   * Whether Cloudera Navigator integration is enabled.
    **/
   public void setEnable(Boolean enable) {
     this.enable = enable;
@@ -57,6 +59,7 @@ public class AwsNavigatorConfigurationRequest  {
 
   /**
    * Getter for navigatorDataBucket.
+   * The S3 bucket where metadata and lineage information used by Cloudera Navigator is stored.
    **/
   @JsonProperty("navigatorDataBucket")
   public String getNavigatorDataBucket() {
@@ -65,6 +68,7 @@ public class AwsNavigatorConfigurationRequest  {
 
   /**
    * Setter for navigatorDataBucket.
+   * The S3 bucket where metadata and lineage information used by Cloudera Navigator is stored.
    **/
   public void setNavigatorDataBucket(String navigatorDataBucket) {
     this.navigatorDataBucket = navigatorDataBucket;

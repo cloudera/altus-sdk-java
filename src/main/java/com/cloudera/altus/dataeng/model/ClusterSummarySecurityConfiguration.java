@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * The cluster&#39;s security configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ClusterSummarySecurityConfiguration  {
 
   /**
@@ -37,6 +37,7 @@ public class ClusterSummarySecurityConfiguration  {
 
   /**
    * Getter for enabled.
+   * Whether cluster security is enabled. If enabled, cluster services require authentication and wire encryption is enabled. Cluster volumes are encrypted in a cloud provider specific manner.
    **/
   @JsonProperty("enabled")
   public Boolean getEnabled() {
@@ -45,6 +46,7 @@ public class ClusterSummarySecurityConfiguration  {
 
   /**
    * Setter for enabled.
+   * Whether cluster security is enabled. If enabled, cluster services require authentication and wire encryption is enabled. Cluster volumes are encrypted in a cloud provider specific manner.
    **/
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;

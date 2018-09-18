@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for a list user assigned roles request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class ListUserAssignedResourceRolesResponse extends AltusResponse {
 
   /**
@@ -44,6 +44,7 @@ public class ListUserAssignedResourceRolesResponse extends AltusResponse {
 
   /**
    * Getter for resourceAssignments.
+   * The user&#39;s resource assignments.
    **/
   @JsonProperty("resourceAssignments")
   public List<ResourceAssignment> getResourceAssignments() {
@@ -52,6 +53,7 @@ public class ListUserAssignedResourceRolesResponse extends AltusResponse {
 
   /**
    * Setter for resourceAssignments.
+   * The user&#39;s resource assignments.
    **/
   public void setResourceAssignments(List<ResourceAssignment> resourceAssignments) {
     this.resourceAssignments = resourceAssignments;
@@ -59,6 +61,7 @@ public class ListUserAssignedResourceRolesResponse extends AltusResponse {
 
   /**
    * Getter for nextToken.
+   * The token to use when requesting the next set of results. If not present, there are no additional results.
    **/
   @JsonProperty("nextToken")
   public String getNextToken() {
@@ -67,6 +70,7 @@ public class ListUserAssignedResourceRolesResponse extends AltusResponse {
 
   /**
    * Setter for nextToken.
+   * The token to use when requesting the next set of results. If not present, there are no additional results.
    **/
   public void setNextToken(String nextToken) {
     this.nextToken = nextToken;

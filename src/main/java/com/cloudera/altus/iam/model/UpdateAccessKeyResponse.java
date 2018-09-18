@@ -28,7 +28,7 @@ import com.cloudera.altus.iam.model.AccessKey;
 /**
  * Response object for an update access key request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class UpdateAccessKeyResponse extends AltusResponse {
 
   /**
@@ -38,6 +38,7 @@ public class UpdateAccessKeyResponse extends AltusResponse {
 
   /**
    * Getter for accessKey.
+   * The access key that was updated.
    **/
   @JsonProperty("accessKey")
   public AccessKey getAccessKey() {
@@ -46,6 +47,7 @@ public class UpdateAccessKeyResponse extends AltusResponse {
 
   /**
    * Setter for accessKey.
+   * The access key that was updated.
    **/
   public void setAccessKey(AccessKey accessKey) {
     this.accessKey = accessKey;

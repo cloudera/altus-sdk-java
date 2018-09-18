@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for a CreateAWSEnvironment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -101,6 +101,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for name.
+   * The name of the environment. This name must be unique, must have a maximum of 128 characters, and must contain only alphanumeric characters and hyphens. Names are case-sensitive.
    **/
   @JsonProperty("name")
   public String getName() {
@@ -109,6 +110,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for name.
+   * The name of the environment. This name must be unique, must have a maximum of 128 characters, and must contain only alphanumeric characters and hyphens. Names are case-sensitive.
    **/
   public void setName(String name) {
     this.name = name;
@@ -116,6 +118,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for delegatedRoleArn.
+   * The ARN of the delegated role.
    **/
   @JsonProperty("delegatedRoleArn")
   public String getDelegatedRoleArn() {
@@ -124,6 +127,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for delegatedRoleArn.
+   * The ARN of the delegated role.
    **/
   public void setDelegatedRoleArn(String delegatedRoleArn) {
     this.delegatedRoleArn = delegatedRoleArn;
@@ -131,6 +135,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for instanceProfileName.
+   * The name of the IAM instance profile.
    **/
   @JsonProperty("instanceProfileName")
   public String getInstanceProfileName() {
@@ -139,6 +144,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for instanceProfileName.
+   * The name of the IAM instance profile.
    **/
   public void setInstanceProfileName(String instanceProfileName) {
     this.instanceProfileName = instanceProfileName;
@@ -146,6 +152,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for subnets.
+   * The network subnets.
    **/
   @JsonProperty("subnets")
   public List<String> getSubnets() {
@@ -154,6 +161,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for subnets.
+   * The network subnets.
    **/
   public void setSubnets(List<String> subnets) {
     this.subnets = subnets;
@@ -161,6 +169,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for securityGroups.
+   * The security groups.
    **/
   @JsonProperty("securityGroups")
   public List<String> getSecurityGroups() {
@@ -169,6 +178,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for securityGroups.
+   * The security groups.
    **/
   public void setSecurityGroups(List<String> securityGroups) {
     this.securityGroups = securityGroups;
@@ -176,6 +186,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for region.
+   * The network region.
    **/
   @JsonProperty("region")
   public String getRegion() {
@@ -184,6 +195,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for region.
+   * The network region.
    **/
   public void setRegion(String region) {
     this.region = region;
@@ -191,6 +203,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for logArchiveBucketName.
+   * The name of the S3 log archive bucket in which cluster logs will be stored.
    **/
   @JsonProperty("logArchiveBucketName")
   public String getLogArchiveBucketName() {
@@ -199,6 +212,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for logArchiveBucketName.
+   * The name of the S3 log archive bucket in which cluster logs will be stored.
    **/
   public void setLogArchiveBucketName(String logArchiveBucketName) {
     this.logArchiveBucketName = logArchiveBucketName;
@@ -206,6 +220,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for autoRegisterClusterSshKeys.
+   * The flag to allow auto registration of SSH keys provided during cluster creation. Key pairs will be imported with name \\&#39;CLOUDERA-\\&#39; followed by the corresponding private key fingerprint.
    **/
   @JsonProperty("autoRegisterClusterSshKeys")
   public Boolean getAutoRegisterClusterSshKeys() {
@@ -214,6 +229,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for autoRegisterClusterSshKeys.
+   * The flag to allow auto registration of SSH keys provided during cluster creation. Key pairs will be imported with name \\&#39;CLOUDERA-\\&#39; followed by the corresponding private key fingerprint.
    **/
   public void setAutoRegisterClusterSshKeys(Boolean autoRegisterClusterSshKeys) {
     this.autoRegisterClusterSshKeys = autoRegisterClusterSshKeys;
@@ -221,6 +237,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for s3GuardConfiguration.
+   * The configurations for S3Guard (S3 consistent view layer).
    **/
   @JsonProperty("s3GuardConfiguration")
   public S3GuardConfigurationRequest getS3GuardConfiguration() {
@@ -229,6 +246,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for s3GuardConfiguration.
+   * The configurations for S3Guard (S3 consistent view layer).
    **/
   public void setS3GuardConfiguration(S3GuardConfigurationRequest s3GuardConfiguration) {
     this.s3GuardConfiguration = s3GuardConfiguration;
@@ -236,6 +254,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for workloadAnalyticsConfiguration.
+   * Configuration for integration with Altus Workload Analytics.
    **/
   @JsonProperty("workloadAnalyticsConfiguration")
   public WorkloadAnalyticsConfigurationRequest getWorkloadAnalyticsConfiguration() {
@@ -244,6 +263,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for workloadAnalyticsConfiguration.
+   * Configuration for integration with Altus Workload Analytics.
    **/
   public void setWorkloadAnalyticsConfiguration(WorkloadAnalyticsConfigurationRequest workloadAnalyticsConfiguration) {
     this.workloadAnalyticsConfiguration = workloadAnalyticsConfiguration;
@@ -251,6 +271,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for navigatorConfiguration.
+   * The configurations for Cloudera Navigator integration.
    **/
   @JsonProperty("navigatorConfiguration")
   public AwsNavigatorConfigurationRequest getNavigatorConfiguration() {
@@ -259,6 +280,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for navigatorConfiguration.
+   * The configurations for Cloudera Navigator integration.
    **/
   public void setNavigatorConfiguration(AwsNavigatorConfigurationRequest navigatorConfiguration) {
     this.navigatorConfiguration = navigatorConfiguration;
@@ -266,6 +288,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for securedClusters.
+   * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled. Non-root EBS volumes will be encrypted.
    **/
   @JsonProperty("securedClusters")
   public Boolean getSecuredClusters() {
@@ -274,6 +297,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for securedClusters.
+   * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled. Non-root EBS volumes will be encrypted.
    **/
   public void setSecuredClusters(Boolean securedClusters) {
     this.securedClusters = securedClusters;
@@ -281,6 +305,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for ebsEncryptionKmsKey.
+   * The ARN of the KMS key to use to encrypt non-root cluster EBS volumes. Leave this empty to use the default AWS managed CMK for EBS. This option may only be used when securedClusters is true.
    **/
   @JsonProperty("ebsEncryptionKmsKey")
   public String getEbsEncryptionKmsKey() {
@@ -289,6 +314,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for ebsEncryptionKmsKey.
+   * The ARN of the KMS key to use to encrypt non-root cluster EBS volumes. Leave this empty to use the default AWS managed CMK for EBS. This option may only be used when securedClusters is true.
    **/
   public void setEbsEncryptionKmsKey(String ebsEncryptionKmsKey) {
     this.ebsEncryptionKmsKey = ebsEncryptionKmsKey;

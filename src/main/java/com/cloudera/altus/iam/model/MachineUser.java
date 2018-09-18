@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a Cloudera Altus machine user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class MachineUser  {
 
   /**
@@ -48,6 +48,7 @@ public class MachineUser  {
 
   /**
    * Getter for machineUserName.
+   * The machine user name.
    **/
   @JsonProperty("machineUserName")
   public String getMachineUserName() {
@@ -56,6 +57,7 @@ public class MachineUser  {
 
   /**
    * Setter for machineUserName.
+   * The machine user name.
    **/
   public void setMachineUserName(String machineUserName) {
     this.machineUserName = machineUserName;
@@ -63,6 +65,7 @@ public class MachineUser  {
 
   /**
    * Getter for crn.
+   * The CRN of the user.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -71,6 +74,7 @@ public class MachineUser  {
 
   /**
    * Setter for crn.
+   * The CRN of the user.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -78,6 +82,7 @@ public class MachineUser  {
 
   /**
    * Getter for creationDate.
+   * The date when this machine user record was created.
    **/
   @JsonProperty("creationDate")
   public ZonedDateTime getCreationDate() {
@@ -86,6 +91,7 @@ public class MachineUser  {
 
   /**
    * Setter for creationDate.
+   * The date when this machine user record was created.
    **/
   public void setCreationDate(ZonedDateTime creationDate) {
     this.creationDate = creationDate;

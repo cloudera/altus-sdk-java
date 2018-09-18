@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for an assign machine user resource role request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class AssignMachineUserResourceRoleRequest  {
 
   /**
@@ -47,6 +47,7 @@ public class AssignMachineUserResourceRoleRequest  {
 
   /**
    * Getter for machineUserName.
+   * The machine user to assign the resource role to. Can be the user&#39;s name or CRN.
    **/
   @JsonProperty("machineUserName")
   public String getMachineUserName() {
@@ -55,6 +56,7 @@ public class AssignMachineUserResourceRoleRequest  {
 
   /**
    * Setter for machineUserName.
+   * The machine user to assign the resource role to. Can be the user&#39;s name or CRN.
    **/
   public void setMachineUserName(String machineUserName) {
     this.machineUserName = machineUserName;
@@ -62,6 +64,7 @@ public class AssignMachineUserResourceRoleRequest  {
 
   /**
    * Getter for resourceRoleCrn.
+   * The CRN of the resource role to assign to the machine user.
    **/
   @JsonProperty("resourceRoleCrn")
   public String getResourceRoleCrn() {
@@ -70,6 +73,7 @@ public class AssignMachineUserResourceRoleRequest  {
 
   /**
    * Setter for resourceRoleCrn.
+   * The CRN of the resource role to assign to the machine user.
    **/
   public void setResourceRoleCrn(String resourceRoleCrn) {
     this.resourceRoleCrn = resourceRoleCrn;
@@ -77,6 +81,7 @@ public class AssignMachineUserResourceRoleRequest  {
 
   /**
    * Getter for resourceCrn.
+   * The resource for which the resource role rights are granted.
    **/
   @JsonProperty("resourceCrn")
   public String getResourceCrn() {
@@ -85,6 +90,7 @@ public class AssignMachineUserResourceRoleRequest  {
 
   /**
    * Setter for resourceCrn.
+   * The resource for which the resource role rights are granted.
    **/
   public void setResourceCrn(String resourceCrn) {
     this.resourceCrn = resourceCrn;

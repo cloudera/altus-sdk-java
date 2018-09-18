@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Information about a role.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class Role  {
 
   /**
@@ -44,6 +44,7 @@ public class Role  {
 
   /**
    * Getter for crn.
+   * The role&#39;s CRN.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -52,6 +53,7 @@ public class Role  {
 
   /**
    * Setter for crn.
+   * The role&#39;s CRN.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -59,6 +61,7 @@ public class Role  {
 
   /**
    * Getter for policies.
+   * The list of policies that belong to the role. Cannot be empty.
    **/
   @JsonProperty("policies")
   public List<Policy> getPolicies() {
@@ -67,6 +70,7 @@ public class Role  {
 
   /**
    * Setter for policies.
+   * The list of policies that belong to the role. Cannot be empty.
    **/
   public void setPolicies(List<Policy> policies) {
     this.policies = policies;

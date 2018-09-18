@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a Cloudera Altus user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class User  {
 
   /**
@@ -73,6 +73,7 @@ public class User  {
 
   /**
    * Getter for userId.
+   * The stable, unique identifier of the user.
    **/
   @JsonProperty("userId")
   public String getUserId() {
@@ -81,6 +82,7 @@ public class User  {
 
   /**
    * Setter for userId.
+   * The stable, unique identifier of the user.
    **/
   public void setUserId(String userId) {
     this.userId = userId;
@@ -88,6 +90,7 @@ public class User  {
 
   /**
    * Getter for crn.
+   * The CRN of the user.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -96,6 +99,7 @@ public class User  {
 
   /**
    * Setter for crn.
+   * The CRN of the user.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -103,6 +107,7 @@ public class User  {
 
   /**
    * Getter for email.
+   * The user&#39;s email address.
    **/
   @JsonProperty("email")
   public String getEmail() {
@@ -111,6 +116,7 @@ public class User  {
 
   /**
    * Setter for email.
+   * The user&#39;s email address.
    **/
   public void setEmail(String email) {
     this.email = email;
@@ -118,6 +124,7 @@ public class User  {
 
   /**
    * Getter for firstName.
+   * The user&#39;s first name.
    **/
   @JsonProperty("firstName")
   public String getFirstName() {
@@ -126,6 +133,7 @@ public class User  {
 
   /**
    * Setter for firstName.
+   * The user&#39;s first name.
    **/
   public void setFirstName(String firstName) {
     this.firstName = firstName;
@@ -133,6 +141,7 @@ public class User  {
 
   /**
    * Getter for lastName.
+   * The user&#39;s last name.
    **/
   @JsonProperty("lastName")
   public String getLastName() {
@@ -141,6 +150,7 @@ public class User  {
 
   /**
    * Setter for lastName.
+   * The user&#39;s last name.
    **/
   public void setLastName(String lastName) {
     this.lastName = lastName;
@@ -148,6 +158,7 @@ public class User  {
 
   /**
    * Getter for creationDate.
+   * The date when this user record was created.
    **/
   @JsonProperty("creationDate")
   public ZonedDateTime getCreationDate() {
@@ -156,6 +167,7 @@ public class User  {
 
   /**
    * Setter for creationDate.
+   * The date when this user record was created.
    **/
   public void setCreationDate(ZonedDateTime creationDate) {
     this.creationDate = creationDate;
@@ -163,6 +175,7 @@ public class User  {
 
   /**
    * Getter for accountAdmin.
+   * Whether the user is an administrator of their Altus account.
    **/
   @JsonProperty("accountAdmin")
   public Boolean getAccountAdmin() {
@@ -171,6 +184,7 @@ public class User  {
 
   /**
    * Setter for accountAdmin.
+   * Whether the user is an administrator of their Altus account.
    **/
   public void setAccountAdmin(Boolean accountAdmin) {
     this.accountAdmin = accountAdmin;
@@ -178,6 +192,7 @@ public class User  {
 
   /**
    * Getter for lastInteractiveLogin.
+   * The date of the user&#39;s last interactive login.
    **/
   @JsonProperty("lastInteractiveLogin")
   public ZonedDateTime getLastInteractiveLogin() {
@@ -186,6 +201,7 @@ public class User  {
 
   /**
    * Setter for lastInteractiveLogin.
+   * The date of the user&#39;s last interactive login.
    **/
   public void setLastInteractiveLogin(ZonedDateTime lastInteractiveLogin) {
     this.lastInteractiveLogin = lastInteractiveLogin;

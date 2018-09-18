@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A policy statement is a list of rights and zero or more resources on which the rights are granted.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class PolicyStatement  {
 
   /**
@@ -43,6 +43,7 @@ public class PolicyStatement  {
 
   /**
    * Getter for rights.
+   * The list of rights in the policy statement.
    **/
   @JsonProperty("rights")
   public List<String> getRights() {
@@ -51,6 +52,7 @@ public class PolicyStatement  {
 
   /**
    * Setter for rights.
+   * The list of rights in the policy statement.
    **/
   public void setRights(List<String> rights) {
     this.rights = rights;
@@ -58,6 +60,7 @@ public class PolicyStatement  {
 
   /**
    * Getter for resources.
+   * The resources on which the rights are granted.
    **/
   @JsonProperty("resources")
   public List<String> getResources() {
@@ -66,6 +69,7 @@ public class PolicyStatement  {
 
   /**
    * Setter for resources.
+   * The resources on which the rights are granted.
    **/
   public void setResources(List<String> resources) {
     this.resources = resources;

@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Container for information required to set up an AWS cross-account access role.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class InfoForAWSCrossAccountAccess  {
 
   /**
@@ -47,6 +47,7 @@ public class InfoForAWSCrossAccountAccess  {
 
   /**
    * Getter for clouderaRoleARN.
+   * The AWS IAM role that will be used by Cloudera when assuming the customer provided cross-account access role when accessing the cusotmer&#39;s AWS account.
    **/
   @JsonProperty("clouderaRoleARN")
   public String getClouderaRoleARN() {
@@ -55,6 +56,7 @@ public class InfoForAWSCrossAccountAccess  {
 
   /**
    * Setter for clouderaRoleARN.
+   * The AWS IAM role that will be used by Cloudera when assuming the customer provided cross-account access role when accessing the cusotmer&#39;s AWS account.
    **/
   public void setClouderaRoleARN(String clouderaRoleARN) {
     this.clouderaRoleARN = clouderaRoleARN;
@@ -62,6 +64,7 @@ public class InfoForAWSCrossAccountAccess  {
 
   /**
    * Getter for clouderaAccountId.
+   * The role that will be used by Cloudera to assume the cross-account access role in the customer AWS account.
    **/
   @JsonProperty("clouderaAccountId")
   public String getClouderaAccountId() {
@@ -70,6 +73,7 @@ public class InfoForAWSCrossAccountAccess  {
 
   /**
    * Setter for clouderaAccountId.
+   * The role that will be used by Cloudera to assume the cross-account access role in the customer AWS account.
    **/
   public void setClouderaAccountId(String clouderaAccountId) {
     this.clouderaAccountId = clouderaAccountId;
@@ -77,6 +81,7 @@ public class InfoForAWSCrossAccountAccess  {
 
   /**
    * Getter for externalIdForAWSDelegatedAccess.
+   * The external ID that will be used by Cloudera when assuming the customer provided cross-account access role when accessing the customer&#39;s AWS account.
    **/
   @JsonProperty("externalIdForAWSDelegatedAccess")
   public String getExternalIdForAWSDelegatedAccess() {
@@ -85,6 +90,7 @@ public class InfoForAWSCrossAccountAccess  {
 
   /**
    * Setter for externalIdForAWSDelegatedAccess.
+   * The external ID that will be used by Cloudera when assuming the customer provided cross-account access role when accessing the customer&#39;s AWS account.
    **/
   public void setExternalIdForAWSDelegatedAccess(String externalIdForAWSDelegatedAccess) {
     this.externalIdForAWSDelegatedAccess = externalIdForAWSDelegatedAccess;

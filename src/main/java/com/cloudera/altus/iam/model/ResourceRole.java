@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Information about a resource role. A resource role is a role that grants a collection of rights to a user on resources.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class ResourceRole  {
 
   /**
@@ -43,6 +43,7 @@ public class ResourceRole  {
 
   /**
    * Getter for crn.
+   * The CRN of the resource role.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -51,6 +52,7 @@ public class ResourceRole  {
 
   /**
    * Setter for crn.
+   * The CRN of the resource role.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -58,6 +60,7 @@ public class ResourceRole  {
 
   /**
    * Getter for rights.
+   * The rights granted by this role.
    **/
   @JsonProperty("rights")
   public List<String> getRights() {
@@ -66,6 +69,7 @@ public class ResourceRole  {
 
   /**
    * Setter for rights.
+   * The rights granted by this role.
    **/
   public void setRights(List<String> rights) {
     this.rights = rights;

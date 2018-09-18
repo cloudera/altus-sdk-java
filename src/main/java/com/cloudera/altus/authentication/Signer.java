@@ -37,13 +37,17 @@ import java.util.SortedMap;
 
 import org.apache.commons.codec.binary.Base64;
 
-/**
- * An request signer appropriate for use with the RSAv1Authenticator. See that
- * classes comments for details.
- */
-public class RSAv1Signer {
+import net.i2p.crypto.eddsa.EdDSAEngine;
+import net.i2p.crypto.eddsa.EdDSAPrivateKey;
 
-  private static final String AUTH_METHOD = "rsav1";
+/**
+ * An request signer appropriate for use with the Altus Client.
+ */
+public class Signer {
+
+  private static final String RSA_AUTH_METHOD = "rsav1";
+  private static final String RSA_SIGNATURE_ALGORITHM = "SHA256withRSA";
+  private static final String ED25519_AUTH_METHOD = "ed25519v1";
 
   /**
    * Computes the value for the x-altus-auth header for a request.
@@ -68,6 +72,21 @@ public class RSAv1Signer {
     checkNotNullAndThrow(accessKeyId);
     checkNotNullAndThrow(privateKey);
 
+    String authMethod;
+    String sigAlgo;
+    switch (privateKey.getAlgorithm()) {
+    case "RSA":
+      authMethod = RSA_AUTH_METHOD;
+      sigAlgo = RSA_SIGNATURE_ALGORITHM;
+      break;
+    case EdDSAPrivateKey.KEY_ALGORITHM:
+      authMethod = ED25519_AUTH_METHOD;
+      sigAlgo = EdDSAEngine.SIGNATURE_ALGORITHM;
+      break;
+    default:
+      throw new AltusClientException("Unsupported Key Algorithm: " +
+                                     privateKey.getAlgorithm());
+    }
     String stringToSign = new StringBuilder()
       .append(httpMethod)
       .append("\n")
@@ -77,12 +96,12 @@ public class RSAv1Signer {
       .append("\n")
       .append(path)
       .append("\n")
-      .append(AUTH_METHOD)
+      .append(authMethod)
       .toString();
 
     String signatureString;
     try {
-      Signature signature = Signature.getInstance("SHA256withRSA");
+      Signature signature = Signature.getInstance(sigAlgo);
       signature.initSign(privateKey);
       signature.update(stringToSign.getBytes(StandardCharsets.UTF_8));
       signatureString = Base64.encodeBase64URLSafeString(signature.sign());
@@ -96,7 +115,7 @@ public class RSAv1Signer {
     try {
       SortedMap<String, String> authParams = Maps.newTreeMap();
       authParams.put("access_key_id", accessKeyId);
-      authParams.put("auth_method", AUTH_METHOD);
+      authParams.put("auth_method", authMethod);
       String encodedAuthParams =
         new ObjectMapper().writeValueAsString(authParams);
       return String.format("%s.%s",

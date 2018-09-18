@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A policy contains a list of one or more policy statements.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class Policy  {
 
   /**
@@ -44,6 +44,7 @@ public class Policy  {
 
   /**
    * Getter for crn.
+   * The policy crn.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -52,6 +53,7 @@ public class Policy  {
 
   /**
    * Setter for crn.
+   * The policy crn.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -59,6 +61,7 @@ public class Policy  {
 
   /**
    * Getter for policyStatements.
+   * The policy statements.
    **/
   @JsonProperty("policyStatements")
   public List<PolicyStatement> getPolicyStatements() {
@@ -67,6 +70,7 @@ public class Policy  {
 
   /**
    * Setter for policyStatements.
+   * The policy statements.
    **/
   public void setPolicyStatements(List<PolicyStatement> policyStatements) {
     this.policyStatements = policyStatements;

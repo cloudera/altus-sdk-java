@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Object used to submit a HIVE job.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class HiveJobRequest  {
 
   /**
@@ -48,6 +48,7 @@ public class HiveJobRequest  {
 
   /**
    * Getter for script.
+   * The actual content of the Hive script to execute. This script can be templatized with variables of the form ${VARIABLE} that will be provided as params. When using the CLI this can be a local path (e.g. file:///absolute/path/to/script.hql).
    **/
   @JsonProperty("script")
   public String getScript() {
@@ -56,6 +57,7 @@ public class HiveJobRequest  {
 
   /**
    * Setter for script.
+   * The actual content of the Hive script to execute. This script can be templatized with variables of the form ${VARIABLE} that will be provided as params. When using the CLI this can be a local path (e.g. file:///absolute/path/to/script.hql).
    **/
   public void setScript(String script) {
     this.script = script;
@@ -63,6 +65,7 @@ public class HiveJobRequest  {
 
   /**
    * Getter for params.
+   * Parameters to be passed to the Hive script. For example: InputDir&#x3D;/home/input-data or OutputDir&#x3D;/output.
    **/
   @JsonProperty("params")
   public List<String> getParams() {
@@ -71,6 +74,7 @@ public class HiveJobRequest  {
 
   /**
    * Setter for params.
+   * Parameters to be passed to the Hive script. For example: InputDir&#x3D;/home/input-data or OutputDir&#x3D;/output.
    **/
   public void setParams(List<String> params) {
     this.params = params;
@@ -78,6 +82,7 @@ public class HiveJobRequest  {
 
   /**
    * Getter for jobXml.
+   * An optional XML document containing client configurations for Beeline or local path when using the CLI (e.g. file:///absolute/path/to/job1.xml). These are the same configurations that usually go into hive-site.xml to drive Beeline as a client of Hive Server 2. An example can be downloaded from Cloudera Manager (navigate to Hive service, click \&quot;Actions\&quot; and then \&quot;Download Client Configuration\&quot;).
    **/
   @JsonProperty("jobXml")
   public String getJobXml() {
@@ -86,6 +91,7 @@ public class HiveJobRequest  {
 
   /**
    * Setter for jobXml.
+   * An optional XML document containing client configurations for Beeline or local path when using the CLI (e.g. file:///absolute/path/to/job1.xml). These are the same configurations that usually go into hive-site.xml to drive Beeline as a client of Hive Server 2. An example can be downloaded from Cloudera Manager (navigate to Hive service, click \&quot;Actions\&quot; and then \&quot;Download Client Configuration\&quot;).
    **/
   public void setJobXml(String jobXml) {
     this.jobXml = jobXml;

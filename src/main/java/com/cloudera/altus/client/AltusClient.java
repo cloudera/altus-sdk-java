@@ -27,7 +27,7 @@ import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.AltusHTTPException;
 import com.cloudera.altus.AltusServiceException;
 import com.cloudera.altus.annotation.SdkInternalApi;
-import com.cloudera.altus.authentication.RSAv1Signer;
+import com.cloudera.altus.authentication.Signer;
 import com.cloudera.altus.authentication.credentials.AltusCredentials;
 import com.cloudera.altus.http.RetryHandler;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -100,20 +100,21 @@ public abstract class AltusClient {
     int attempts = 0;
     do {
       attempts++;
-      Response response = getAPIResponse(path, body);
-      checkNotNullAndThrow(response);
-      checkArgumentAndThrow(response.getStatusInfo() != Response.Status.NO_CONTENT);
-      try {
-        return parse(response, returnType);
-      } catch (AltusClientException exception) {
-        Duration delay = retryHandler.shouldRetry(attempts, exception);
-        if (delay == RetryHandler.DO_NOT_RETRY) {
-          throw exception;
-        }
+      try (Response response = getAPIResponse(path, body)) {
+        checkNotNullAndThrow(response);
+        checkArgumentAndThrow(response.getStatusInfo() != Response.Status.NO_CONTENT);
         try {
-          Thread.sleep(delay.toMillis());
-        } catch (InterruptedException e) {
-          throw new AltusClientException("Error while retrying request", e);
+          return parse(response, returnType);
+        } catch (AltusClientException exception) {
+          Duration delay = retryHandler.shouldRetry(attempts, exception);
+          if (delay == RetryHandler.DO_NOT_RETRY) {
+            throw exception;
+          }
+          try {
+            Thread.sleep(delay.toMillis());
+          } catch (InterruptedException e) {
+            throw new AltusClientException("Error while retrying request", e);
+          }
         }
       }
     } while (true);
@@ -131,7 +132,7 @@ public abstract class AltusClient {
     String date = ZonedDateTime.now(ZoneId.of("GMT")).format(
         DateTimeFormatter.RFC_1123_DATE_TIME);
 
-    String auth = new RSAv1Signer().computeAuthHeader(
+    String auth = new Signer().computeAuthHeader(
         "POST",
         MediaType.APPLICATION_JSON,
         date,

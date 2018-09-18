@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for a list clusters request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ListClustersRequest  {
 
   /**
@@ -48,6 +48,7 @@ public class ListClustersRequest  {
 
   /**
    * Getter for clusterNames.
+   * The names or CRNs of the clusters.
    **/
   @JsonProperty("clusterNames")
   public List<String> getClusterNames() {
@@ -56,6 +57,7 @@ public class ListClustersRequest  {
 
   /**
    * Setter for clusterNames.
+   * The names or CRNs of the clusters.
    **/
   public void setClusterNames(List<String> clusterNames) {
     this.clusterNames = clusterNames;
@@ -63,6 +65,7 @@ public class ListClustersRequest  {
 
   /**
    * Getter for pageSize.
+   * The size of each page.
    **/
   @JsonProperty("pageSize")
   public Integer getPageSize() {
@@ -71,6 +74,7 @@ public class ListClustersRequest  {
 
   /**
    * Setter for pageSize.
+   * The size of each page.
    **/
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
@@ -78,6 +82,7 @@ public class ListClustersRequest  {
 
   /**
    * Getter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   @JsonProperty("startingToken")
   public String getStartingToken() {
@@ -86,6 +91,7 @@ public class ListClustersRequest  {
 
   /**
    * Setter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   public void setStartingToken(String startingToken) {
     this.startingToken = startingToken;

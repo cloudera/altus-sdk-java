@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * The S3 consistent view (S3Guard) configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
 public class S3GuardConfiguration  {
 
   /**
@@ -42,6 +42,7 @@ public class S3GuardConfiguration  {
 
   /**
    * Getter for enable.
+   * Whether S3Guard is enabled.
    **/
   @JsonProperty("enable")
   public Boolean getEnable() {
@@ -50,6 +51,7 @@ public class S3GuardConfiguration  {
 
   /**
    * Setter for enable.
+   * Whether S3Guard is enabled.
    **/
   public void setEnable(Boolean enable) {
     this.enable = enable;
@@ -57,6 +59,7 @@ public class S3GuardConfiguration  {
 
   /**
    * Getter for tableName.
+   * The name of the DynamoDB table that stores the S3Guard Metadata.
    **/
   @JsonProperty("tableName")
   public String getTableName() {
@@ -65,6 +68,7 @@ public class S3GuardConfiguration  {
 
   /**
    * Setter for tableName.
+   * The name of the DynamoDB table that stores the S3Guard Metadata.
    **/
   public void setTableName(String tableName) {
     this.tableName = tableName;

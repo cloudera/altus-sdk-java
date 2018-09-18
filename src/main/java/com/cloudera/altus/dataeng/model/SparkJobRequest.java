@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Object used to submit a Spark job.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class SparkJobRequest  {
 
   /**
@@ -58,6 +58,7 @@ public class SparkJobRequest  {
 
   /**
    * Getter for jars.
+   * A list of jars to be added to the classpath (e.g. s3a://bucket-name/app.jar). If your code depends on other projects, you will need to package them alongside your application in order to distribute the code to a Spark cluster. Our recommendation is to create an assembly jar (or uber jar) containing your code and its dependencies. Both sbt and Maven have assembly plugins. When creating assembly jars, list Spark and Hadoop as provided dependencies; these need not be bundled since they are provided by the cluster manager at runtime.
    **/
   @JsonProperty("jars")
   public List<String> getJars() {
@@ -66,6 +67,7 @@ public class SparkJobRequest  {
 
   /**
    * Setter for jars.
+   * A list of jars to be added to the classpath (e.g. s3a://bucket-name/app.jar). If your code depends on other projects, you will need to package them alongside your application in order to distribute the code to a Spark cluster. Our recommendation is to create an assembly jar (or uber jar) containing your code and its dependencies. Both sbt and Maven have assembly plugins. When creating assembly jars, list Spark and Hadoop as provided dependencies; these need not be bundled since they are provided by the cluster manager at runtime.
    **/
   public void setJars(List<String> jars) {
     this.jars = jars;
@@ -73,6 +75,7 @@ public class SparkJobRequest  {
 
   /**
    * Getter for mainClass.
+   * Spark application main class. The entry point for your application (e.g. org.apache.spark.examples.SparkPi). This is not required if the jar has a main declaration in its manifest.
    **/
   @JsonProperty("mainClass")
   public String getMainClass() {
@@ -81,6 +84,7 @@ public class SparkJobRequest  {
 
   /**
    * Setter for mainClass.
+   * Spark application main class. The entry point for your application (e.g. org.apache.spark.examples.SparkPi). This is not required if the jar has a main declaration in its manifest.
    **/
   public void setMainClass(String mainClass) {
     this.mainClass = mainClass;
@@ -88,6 +92,7 @@ public class SparkJobRequest  {
 
   /**
    * Getter for applicationArguments.
+   * Arguments for the Spark application. They will be passed to the main method of the main class.
    **/
   @JsonProperty("applicationArguments")
   public List<String> getApplicationArguments() {
@@ -96,6 +101,7 @@ public class SparkJobRequest  {
 
   /**
    * Setter for applicationArguments.
+   * Arguments for the Spark application. They will be passed to the main method of the main class.
    **/
   public void setApplicationArguments(List<String> applicationArguments) {
     this.applicationArguments = applicationArguments;
@@ -103,6 +109,7 @@ public class SparkJobRequest  {
 
   /**
    * Getter for sparkArguments.
+   * Arguments for Spark itself respresented by a string (e.g. --executor-memory 4G --num-executors 50 --conf spark.app.name&#x3D;MyApp).
    **/
   @JsonProperty("sparkArguments")
   public String getSparkArguments() {
@@ -111,6 +118,7 @@ public class SparkJobRequest  {
 
   /**
    * Setter for sparkArguments.
+   * Arguments for Spark itself respresented by a string (e.g. --executor-memory 4G --num-executors 50 --conf spark.app.name&#x3D;MyApp).
    **/
   public void setSparkArguments(String sparkArguments) {
     this.sparkArguments = sparkArguments;
@@ -118,6 +126,7 @@ public class SparkJobRequest  {
 
   /**
    * Getter for propertiesFile.
+   * Only available in CDH513 and above. Contents of the Spark properties file from which Spark loads extra Spark properties. Note that you should use this argument instead of passing &#39;--properties-file&#39; as a part of --spark-arguments above. This can be a local path when using the CLI (e.g. file:///absolute/path/to/propertiesFile).
    **/
   @JsonProperty("propertiesFile")
   public String getPropertiesFile() {
@@ -126,6 +135,7 @@ public class SparkJobRequest  {
 
   /**
    * Setter for propertiesFile.
+   * Only available in CDH513 and above. Contents of the Spark properties file from which Spark loads extra Spark properties. Note that you should use this argument instead of passing &#39;--properties-file&#39; as a part of --spark-arguments above. This can be a local path when using the CLI (e.g. file:///absolute/path/to/propertiesFile).
    **/
   public void setPropertiesFile(String propertiesFile) {
     this.propertiesFile = propertiesFile;

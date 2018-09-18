@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for a create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -80,6 +80,11 @@ public class CreateAzureClusterRequest  {
   private CreateAzureClusterRequestWorkersConfiguration workersConfiguration = null;
 
   /**
+   * A name or a CRN of an existing Altus SDX namespace.
+   **/
+  private String namespaceName = null;
+
+  /**
    * The username to login to cluster's Cloudera Manager as readonly user. The default is 'guest'.
    **/
   private String clouderaManagerUsername = null;
@@ -111,6 +116,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for clusterName.
+   * The name of the cluster. This name must be unique, must have a maximum of 128 characters, and must contain only alphanumeric characters and hyphens. Names are case-sensitive.
    **/
   @JsonProperty("clusterName")
   public String getClusterName() {
@@ -119,6 +125,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for clusterName.
+   * The name of the cluster. This name must be unique, must have a maximum of 128 characters, and must contain only alphanumeric characters and hyphens. Names are case-sensitive.
    **/
   public void setClusterName(String clusterName) {
     this.clusterName = clusterName;
@@ -126,6 +133,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for cdhVersion.
+   * The CDH version.
    **/
   @JsonProperty("cdhVersion")
   public String getCdhVersion() {
@@ -134,6 +142,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for cdhVersion.
+   * The CDH version.
    **/
   public void setCdhVersion(String cdhVersion) {
     this.cdhVersion = cdhVersion;
@@ -141,6 +150,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for publicKey.
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
    **/
   @JsonProperty("publicKey")
   public String getPublicKey() {
@@ -149,6 +159,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for publicKey.
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
    **/
   public void setPublicKey(String publicKey) {
     this.publicKey = publicKey;
@@ -156,6 +167,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for instanceType.
+   * The instance type for the worker nodes.
    **/
   @JsonProperty("instanceType")
   public String getInstanceType() {
@@ -164,6 +176,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for instanceType.
+   * The instance type for the worker nodes.
    **/
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
@@ -171,6 +184,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for serviceType.
+   * The service type.
    **/
   @JsonProperty("serviceType")
   public String getServiceType() {
@@ -179,6 +193,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for serviceType.
+   * The service type.
    **/
   public void setServiceType(String serviceType) {
     this.serviceType = serviceType;
@@ -186,6 +201,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for environmentName.
+   * Name or CRN of the environment to use when creating the the cluster. The environment must be an Azure environment.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -194,6 +210,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for environmentName.
+   * Name or CRN of the environment to use when creating the the cluster. The environment must be an Azure environment.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -201,6 +218,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for workersGroupSize.
+   * The worker nodes group size.
    **/
   @JsonProperty("workersGroupSize")
   public Integer getWorkersGroupSize() {
@@ -209,6 +227,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for workersGroupSize.
+   * The worker nodes group size.
    **/
   public void setWorkersGroupSize(Integer workersGroupSize) {
     this.workersGroupSize = workersGroupSize;
@@ -216,6 +235,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for instanceBootstrapScript.
+   * Instance bootstrap script that is executed on all the cluster instances immediately after startup before any services are configured and started. You can use it to install additional OS packages or application dependencies. This is not intended to be a mechanism for cluster configuration.
    **/
   @JsonProperty("instanceBootstrapScript")
   public String getInstanceBootstrapScript() {
@@ -224,6 +244,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for instanceBootstrapScript.
+   * Instance bootstrap script that is executed on all the cluster instances immediately after startup before any services are configured and started. You can use it to install additional OS packages or application dependencies. This is not intended to be a mechanism for cluster configuration.
    **/
   public void setInstanceBootstrapScript(String instanceBootstrapScript) {
     this.instanceBootstrapScript = instanceBootstrapScript;
@@ -231,6 +252,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for workersConfiguration.
+   * 
    **/
   @JsonProperty("workersConfiguration")
   public CreateAzureClusterRequestWorkersConfiguration getWorkersConfiguration() {
@@ -239,13 +261,32 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for workersConfiguration.
+   * 
    **/
   public void setWorkersConfiguration(CreateAzureClusterRequestWorkersConfiguration workersConfiguration) {
     this.workersConfiguration = workersConfiguration;
   }
 
   /**
+   * Getter for namespaceName.
+   * A name or a CRN of an existing Altus SDX namespace.
+   **/
+  @JsonProperty("namespaceName")
+  public String getNamespaceName() {
+    return namespaceName;
+  }
+
+  /**
+   * Setter for namespaceName.
+   * A name or a CRN of an existing Altus SDX namespace.
+   **/
+  public void setNamespaceName(String namespaceName) {
+    this.namespaceName = namespaceName;
+  }
+
+  /**
    * Getter for clouderaManagerUsername.
+   * The username to login to cluster&#39;s Cloudera Manager as readonly user. The default is &#39;guest&#39;.
    **/
   @JsonProperty("clouderaManagerUsername")
   public String getClouderaManagerUsername() {
@@ -254,6 +295,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for clouderaManagerUsername.
+   * The username to login to cluster&#39;s Cloudera Manager as readonly user. The default is &#39;guest&#39;.
    **/
   public void setClouderaManagerUsername(String clouderaManagerUsername) {
     this.clouderaManagerUsername = clouderaManagerUsername;
@@ -261,6 +303,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for clouderaManagerPassword.
+   * The password to login to cluster&#39;s Cloudera Manager as readonly user. The default is autogenerated random UUID.
    **/
   @JsonProperty("clouderaManagerPassword")
   public String getClouderaManagerPassword() {
@@ -269,6 +312,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for clouderaManagerPassword.
+   * The password to login to cluster&#39;s Cloudera Manager as readonly user. The default is autogenerated random UUID.
    **/
   public void setClouderaManagerPassword(String clouderaManagerPassword) {
     this.clouderaManagerPassword = clouderaManagerPassword;
@@ -276,6 +320,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for automaticTerminationCondition.
+   * The condition under which a cluster should be automatically terminated. If not specified, NONE will be used. If EMPTY_JOB_QUEUE is specified, then a list of jobs must also be specified as part of the cluster creation request.
    **/
   @JsonProperty("automaticTerminationCondition")
   public String getAutomaticTerminationCondition() {
@@ -284,6 +329,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for automaticTerminationCondition.
+   * The condition under which a cluster should be automatically terminated. If not specified, NONE will be used. If EMPTY_JOB_QUEUE is specified, then a list of jobs must also be specified as part of the cluster creation request.
    **/
   public void setAutomaticTerminationCondition(String automaticTerminationCondition) {
     this.automaticTerminationCondition = automaticTerminationCondition;
@@ -291,6 +337,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for jobSubmissionGroupName.
+   * A name for the group of submitted jobs. If not specified and this is a request to submit a single, named job, the job submission group name will match the job name. Otherwise, the job submission group name will match the generated job submission group ID. This name must have a maximum of 128 characters, and must contain only alphanumeric characters, spaces, colons, hyphens and underscores. Names are case-sensitive.
    **/
   @JsonProperty("jobSubmissionGroupName")
   public String getJobSubmissionGroupName() {
@@ -299,6 +346,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for jobSubmissionGroupName.
+   * A name for the group of submitted jobs. If not specified and this is a request to submit a single, named job, the job submission group name will match the job name. Otherwise, the job submission group name will match the generated job submission group ID. This name must have a maximum of 128 characters, and must contain only alphanumeric characters, spaces, colons, hyphens and underscores. Names are case-sensitive.
    **/
   public void setJobSubmissionGroupName(String jobSubmissionGroupName) {
     this.jobSubmissionGroupName = jobSubmissionGroupName;
@@ -306,6 +354,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for jobs.
+   * A list of jobs to submit to the cluster. Each job in the list should only specify only one of hiveJob.
    **/
   @JsonProperty("jobs")
   public List<JobRequest> getJobs() {
@@ -314,6 +363,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for jobs.
+   * A list of jobs to submit to the cluster. Each job in the list should only specify only one of hiveJob.
    **/
   public void setJobs(List<JobRequest> jobs) {
     this.jobs = jobs;
@@ -321,6 +371,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for additionalClusterResourceTags.
+   * Tags added to cluster-associated resources at cluster creation time. These tags are in addition to those that the Altus service sets. See the Azure documentation for tagging restrictions.
    **/
   @JsonProperty("additionalClusterResourceTags")
   public List<ClusterResourceTagRequest> getAdditionalClusterResourceTags() {
@@ -329,6 +380,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for additionalClusterResourceTags.
+   * Tags added to cluster-associated resources at cluster creation time. These tags are in addition to those that the Altus service sets. See the Azure documentation for tagging restrictions.
    **/
   public void setAdditionalClusterResourceTags(List<ClusterResourceTagRequest> additionalClusterResourceTags) {
     this.additionalClusterResourceTags = additionalClusterResourceTags;
@@ -370,6 +422,9 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.workersConfiguration, createAzureClusterRequest.workersConfiguration)) {
       return false;
     }
+    if (!Objects.equals(this.namespaceName, createAzureClusterRequest.namespaceName)) {
+      return false;
+    }
     if (!Objects.equals(this.clouderaManagerUsername, createAzureClusterRequest.clouderaManagerUsername)) {
       return false;
     }
@@ -393,7 +448,7 @@ public class CreateAzureClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, cdhVersion, publicKey, instanceType, serviceType, environmentName, workersGroupSize, instanceBootstrapScript, workersConfiguration, clouderaManagerUsername, clouderaManagerPassword, automaticTerminationCondition, jobSubmissionGroupName, jobs, additionalClusterResourceTags);
+    return Objects.hash(clusterName, cdhVersion, publicKey, instanceType, serviceType, environmentName, workersGroupSize, instanceBootstrapScript, workersConfiguration, namespaceName, clouderaManagerUsername, clouderaManagerPassword, automaticTerminationCondition, jobSubmissionGroupName, jobs, additionalClusterResourceTags);
   }
 
   @Override
@@ -409,6 +464,7 @@ public class CreateAzureClusterRequest  {
     sb.append("    workersGroupSize: ").append(toIndentedString(workersGroupSize)).append("\n");
     sb.append("    instanceBootstrapScript: ").append(toIndentedString(instanceBootstrapScript)).append("\n");
     sb.append("    workersConfiguration: ").append(toIndentedString(workersConfiguration)).append("\n");
+    sb.append("    namespaceName: ").append(toIndentedString(namespaceName)).append("\n");
     sb.append("    clouderaManagerUsername: ").append(toIndentedString(clouderaManagerUsername)).append("\n");
     sb.append("    clouderaManagerPassword: ").append(toIndentedString(clouderaManagerPassword)).append("\n");
     sb.append("    automaticTerminationCondition: ").append(toIndentedString(automaticTerminationCondition)).append("\n");

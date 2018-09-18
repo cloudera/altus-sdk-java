@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for a submit jobs request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class SubmitJobsRequest  {
 
   /**
@@ -49,6 +49,7 @@ public class SubmitJobsRequest  {
 
   /**
    * Getter for clusterName.
+   * The name or CRN cluster on which to run the job.
    **/
   @JsonProperty("clusterName")
   public String getClusterName() {
@@ -57,6 +58,7 @@ public class SubmitJobsRequest  {
 
   /**
    * Setter for clusterName.
+   * The name or CRN cluster on which to run the job.
    **/
   public void setClusterName(String clusterName) {
     this.clusterName = clusterName;
@@ -64,6 +66,7 @@ public class SubmitJobsRequest  {
 
   /**
    * Getter for jobs.
+   * The jobs to submit. Each job in the list should specify only one of hiveJob, sparkJob, pySparkJob, or mr2Job.
    **/
   @JsonProperty("jobs")
   public List<JobRequest> getJobs() {
@@ -72,6 +75,7 @@ public class SubmitJobsRequest  {
 
   /**
    * Setter for jobs.
+   * The jobs to submit. Each job in the list should specify only one of hiveJob, sparkJob, pySparkJob, or mr2Job.
    **/
   public void setJobs(List<JobRequest> jobs) {
     this.jobs = jobs;
@@ -79,6 +83,7 @@ public class SubmitJobsRequest  {
 
   /**
    * Getter for jobSubmissionGroupName.
+   * A name for the group of submitted jobs. If not specified and this is a request to submit a single, named job, the job submission group name will match the job name. Otherwise, the job submission group name will match the generated job submission group ID. This name must have at least one character and a maximum of 128 characters. It must contain only alphanumeric characters, spaces, colons, hyphens and underscores, and can only start and end with alphanumeric characters and underscores. Names are case-sensitive.
    **/
   @JsonProperty("jobSubmissionGroupName")
   public String getJobSubmissionGroupName() {
@@ -87,6 +92,7 @@ public class SubmitJobsRequest  {
 
   /**
    * Setter for jobSubmissionGroupName.
+   * A name for the group of submitted jobs. If not specified and this is a request to submit a single, named job, the job submission group name will match the job name. Otherwise, the job submission group name will match the generated job submission group ID. This name must have at least one character and a maximum of 128 characters. It must contain only alphanumeric characters, spaces, colons, hyphens and underscores, and can only start and end with alphanumeric characters and underscores. Names are case-sensitive.
    **/
   public void setJobSubmissionGroupName(String jobSubmissionGroupName) {
     this.jobSubmissionGroupName = jobSubmissionGroupName;

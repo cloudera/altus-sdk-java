@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.EbsConfigurationRequest;
 /**
  * Defines workers group configuration, such as, custom volume configurations.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class CreateAWSClusterRequestWorkersConfiguration  {
 
   /**
@@ -38,6 +38,7 @@ public class CreateAWSClusterRequestWorkersConfiguration  {
 
   /**
    * Getter for ebsConfiguration.
+   * Defines an EBS configuration. Any EBS disks configured here are added in addition to the root volume.
    **/
   @JsonProperty("ebsConfiguration")
   public EbsConfigurationRequest getEbsConfiguration() {
@@ -46,6 +47,7 @@ public class CreateAWSClusterRequestWorkersConfiguration  {
 
   /**
    * Setter for ebsConfiguration.
+   * Defines an EBS configuration. Any EBS disks configured here are added in addition to the root volume.
    **/
   public void setEbsConfiguration(EbsConfigurationRequest ebsConfiguration) {
     this.ebsConfiguration = ebsConfiguration;

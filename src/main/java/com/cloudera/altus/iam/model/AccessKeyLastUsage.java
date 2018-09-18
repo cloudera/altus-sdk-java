@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information on the last time an access key was used.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:08.370-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
 public class AccessKeyLastUsage  {
 
   /**
@@ -43,6 +43,7 @@ public class AccessKeyLastUsage  {
 
   /**
    * Getter for lastUsageDate.
+   * The date when the access key was last used.
    **/
   @JsonProperty("lastUsageDate")
   public ZonedDateTime getLastUsageDate() {
@@ -51,6 +52,7 @@ public class AccessKeyLastUsage  {
 
   /**
    * Setter for lastUsageDate.
+   * The date when the access key was last used.
    **/
   public void setLastUsageDate(ZonedDateTime lastUsageDate) {
     this.lastUsageDate = lastUsageDate;
@@ -58,6 +60,7 @@ public class AccessKeyLastUsage  {
 
   /**
    * Getter for serviceName.
+   * The name of the service with which this access key was most recently used.
    **/
   @JsonProperty("serviceName")
   public String getServiceName() {
@@ -66,6 +69,7 @@ public class AccessKeyLastUsage  {
 
   /**
    * Setter for serviceName.
+   * The name of the service with which this access key was most recently used.
    **/
   public void setServiceName(String serviceName) {
     this.serviceName = serviceName;

@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.DiskConfiguration;
 /**
  * Azure-specific instance configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class AzureInstanceConfiguration  {
 
   /**
@@ -38,6 +38,7 @@ public class AzureInstanceConfiguration  {
 
   /**
    * Getter for diskConfiguration.
+   * The per-instance Azure Disk storage configuration.
    **/
   @JsonProperty("diskConfiguration")
   public DiskConfiguration getDiskConfiguration() {
@@ -46,6 +47,7 @@ public class AzureInstanceConfiguration  {
 
   /**
    * Setter for diskConfiguration.
+   * The per-instance Azure Disk storage configuration.
    **/
   public void setDiskConfiguration(DiskConfiguration diskConfiguration) {
     this.diskConfiguration = diskConfiguration;

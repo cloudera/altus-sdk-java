@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a job.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class JobSummary  {
 
   /**
@@ -108,6 +108,7 @@ public class JobSummary  {
 
   /**
    * Getter for jobId.
+   * The ID of the job.
    **/
   @JsonProperty("jobId")
   public String getJobId() {
@@ -116,6 +117,7 @@ public class JobSummary  {
 
   /**
    * Setter for jobId.
+   * The ID of the job.
    **/
   public void setJobId(String jobId) {
     this.jobId = jobId;
@@ -123,6 +125,7 @@ public class JobSummary  {
 
   /**
    * Getter for jobName.
+   * The name of the job.
    **/
   @JsonProperty("jobName")
   public String getJobName() {
@@ -131,6 +134,7 @@ public class JobSummary  {
 
   /**
    * Setter for jobName.
+   * The name of the job.
    **/
   public void setJobName(String jobName) {
     this.jobName = jobName;
@@ -138,6 +142,7 @@ public class JobSummary  {
 
   /**
    * Getter for crn.
+   * The CRN of the job.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -146,6 +151,7 @@ public class JobSummary  {
 
   /**
    * Setter for crn.
+   * The CRN of the job.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -153,6 +159,7 @@ public class JobSummary  {
 
   /**
    * Getter for creationDate.
+   * The date when the job was created.
    **/
   @JsonProperty("creationDate")
   public ZonedDateTime getCreationDate() {
@@ -161,6 +168,7 @@ public class JobSummary  {
 
   /**
    * Setter for creationDate.
+   * The date when the job was created.
    **/
   public void setCreationDate(ZonedDateTime creationDate) {
     this.creationDate = creationDate;
@@ -168,6 +176,7 @@ public class JobSummary  {
 
   /**
    * Getter for status.
+   * The status of a job.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -176,6 +185,7 @@ public class JobSummary  {
 
   /**
    * Setter for status.
+   * The status of a job.
    **/
   public void setStatus(String status) {
     this.status = status;
@@ -183,6 +193,7 @@ public class JobSummary  {
 
   /**
    * Getter for clusterCrn.
+   * The CRN of the cluster.
    **/
   @JsonProperty("clusterCrn")
   public String getClusterCrn() {
@@ -191,6 +202,7 @@ public class JobSummary  {
 
   /**
    * Setter for clusterCrn.
+   * The CRN of the cluster.
    **/
   public void setClusterCrn(String clusterCrn) {
     this.clusterCrn = clusterCrn;
@@ -198,6 +210,7 @@ public class JobSummary  {
 
   /**
    * Getter for submitterCrn.
+   * The CRN of the job submitter.
    **/
   @JsonProperty("submitterCrn")
   public String getSubmitterCrn() {
@@ -206,6 +219,7 @@ public class JobSummary  {
 
   /**
    * Setter for submitterCrn.
+   * The CRN of the job submitter.
    **/
   public void setSubmitterCrn(String submitterCrn) {
     this.submitterCrn = submitterCrn;
@@ -213,6 +227,7 @@ public class JobSummary  {
 
   /**
    * Getter for jobType.
+   * The type of job.
    **/
   @JsonProperty("jobType")
   public String getJobType() {
@@ -221,6 +236,7 @@ public class JobSummary  {
 
   /**
    * Setter for jobType.
+   * The type of job.
    **/
   public void setJobType(String jobType) {
     this.jobType = jobType;
@@ -228,6 +244,7 @@ public class JobSummary  {
 
   /**
    * Getter for failureAction.
+   * The action taken on failure if an error is encountered processing the job.
    **/
   @JsonProperty("failureAction")
   public String getFailureAction() {
@@ -236,6 +253,7 @@ public class JobSummary  {
 
   /**
    * Setter for failureAction.
+   * The action taken on failure if an error is encountered processing the job.
    **/
   public void setFailureAction(String failureAction) {
     this.failureAction = failureAction;
@@ -243,6 +261,7 @@ public class JobSummary  {
 
   /**
    * Getter for jobSubmissionGroupId.
+   * An ID assigned to the job shared by all jobs submitted in the same submit-jobs or create-cluster request.
    **/
   @JsonProperty("jobSubmissionGroupId")
   public String getJobSubmissionGroupId() {
@@ -251,6 +270,7 @@ public class JobSummary  {
 
   /**
    * Setter for jobSubmissionGroupId.
+   * An ID assigned to the job shared by all jobs submitted in the same submit-jobs or create-cluster request.
    **/
   public void setJobSubmissionGroupId(String jobSubmissionGroupId) {
     this.jobSubmissionGroupId = jobSubmissionGroupId;
@@ -258,6 +278,7 @@ public class JobSummary  {
 
   /**
    * Getter for jobSubmissionGroupName.
+   * A name assigned to the job shared by all jobs submitted in the same submit-jobs or create-cluster request.
    **/
   @JsonProperty("jobSubmissionGroupName")
   public String getJobSubmissionGroupName() {
@@ -266,6 +287,7 @@ public class JobSummary  {
 
   /**
    * Setter for jobSubmissionGroupName.
+   * A name assigned to the job shared by all jobs submitted in the same submit-jobs or create-cluster request.
    **/
   public void setJobSubmissionGroupName(String jobSubmissionGroupName) {
     this.jobSubmissionGroupName = jobSubmissionGroupName;
@@ -273,6 +295,7 @@ public class JobSummary  {
 
   /**
    * Getter for jobSubmissionGroupIndex.
+   * The index of this job in the job list in its submit-jobs or create-cluster request.
    **/
   @JsonProperty("jobSubmissionGroupIndex")
   public Integer getJobSubmissionGroupIndex() {
@@ -281,6 +304,7 @@ public class JobSummary  {
 
   /**
    * Setter for jobSubmissionGroupIndex.
+   * The index of this job in the job list in its submit-jobs or create-cluster request.
    **/
   public void setJobSubmissionGroupIndex(Integer jobSubmissionGroupIndex) {
     this.jobSubmissionGroupIndex = jobSubmissionGroupIndex;
@@ -288,6 +312,7 @@ public class JobSummary  {
 
   /**
    * Getter for jobSubmissionGroupSize.
+   * The total number of jobs submitted in its submit-jobs or create-cluster request.
    **/
   @JsonProperty("jobSubmissionGroupSize")
   public Integer getJobSubmissionGroupSize() {
@@ -296,6 +321,7 @@ public class JobSummary  {
 
   /**
    * Setter for jobSubmissionGroupSize.
+   * The total number of jobs submitted in its submit-jobs or create-cluster request.
    **/
   public void setJobSubmissionGroupSize(Integer jobSubmissionGroupSize) {
     this.jobSubmissionGroupSize = jobSubmissionGroupSize;
@@ -303,6 +329,7 @@ public class JobSummary  {
 
   /**
    * Getter for environmentCrn.
+   * The CRN of the environment.
    **/
   @JsonProperty("environmentCrn")
   public String getEnvironmentCrn() {
@@ -311,6 +338,7 @@ public class JobSummary  {
 
   /**
    * Setter for environmentCrn.
+   * The CRN of the environment.
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
@@ -318,6 +346,7 @@ public class JobSummary  {
 
   /**
    * Getter for environmentType.
+   * The type of the environment.
    **/
   @JsonProperty("environmentType")
   public String getEnvironmentType() {
@@ -326,6 +355,7 @@ public class JobSummary  {
 
   /**
    * Setter for environmentType.
+   * The type of the environment.
    **/
   public void setEnvironmentType(String environmentType) {
     this.environmentType = environmentType;

@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.Job;
 /**
  * Response object for a describe job request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class DescribeJobResponse extends AltusResponse {
 
   /**
@@ -38,6 +38,7 @@ public class DescribeJobResponse extends AltusResponse {
 
   /**
    * Getter for job.
+   * The job.
    **/
   @JsonProperty("job")
   public Job getJob() {
@@ -46,6 +47,7 @@ public class DescribeJobResponse extends AltusResponse {
 
   /**
    * Setter for job.
+   * The job.
    **/
   public void setJob(Job job) {
     this.job = job;

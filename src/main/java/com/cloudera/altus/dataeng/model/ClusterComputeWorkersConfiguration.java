@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.AWSInstanceConfiguration;
 /**
  * Compute workers group configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ClusterComputeWorkersConfiguration  {
 
   /**
@@ -43,6 +43,7 @@ public class ClusterComputeWorkersConfiguration  {
 
   /**
    * Getter for groupSize.
+   * The compute workers group size.
    **/
   @JsonProperty("groupSize")
   public Integer getGroupSize() {
@@ -51,6 +52,7 @@ public class ClusterComputeWorkersConfiguration  {
 
   /**
    * Setter for groupSize.
+   * The compute workers group size.
    **/
   public void setGroupSize(Integer groupSize) {
     this.groupSize = groupSize;
@@ -58,6 +60,7 @@ public class ClusterComputeWorkersConfiguration  {
 
   /**
    * Getter for awsDetails.
+   * AWS-specific instance configuration.
    **/
   @JsonProperty("awsDetails")
   public AWSInstanceConfiguration getAwsDetails() {
@@ -66,6 +69,7 @@ public class ClusterComputeWorkersConfiguration  {
 
   /**
    * Setter for awsDetails.
+   * AWS-specific instance configuration.
    **/
   public void setAwsDetails(AWSInstanceConfiguration awsDetails) {
     this.awsDetails = awsDetails;

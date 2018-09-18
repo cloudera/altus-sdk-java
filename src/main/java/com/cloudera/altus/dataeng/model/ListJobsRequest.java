@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for a list jobs request. One or more filters can be applied. If multiple filters are specified, all of them will be applied.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class ListJobsRequest  {
 
   /**
@@ -89,6 +89,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for jobIds.
+   * The IDs of the jobs.
    **/
   @JsonProperty("jobIds")
   public List<String> getJobIds() {
@@ -97,6 +98,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for jobIds.
+   * The IDs of the jobs.
    **/
   public void setJobIds(List<String> jobIds) {
     this.jobIds = jobIds;
@@ -104,6 +106,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for environmentCrn.
+   * Filters the job list to the jobs with this environment.
    **/
   @JsonProperty("environmentCrn")
   public String getEnvironmentCrn() {
@@ -112,6 +115,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for environmentCrn.
+   * Filters the job list to the jobs with this environment.
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
@@ -119,6 +123,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for clusterCrn.
+   * Filters the job list to the jobs with this cluster.
    **/
   @JsonProperty("clusterCrn")
   public String getClusterCrn() {
@@ -127,6 +132,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for clusterCrn.
+   * Filters the job list to the jobs with this cluster.
    **/
   public void setClusterCrn(String clusterCrn) {
     this.clusterCrn = clusterCrn;
@@ -134,6 +140,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for submitterCrn.
+   * Filters the job list to the jobs with this submitter.
    **/
   @JsonProperty("submitterCrn")
   public String getSubmitterCrn() {
@@ -142,6 +149,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for submitterCrn.
+   * Filters the job list to the jobs with this submitter.
    **/
   public void setSubmitterCrn(String submitterCrn) {
     this.submitterCrn = submitterCrn;
@@ -149,6 +157,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for jobTypes.
+   * Filters the job list to the jobs with these job types.
    **/
   @JsonProperty("jobTypes")
   public List<String> getJobTypes() {
@@ -157,6 +166,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for jobTypes.
+   * Filters the job list to the jobs with these job types.
    **/
   public void setJobTypes(List<String> jobTypes) {
     this.jobTypes = jobTypes;
@@ -164,6 +174,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for jobStatuses.
+   * Filters the job list to the jobs with these statuses.
    **/
   @JsonProperty("jobStatuses")
   public List<String> getJobStatuses() {
@@ -172,6 +183,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for jobStatuses.
+   * Filters the job list to the jobs with these statuses.
    **/
   public void setJobStatuses(List<String> jobStatuses) {
     this.jobStatuses = jobStatuses;
@@ -179,6 +191,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for creationDateAfter.
+   * Filters the job list to jobs with creation dates at or after this value.
    **/
   @JsonProperty("creationDateAfter")
   public ZonedDateTime getCreationDateAfter() {
@@ -187,6 +200,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for creationDateAfter.
+   * Filters the job list to jobs with creation dates at or after this value.
    **/
   public void setCreationDateAfter(ZonedDateTime creationDateAfter) {
     this.creationDateAfter = creationDateAfter;
@@ -194,6 +208,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for creationDateBefore.
+   * Filters the job list to jobs with creation dates at or before this value.
    **/
   @JsonProperty("creationDateBefore")
   public ZonedDateTime getCreationDateBefore() {
@@ -202,6 +217,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for creationDateBefore.
+   * Filters the job list to jobs with creation dates at or before this value.
    **/
   public void setCreationDateBefore(ZonedDateTime creationDateBefore) {
     this.creationDateBefore = creationDateBefore;
@@ -209,6 +225,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for order.
+   * Controls the order in which jobs are returned. The default is NEWEST_TO_OLDEST.
    **/
   @JsonProperty("order")
   public String getOrder() {
@@ -217,6 +234,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for order.
+   * Controls the order in which jobs are returned. The default is NEWEST_TO_OLDEST.
    **/
   public void setOrder(String order) {
     this.order = order;
@@ -224,6 +242,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for pageSize.
+   * The size of each page.
    **/
   @JsonProperty("pageSize")
   public Integer getPageSize() {
@@ -232,6 +251,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for pageSize.
+   * The size of each page.
    **/
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
@@ -239,6 +259,7 @@ public class ListJobsRequest  {
 
   /**
    * Getter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   @JsonProperty("startingToken")
   public String getStartingToken() {
@@ -247,6 +268,7 @@ public class ListJobsRequest  {
 
   /**
    * Setter for startingToken.
+   * A token to specify where to start paginating. This is the nextToken from a previously truncated response.
    **/
   public void setStartingToken(String startingToken) {
     this.startingToken = startingToken;

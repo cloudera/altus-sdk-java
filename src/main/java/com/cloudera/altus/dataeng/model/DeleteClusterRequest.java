@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a delete cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class DeleteClusterRequest  {
 
   /**
@@ -37,6 +37,7 @@ public class DeleteClusterRequest  {
 
   /**
    * Getter for clusterName.
+   * The name or CRN of the cluster.
    **/
   @JsonProperty("clusterName")
   public String getClusterName() {
@@ -45,6 +46,7 @@ public class DeleteClusterRequest  {
 
   /**
    * Setter for clusterName.
+   * The name or CRN of the cluster.
    **/
   public void setClusterName(String clusterName) {
     this.clusterName = clusterName;

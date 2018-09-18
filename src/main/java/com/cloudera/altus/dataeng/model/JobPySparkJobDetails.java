@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * PySpark specific job information. This is only ever present for PYSPARK jobs.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-08-20T18:25:07.756-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
 public class JobPySparkJobDetails  {
 
   /**
@@ -58,6 +58,7 @@ public class JobPySparkJobDetails  {
 
   /**
    * Getter for mainPy.
+   * Spark application main python file. The entry point for your PySpark application. This is required for all PySpark application.
    **/
   @JsonProperty("mainPy")
   public String getMainPy() {
@@ -66,6 +67,7 @@ public class JobPySparkJobDetails  {
 
   /**
    * Setter for mainPy.
+   * Spark application main python file. The entry point for your PySpark application. This is required for all PySpark application.
    **/
   public void setMainPy(String mainPy) {
     this.mainPy = mainPy;
@@ -73,6 +75,7 @@ public class JobPySparkJobDetails  {
 
   /**
    * Getter for pyFiles.
+   * PySpark job dependencies, such as .zip, .egg, or .py files, to be place on the PYTHONPATH for Python apps.
    **/
   @JsonProperty("pyFiles")
   public List<String> getPyFiles() {
@@ -81,6 +84,7 @@ public class JobPySparkJobDetails  {
 
   /**
    * Setter for pyFiles.
+   * PySpark job dependencies, such as .zip, .egg, or .py files, to be place on the PYTHONPATH for Python apps.
    **/
   public void setPyFiles(List<String> pyFiles) {
     this.pyFiles = pyFiles;
@@ -88,6 +92,7 @@ public class JobPySparkJobDetails  {
 
   /**
    * Getter for applicationArguments.
+   * Arguments for the PySpark application. They will be passed to the main python file.
    **/
   @JsonProperty("applicationArguments")
   public List<String> getApplicationArguments() {
@@ -96,6 +101,7 @@ public class JobPySparkJobDetails  {
 
   /**
    * Setter for applicationArguments.
+   * Arguments for the PySpark application. They will be passed to the main python file.
    **/
   public void setApplicationArguments(List<String> applicationArguments) {
     this.applicationArguments = applicationArguments;
@@ -103,6 +109,7 @@ public class JobPySparkJobDetails  {
 
   /**
    * Getter for sparkArguments.
+   * Arguments for Spark itself respresented by a string (e.g. --executor-memory 4G --num-executors 50 --conf spark.app.name&#x3D;MyApp).
    **/
   @JsonProperty("sparkArguments")
   public String getSparkArguments() {
@@ -111,6 +118,7 @@ public class JobPySparkJobDetails  {
 
   /**
    * Setter for sparkArguments.
+   * Arguments for Spark itself respresented by a string (e.g. --executor-memory 4G --num-executors 50 --conf spark.app.name&#x3D;MyApp).
    **/
   public void setSparkArguments(String sparkArguments) {
     this.sparkArguments = sparkArguments;
@@ -118,6 +126,7 @@ public class JobPySparkJobDetails  {
 
   /**
    * Getter for propertiesFile.
+   * Only available in CDH513 and above. Contents of the Spark properties file from which Spark loads extra Spark properties.
    **/
   @JsonProperty("propertiesFile")
   public String getPropertiesFile() {
@@ -126,6 +135,7 @@ public class JobPySparkJobDetails  {
 
   /**
    * Setter for propertiesFile.
+   * Only available in CDH513 and above. Contents of the Spark properties file from which Spark loads extra Spark properties.
    **/
   public void setPropertiesFile(String propertiesFile) {
     this.propertiesFile = propertiesFile;
