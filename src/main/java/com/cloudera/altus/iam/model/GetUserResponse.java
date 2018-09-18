@@ -28,7 +28,7 @@ import com.cloudera.altus.iam.model.User;
 /**
  * Response object for a get user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:51.767-07:00")
 public class GetUserResponse extends AltusResponse {
 
   /**

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for a list jobs request. One or more filters can be applied. If multiple filters are specified, all of them will be applied.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:51.348-07:00")
 public class ListJobsRequest  {
 
   /**

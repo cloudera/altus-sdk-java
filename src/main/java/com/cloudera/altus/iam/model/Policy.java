@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A policy contains a list of one or more policy statements.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.500-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:51.767-07:00")
 public class Policy  {
 
   /**

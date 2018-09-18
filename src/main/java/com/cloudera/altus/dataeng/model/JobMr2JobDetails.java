@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * MR2 specific details of job. This will be set if the jobType is MR2.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:16.973-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:51.348-07:00")
 public class JobMr2JobDetails  {
 
   /**

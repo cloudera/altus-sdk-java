@@ -24,7 +24,7 @@ import com.cloudera.altus.client.AltusClientBuilder;
 /**
 * This class can be used to build a EnvironmentsClient object.
 **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T10:40:17.349-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:51.547-07:00")
 public class EnvironmentsClientBuilder extends AltusClientBuilder<EnvironmentsClientBuilder> {
 
   private EnvironmentsClientBuilder() {
