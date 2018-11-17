@@ -128,10 +128,10 @@ public class AltusProfileCredentialsProviderTest {
 
   @Test
   @ExtendWith(TempDirectory.class)
-  public void readFromSpecifiedPath() {
+  public void readFromSpecifiedPath(@TempDir Path folder) {
+    Path credentialsPath = AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileCredentialsProvider credentialsProvider =
-        new AltusProfileCredentialsProvider(
-            AltusSDKTestUtils.getTestCredentialsFileName(), "default");
+        new AltusProfileCredentialsProvider(credentialsPath.toString(), "default");
     AltusCredentials credentials = credentialsProvider.getCredentials();
     assertNotNull(AltusSDKTestUtils.DEFAULT_CREDENTIALS_PRIVATE_KEY);
     assertEquals(AltusSDKTestUtils.DEFAULT_CREDENTIALS_KEY_ID,

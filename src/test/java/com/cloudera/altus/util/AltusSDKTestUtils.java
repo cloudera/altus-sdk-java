@@ -39,6 +39,7 @@ import java.util.Map;
  */
 @SdkInternalApi
 public class AltusSDKTestUtils {
+  private static final String CREDENTIALS_FILE;
   private static final String RSA_PRIVATE_KEY;
   private static final String ED25519_PRIVATE_KEY =
       "37yMdtdkJANPn62X5KDKKI3iv5hbAAKvqxHdgIj22bo=";
@@ -62,15 +63,23 @@ public class AltusSDKTestUtils {
       fail("Could not find private key resource.");
     }
     RSA_PRIVATE_KEY = privateKey;
-  }
 
-  private void AltusSDKTestUtils() {}
+    String credentialsFile = null;
+    try {
+      credentialsFile = Resources.toString(
+          Resources.getResource(DEFAULT_CREDENTIALS_FILENAME), Charsets.UTF_8);
+    } catch (IOException e) {
+      fail("Could not find test credentials file resource.");
+    }
+    CREDENTIALS_FILE = credentialsFile;
+  }
 
   /**
    * Sets the operating system environment.
    * @param newenv - a map containing the new environment variables -
    *  names and values.
    */
+  @SuppressWarnings("unchecked")
   public static void setEnv(Map<String, String> newenv)
   {
     try
@@ -112,24 +121,18 @@ public class AltusSDKTestUtils {
   }
 
   /**
-   * Sets the operating system environment.
-   * @return fileName - Full path and filename of the test credentials file.
-   */
-  public static String getTestCredentialsFileName() {
-    return AltusSDKTestUtils.class.getClassLoader()
-      .getResource(DEFAULT_CREDENTIALS_FILENAME).getFile().toString();
-  }
-
-  /**
    * Copies the test credentials file to a specific folder.
    * @param folder - a map containing the new environment variables -
-   *  names and values.
+   * names and values.
+   * @return a {@link Path} identifying the fully qualified location of the credentials
+   * file
    */
-  public static void copyTestCredentialsFileToFolder(Path folder) {
+  public static Path copyTestCredentialsFileToFolder(Path folder) {
     try {
       Files.createDirectory(Paths.get(folder.toString(), ".altus"));
-      Files.copy(Paths.get(getTestCredentialsFileName()),
-        Paths.get(folder.toAbsolutePath().toString(), DEFAULT_CREDENTIALS_PATH));
+      return Files.write(
+          Paths.get(folder.toAbsolutePath().toString(), DEFAULT_CREDENTIALS_PATH),
+          CREDENTIALS_FILE.getBytes());
     } catch (IOException e) {
       throw new RuntimeException(e);
     }

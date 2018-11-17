@@ -28,6 +28,7 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.cloudera.altus.AltusClientException;
 import com.cloudera.altus.AltusHTTPException;
 import com.cloudera.altus.AltusServiceException;
 import com.cloudera.altus.authentication.credentials.BasicAltusCredentials;
@@ -256,5 +257,30 @@ public class AltusClientTest {
       assertEquals(503, e.getHttpCode());
       assertEquals("503: null", e.getMessage());
     }
+  }
+
+  @Test
+  public void testCallAfterShutdown() {
+    AltusClient client = new AltusClient(
+        new BasicAltusCredentials("accessKeyID",
+            AltusSDKTestUtils.getRSAPrivateKey()),
+        "endpoint",
+        AltusClientConfigurationBuilder.defaultBuilder().build()) {
+    };
+    client.shutdown();
+    try {
+      client.invokeAPI("somePath", "", new GenericType<TestAltusResponse>() {});
+      fail();
+    } catch (AltusClientException e) {
+      assertEquals("Client instance has been closed.", e.getMessage());
+    }
+  }
+
+  @Test
+  public void testShutdownTwice() {
+    Response mockResponse = mockResponse(503, null);
+    TestClient client = new TestClient(mockResponse);
+    client.shutdown();
+    client.shutdown();
   }
 }

@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for a create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:51.348-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.454-08:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -43,11 +43,6 @@ public class CreateAzureClusterRequest  {
    * The CDH version.
    **/
   private String cdhVersion = null;
-
-  /**
-   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
-   **/
-  private String publicKey = null;
 
   /**
    * The instance type for the worker nodes.
@@ -68,6 +63,11 @@ public class CreateAzureClusterRequest  {
    * The worker nodes group size.
    **/
   private Integer workersGroupSize = null;
+
+  /**
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
+   **/
+  private String publicKey = null;
 
   /**
    * Instance bootstrap script that is executed on all the cluster instances immediately after startup before any services are configured and started. You can use it to install additional OS packages or application dependencies. This is not intended to be a mechanism for cluster configuration.
@@ -149,23 +149,6 @@ public class CreateAzureClusterRequest  {
   }
 
   /**
-   * Getter for publicKey.
-   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
-   **/
-  @JsonProperty("publicKey")
-  public String getPublicKey() {
-    return publicKey;
-  }
-
-  /**
-   * Setter for publicKey.
-   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
-   **/
-  public void setPublicKey(String publicKey) {
-    this.publicKey = publicKey;
-  }
-
-  /**
    * Getter for instanceType.
    * The instance type for the worker nodes.
    **/
@@ -231,6 +214,23 @@ public class CreateAzureClusterRequest  {
    **/
   public void setWorkersGroupSize(Integer workersGroupSize) {
     this.workersGroupSize = workersGroupSize;
+  }
+
+  /**
+   * Getter for publicKey.
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
+   **/
+  @JsonProperty("publicKey")
+  public String getPublicKey() {
+    return publicKey;
+  }
+
+  /**
+   * Setter for publicKey.
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
+   **/
+  public void setPublicKey(String publicKey) {
+    this.publicKey = publicKey;
   }
 
   /**
@@ -401,9 +401,6 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.cdhVersion, createAzureClusterRequest.cdhVersion)) {
       return false;
     }
-    if (!Objects.equals(this.publicKey, createAzureClusterRequest.publicKey)) {
-      return false;
-    }
     if (!Objects.equals(this.instanceType, createAzureClusterRequest.instanceType)) {
       return false;
     }
@@ -414,6 +411,9 @@ public class CreateAzureClusterRequest  {
       return false;
     }
     if (!Objects.equals(this.workersGroupSize, createAzureClusterRequest.workersGroupSize)) {
+      return false;
+    }
+    if (!Objects.equals(this.publicKey, createAzureClusterRequest.publicKey)) {
       return false;
     }
     if (!Objects.equals(this.instanceBootstrapScript, createAzureClusterRequest.instanceBootstrapScript)) {
@@ -448,7 +448,7 @@ public class CreateAzureClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, cdhVersion, publicKey, instanceType, serviceType, environmentName, workersGroupSize, instanceBootstrapScript, workersConfiguration, namespaceName, clouderaManagerUsername, clouderaManagerPassword, automaticTerminationCondition, jobSubmissionGroupName, jobs, additionalClusterResourceTags);
+    return Objects.hash(clusterName, cdhVersion, instanceType, serviceType, environmentName, workersGroupSize, publicKey, instanceBootstrapScript, workersConfiguration, namespaceName, clouderaManagerUsername, clouderaManagerPassword, automaticTerminationCondition, jobSubmissionGroupName, jobs, additionalClusterResourceTags);
   }
 
   @Override
@@ -457,11 +457,11 @@ public class CreateAzureClusterRequest  {
     sb.append("class CreateAzureClusterRequest {\n");
     sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    cdhVersion: ").append(toIndentedString(cdhVersion)).append("\n");
-    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    serviceType: ").append(toIndentedString(serviceType)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    workersGroupSize: ").append(toIndentedString(workersGroupSize)).append("\n");
+    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    instanceBootstrapScript: ").append(toIndentedString(instanceBootstrapScript)).append("\n");
     sb.append("    workersConfiguration: ").append(toIndentedString(workersConfiguration)).append("\n");
     sb.append("    namespaceName: ").append(toIndentedString(namespaceName)).append("\n");

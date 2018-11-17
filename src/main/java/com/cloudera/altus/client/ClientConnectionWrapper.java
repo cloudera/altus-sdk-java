@@ -58,7 +58,7 @@ import org.glassfish.jersey.client.ClientProperties;
  * Utiltity class that wraps all HTTP calls from the client to Altus.
  */
 @SdkInternalApi
-class ClientConnectionWrapper {
+class ClientConnectionWrapper implements AutoCloseable {
 
   private static final KeyStore USE_DEFAULT_KEYSTORE = null;
 
@@ -148,5 +148,12 @@ class ClientConnectionWrapper {
     }
 
     return builder.post(Entity.entity(requestBody, MediaType.APPLICATION_JSON));
+  }
+
+  @Override
+  public void close() throws Exception {
+    if (httpClient != null) {
+      httpClient.close();
+    }
   }
 }

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for a ListEnvironments request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:51.547-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.760-08:00")
 public class ListEnvironmentsResponse extends AltusResponse {
 
   /**

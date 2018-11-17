@@ -116,6 +116,8 @@ public abstract class AltusClient {
             throw new AltusClientException("Error while retrying request", e);
           }
         }
+      } catch (IllegalStateException e) {
+        throw new AltusClientException(e.getMessage(), e);
       }
     } while (true);
   }
@@ -202,5 +204,22 @@ public abstract class AltusClient {
         responseHeaders,
         code,
         message);
+  }
+
+  /**
+   * Releases resources held by this client object. Once a client has been
+   * shutdown, it should not be used to make any more requests.
+   *
+   * This is an optional method, and callers are not expected to call it, but
+   * can if they want to explicitly release any open resources.
+   */
+  public void shutdown() {
+    if (clientConnectionWrapper != null) {
+      try {
+        clientConnectionWrapper.close();
+      } catch (Exception e) {
+        throw new AltusClientException("Error closing client", e);
+      }
+    }
   }
 }

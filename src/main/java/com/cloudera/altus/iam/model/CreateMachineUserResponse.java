@@ -28,7 +28,7 @@ import com.cloudera.altus.iam.model.MachineUser;
 /**
  * Response object for create machine user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:51.767-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:33.077-08:00")
 public class CreateMachineUserResponse extends AltusResponse {
 
   /**

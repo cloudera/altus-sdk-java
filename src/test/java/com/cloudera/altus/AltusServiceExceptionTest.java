@@ -26,6 +26,7 @@ import javax.ws.rs.core.MultivaluedHashMap;
 
 import org.junit.jupiter.api.Test;
 
+@SuppressWarnings("DeadException")
 public class AltusServiceExceptionTest {
 
   @Test

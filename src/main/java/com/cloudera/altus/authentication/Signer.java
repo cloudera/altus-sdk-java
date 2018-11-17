@@ -24,7 +24,6 @@ import static com.cloudera.altus.ValidationUtils.checkNotNullAndThrow;
 import com.cloudera.altus.AltusClientException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.base.Throwables;
 import com.google.common.collect.Maps;
 
 import java.nio.charset.StandardCharsets;
@@ -108,7 +107,6 @@ public class Signer {
     } catch (NoSuchAlgorithmException |
              InvalidKeyException |
              SignatureException e) {
-      Throwables.throwIfUnchecked(e);
       throw new RuntimeException(e);
     }
 

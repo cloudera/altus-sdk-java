@@ -78,9 +78,11 @@ public class AltusProfileConfigFileTest {
   }
 
   @Test
-  public void testNonExistantProfileName() {
-    AltusProfileConfigFile config = new AltusProfileConfigFile(
-        AltusSDKTestUtils.getTestCredentialsFileName());
+  @ExtendWith(TempDirectory.class)
+  public void testNonExistantProfileName(@TempDir Path folder) {
+    Path credentialsPath = AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
+    AltusProfileConfigFile config =
+        new AltusProfileConfigFile(credentialsPath.toString());
     Throwable e = assertThrows(AltusClientException.class, () -> {
       config.getCredentials("foobar");
     });
@@ -88,10 +90,11 @@ public class AltusProfileConfigFileTest {
   }
 
   @Test
-  public void testValidProfile() {
+  @ExtendWith(TempDirectory.class)
+  public void testValidProfile(@TempDir Path folder) {
+    Path credentialsPath = AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileCredentialsProvider credentialsProvider =
-        new AltusProfileCredentialsProvider(
-            AltusSDKTestUtils.getTestCredentialsFileName(), "default");
+        new AltusProfileCredentialsProvider(credentialsPath.toString(), "default");
     AltusCredentials credentials = credentialsProvider.getCredentials();
     assertNotNull(credentials.getPrivateKey());
     assertEquals(AltusSDKTestUtils.DEFAULT_CREDENTIALS_KEY_ID,

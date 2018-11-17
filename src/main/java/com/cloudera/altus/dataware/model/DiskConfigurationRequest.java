@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Object used to describe Disk storage configuration request. Any disks configured here are added in addition to the root volume.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:50.939-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.139-08:00")
 public class DiskConfigurationRequest  {
 
   /**

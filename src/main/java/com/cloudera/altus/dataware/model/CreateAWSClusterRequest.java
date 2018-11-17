@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for a create AWS cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:50.939-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.139-08:00")
 public class CreateAWSClusterRequest  {
 
   /**
@@ -42,11 +42,6 @@ public class CreateAWSClusterRequest  {
    * The CDH version.
    **/
   private String cdhVersion = null;
-
-  /**
-   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
-   **/
-  private String publicKey = null;
 
   /**
    * The EC2 instance type for the worker nodes.
@@ -62,6 +57,11 @@ public class CreateAWSClusterRequest  {
    * The worker nodes group size.
    **/
   private Integer workersGroupSize = null;
+
+  /**
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
+   **/
+  private String publicKey = null;
 
   /**
    * Instance bootstrap script that is executed on all the cluster instances immediately after startup before any services are configured and started. You can use it to install additional OS packages or application dependencies. This is not intended to be a mechanism for cluster configuration.
@@ -128,23 +128,6 @@ public class CreateAWSClusterRequest  {
   }
 
   /**
-   * Getter for publicKey.
-   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
-   **/
-  @JsonProperty("publicKey")
-  public String getPublicKey() {
-    return publicKey;
-  }
-
-  /**
-   * Setter for publicKey.
-   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
-   **/
-  public void setPublicKey(String publicKey) {
-    this.publicKey = publicKey;
-  }
-
-  /**
    * Getter for instanceType.
    * The EC2 instance type for the worker nodes.
    **/
@@ -193,6 +176,23 @@ public class CreateAWSClusterRequest  {
    **/
   public void setWorkersGroupSize(Integer workersGroupSize) {
     this.workersGroupSize = workersGroupSize;
+  }
+
+  /**
+   * Getter for publicKey.
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
+   **/
+  @JsonProperty("publicKey")
+  public String getPublicKey() {
+    return publicKey;
+  }
+
+  /**
+   * Setter for publicKey.
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
+   **/
+  public void setPublicKey(String publicKey) {
+    this.publicKey = publicKey;
   }
 
   /**
@@ -312,9 +312,6 @@ public class CreateAWSClusterRequest  {
     if (!Objects.equals(this.cdhVersion, createAWSClusterRequest.cdhVersion)) {
       return false;
     }
-    if (!Objects.equals(this.publicKey, createAWSClusterRequest.publicKey)) {
-      return false;
-    }
     if (!Objects.equals(this.instanceType, createAWSClusterRequest.instanceType)) {
       return false;
     }
@@ -322,6 +319,9 @@ public class CreateAWSClusterRequest  {
       return false;
     }
     if (!Objects.equals(this.workersGroupSize, createAWSClusterRequest.workersGroupSize)) {
+      return false;
+    }
+    if (!Objects.equals(this.publicKey, createAWSClusterRequest.publicKey)) {
       return false;
     }
     if (!Objects.equals(this.instanceBootstrapScript, createAWSClusterRequest.instanceBootstrapScript)) {
@@ -347,7 +347,7 @@ public class CreateAWSClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, cdhVersion, publicKey, instanceType, environmentName, workersGroupSize, instanceBootstrapScript, workersConfiguration, namespaceName, clouderaManagerUsername, clouderaManagerPassword, additionalClusterResourceTags);
+    return Objects.hash(clusterName, cdhVersion, instanceType, environmentName, workersGroupSize, publicKey, instanceBootstrapScript, workersConfiguration, namespaceName, clouderaManagerUsername, clouderaManagerPassword, additionalClusterResourceTags);
   }
 
   @Override
@@ -356,10 +356,10 @@ public class CreateAWSClusterRequest  {
     sb.append("class CreateAWSClusterRequest {\n");
     sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    cdhVersion: ").append(toIndentedString(cdhVersion)).append("\n");
-    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    workersGroupSize: ").append(toIndentedString(workersGroupSize)).append("\n");
+    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    instanceBootstrapScript: ").append(toIndentedString(instanceBootstrapScript)).append("\n");
     sb.append("    workersConfiguration: ").append(toIndentedString(workersConfiguration)).append("\n");
     sb.append("    namespaceName: ").append(toIndentedString(namespaceName)).append("\n");

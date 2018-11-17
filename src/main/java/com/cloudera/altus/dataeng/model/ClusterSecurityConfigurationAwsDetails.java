@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * AWS-specific security configuration. This will only be populated for AWS clusters with security enabled.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:51.348-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.454-08:00")
 public class ClusterSecurityConfigurationAwsDetails  {
 
   /**

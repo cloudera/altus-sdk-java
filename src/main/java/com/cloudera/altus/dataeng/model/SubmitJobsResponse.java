@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for a submit jobs request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:51.348-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.454-08:00")
 public class SubmitJobsResponse extends AltusResponse {
 
   /**

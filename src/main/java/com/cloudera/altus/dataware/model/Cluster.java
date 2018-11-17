@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-09-18T14:55:50.939-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.139-08:00")
 public class Cluster  {
 
   /**
@@ -72,11 +72,6 @@ public class Cluster  {
   private Boolean hasInstanceBootstrapScript = null;
 
   /**
-   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
-   **/
-  private String publicKey = null;
-
-  /**
    * The worker group size.
    **/
   private Integer workersGroupSize = null;
@@ -95,6 +90,11 @@ public class Cluster  {
    * 
    **/
   private ClusterSecurityConfiguration securityConfiguration = null;
+
+  /**
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
+   **/
+  private String publicKey = null;
 
   /**
    * If the cluster's status is FAILED, this will be set with related failure codes.
@@ -251,23 +251,6 @@ public class Cluster  {
   }
 
   /**
-   * Getter for publicKey.
-   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
-   **/
-  @JsonProperty("publicKey")
-  public String getPublicKey() {
-    return publicKey;
-  }
-
-  /**
-   * Setter for publicKey.
-   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
-   **/
-  public void setPublicKey(String publicKey) {
-    this.publicKey = publicKey;
-  }
-
-  /**
    * Getter for workersGroupSize.
    * The worker group size.
    **/
@@ -333,6 +316,23 @@ public class Cluster  {
    **/
   public void setSecurityConfiguration(ClusterSecurityConfiguration securityConfiguration) {
     this.securityConfiguration = securityConfiguration;
+  }
+
+  /**
+   * Getter for publicKey.
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
+   **/
+  @JsonProperty("publicKey")
+  public String getPublicKey() {
+    return publicKey;
+  }
+
+  /**
+   * Setter for publicKey.
+   * The SSH public key to connect to the cluster. The user uses the private key that corresponds to the public key to SSH into the cluster.
+   **/
+  public void setPublicKey(String publicKey) {
+    this.publicKey = publicKey;
   }
 
   /**
@@ -484,9 +484,6 @@ public class Cluster  {
     if (!Objects.equals(this.hasInstanceBootstrapScript, cluster.hasInstanceBootstrapScript)) {
       return false;
     }
-    if (!Objects.equals(this.publicKey, cluster.publicKey)) {
-      return false;
-    }
     if (!Objects.equals(this.workersGroupSize, cluster.workersGroupSize)) {
       return false;
     }
@@ -497,6 +494,9 @@ public class Cluster  {
       return false;
     }
     if (!Objects.equals(this.securityConfiguration, cluster.securityConfiguration)) {
+      return false;
+    }
+    if (!Objects.equals(this.publicKey, cluster.publicKey)) {
       return false;
     }
     if (!Objects.equals(this.failureCodes, cluster.failureCodes)) {
@@ -525,7 +525,7 @@ public class Cluster  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, hasInstanceBootstrapScript, publicKey, workersGroupSize, environmentType, environmentCrn, securityConfiguration, failureCodes, failureReason, logArchiveLocation, clouderaManagerEndpoint, workersConfiguration, namespaceCrn, additionalClusterResourceTags);
+    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, hasInstanceBootstrapScript, workersGroupSize, environmentType, environmentCrn, securityConfiguration, publicKey, failureCodes, failureReason, logArchiveLocation, clouderaManagerEndpoint, workersConfiguration, namespaceCrn, additionalClusterResourceTags);
   }
 
   @Override
@@ -539,11 +539,11 @@ public class Cluster  {
     sb.append("    cdhVersion: ").append(toIndentedString(cdhVersion)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    hasInstanceBootstrapScript: ").append(toIndentedString(hasInstanceBootstrapScript)).append("\n");
-    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    workersGroupSize: ").append(toIndentedString(workersGroupSize)).append("\n");
     sb.append("    environmentType: ").append(toIndentedString(environmentType)).append("\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    securityConfiguration: ").append(toIndentedString(securityConfiguration)).append("\n");
+    sb.append("    publicKey: ").append(toIndentedString(publicKey)).append("\n");
     sb.append("    failureCodes: ").append(toIndentedString(failureCodes)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    logArchiveLocation: ").append(toIndentedString(logArchiveLocation)).append("\n");
