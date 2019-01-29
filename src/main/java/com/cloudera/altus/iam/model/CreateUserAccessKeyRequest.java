@@ -27,13 +27,18 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Request object for a create user access key request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:33.077-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.562-08:00")
 public class CreateUserAccessKeyRequest  {
 
   /**
    * The ID or CRN of the user to whom this access key will be associated. If it is not included, it defaults to the user making the request.
    **/
   private String user = null;
+
+  /**
+   * The version of an access key to create. Default is V2. Use V1 for compatibility with old CLI (< 1.6)  and SDK (< 1.3) releases.
+   **/
+  private String type = null;
 
   /**
    * Getter for user.
@@ -52,6 +57,23 @@ public class CreateUserAccessKeyRequest  {
     this.user = user;
   }
 
+  /**
+   * Getter for type.
+   * The version of an access key to create. Default is V2. Use V1 for compatibility with old CLI (&lt; 1.6)  and SDK (&lt; 1.3) releases.
+   **/
+  @JsonProperty("type")
+  public String getType() {
+    return type;
+  }
+
+  /**
+   * Setter for type.
+   * The version of an access key to create. Default is V2. Use V1 for compatibility with old CLI (&lt; 1.6)  and SDK (&lt; 1.3) releases.
+   **/
+  public void setType(String type) {
+    this.type = type;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class CreateUserAccessKeyRequest  {
     if (!Objects.equals(this.user, createUserAccessKeyRequest.user)) {
       return false;
     }
+    if (!Objects.equals(this.type, createUserAccessKeyRequest.type)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user);
+    return Objects.hash(user, type);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class CreateUserAccessKeyRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateUserAccessKeyRequest {\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -29,7 +29,7 @@ import com.cloudera.altus.dataware.model.AzureInstanceConfiguration;
 /**
  * Workers group configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.139-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:12.733-08:00")
 public class ClusterWorkersConfiguration  {
 
   /**

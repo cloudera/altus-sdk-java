@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a Cloudera Altus access key.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:33.077-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.562-08:00")
 public class AccessKey  {
 
   /**
@@ -56,6 +56,11 @@ public class AccessKey  {
    * The status of an access key.
    **/
   private String status = null;
+
+  /**
+   * The type of an access key.
+   **/
+  private String type = null;
 
   /**
    * Information on the last time this access key was used.
@@ -148,6 +153,23 @@ public class AccessKey  {
   }
 
   /**
+   * Getter for type.
+   * The type of an access key.
+   **/
+  @JsonProperty("type")
+  public String getType() {
+    return type;
+  }
+
+  /**
+   * Setter for type.
+   * The type of an access key.
+   **/
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  /**
    * Getter for lastUsage.
    * Information on the last time this access key was used.
    **/
@@ -188,6 +210,9 @@ public class AccessKey  {
     if (!Objects.equals(this.status, accessKey.status)) {
       return false;
     }
+    if (!Objects.equals(this.type, accessKey.type)) {
+      return false;
+    }
     if (!Objects.equals(this.lastUsage, accessKey.lastUsage)) {
       return false;
     }
@@ -196,7 +221,7 @@ public class AccessKey  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessKeyId, crn, actorCrn, creationDate, status, lastUsage);
+    return Objects.hash(accessKeyId, crn, actorCrn, creationDate, status, type, lastUsage);
   }
 
   @Override
@@ -208,6 +233,7 @@ public class AccessKey  {
     sb.append("    actorCrn: ").append(toIndentedString(actorCrn)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    lastUsage: ").append(toIndentedString(lastUsage)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -28,7 +28,7 @@ import com.cloudera.altus.sdx.model.Namespace;
 /**
  * Response object for a create configured namespace request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.957-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.430-08:00")
 public class CreateConfiguredNamespaceResponse extends AltusResponse {
 
   /**

@@ -31,6 +31,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
+import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Strings;
 
 import java.security.KeyManagementException;
@@ -38,6 +39,9 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -47,29 +51,60 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.apache.http.conn.ssl.DefaultHostnameVerifier;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * Utiltity class that wraps all HTTP calls from the client to Altus.
+ * Utility class that wraps all HTTP calls from the client to Altus.
  */
 @SdkInternalApi
 class ClientConnectionWrapper implements AutoCloseable {
 
+  private static final Logger LOG =
+      LoggerFactory.getLogger(ClientConnectionWrapper.class);
+
   private static final KeyStore USE_DEFAULT_KEYSTORE = null;
+  private static final String VERSION_PROPERTIES_FILE = "version.properties";
+  private static final Properties VERSION_PROPERTIES = loadVersionProperties();
 
   private final AltusClientConfiguration altusClientConfiguration;
   private final Client httpClient;
+
+  private static Properties loadVersionProperties() {
+    Properties props = new Properties();
+    try (InputStream stream =
+         ClientConnectionWrapper.class.getResourceAsStream(VERSION_PROPERTIES_FILE)) {
+      props.load(stream);
+    } catch (IOException | RuntimeException e) {
+      props.put("version", "Unknown");
+      LOG.warn("Failed to read Altus SDK Version.", e);
+    }
+    return props;
+  }
 
   /**
    * Constructor.
    * @param altusClientConfiguration the client configuration
    */
   ClientConnectionWrapper(AltusClientConfiguration altusClientConfiguration) {
+    this(altusClientConfiguration, null);
+  }
+
+  /**
+   * Constructor that accepts a caller specified httpClient.
+   * Intended for use in tests.
+   * @param altusClientConfiguration the client configuration
+   * @param httpClient the http client
+   */
+  ClientConnectionWrapper(AltusClientConfiguration altusClientConfiguration,
+                          Client httpClient) {
     this.altusClientConfiguration =
         checkNotNullAndThrow(altusClientConfiguration);
 
@@ -86,37 +121,39 @@ class ClientConnectionWrapper implements AutoCloseable {
     ClientConfig config = new ClientConfig();
     config.register(jsonProvider);
 
+    if (httpClient == null) {
+      TrustManager[] trustManagers = null;
+      try {
+        TrustManagerFactory trustManagerFactory =
+            TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+        trustManagerFactory.init(USE_DEFAULT_KEYSTORE);
+        trustManagers = trustManagerFactory.getTrustManagers();
+      } catch (KeyStoreException | NoSuchAlgorithmException e) {
+        throw new AltusClientException("Error initializing truststore", e);
+      }
 
-    TrustManager[] trustManagers = null;
-    try {
-      TrustManagerFactory trustManagerFactory =
-          TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-      trustManagerFactory.init(USE_DEFAULT_KEYSTORE);
-      trustManagers = trustManagerFactory.getTrustManagers();
-    } catch (KeyStoreException | NoSuchAlgorithmException e) {
-      throw new AltusClientException("Error initializing truststore", e);
+      SSLContext sslContext;
+      try {
+        sslContext = SSLContext.getInstance("TLS");
+        sslContext.init(null, trustManagers, new SecureRandom());
+      } catch (NoSuchAlgorithmException | KeyManagementException e) {
+        throw new AltusClientException("Error initializing SSL", e);
+      }
+
+      HostnameVerifier hostnameVerifier = new DefaultHostnameVerifier();
+
+      httpClient = ClientBuilder.newBuilder()
+          .withConfig(config)
+          .hostnameVerifier(hostnameVerifier)
+          .sslContext(sslContext)
+          .build();
+
+      httpClient.property(ClientProperties.READ_TIMEOUT,
+                          (int) altusClientConfiguration.getReadTimeout().toMillis());
+      httpClient.property(ClientProperties.CONNECT_TIMEOUT,
+                          (int) altusClientConfiguration.getConnectionTimeout().toMillis());
     }
-
-    SSLContext sslContext;
-    try {
-      sslContext = SSLContext.getInstance("TLS");
-      sslContext.init(null, trustManagers, new SecureRandom());
-    } catch (NoSuchAlgorithmException | KeyManagementException e) {
-      throw new AltusClientException("Error initializing SSL", e);
-    }
-
-    HostnameVerifier hostnameVerifier = new DefaultHostnameVerifier();
-
-    httpClient = ClientBuilder.newBuilder()
-        .withConfig(config)
-        .hostnameVerifier(hostnameVerifier)
-        .sslContext(sslContext)
-        .build();
-
-    httpClient.property(ClientProperties.READ_TIMEOUT,
-                        (int) altusClientConfiguration.getReadTimeout().toMillis());
-    httpClient.property(ClientProperties.CONNECT_TIMEOUT,
-                        (int) altusClientConfiguration.getConnectionTimeout().toMillis());
+    this.httpClient = httpClient;
   }
 
   /**
@@ -147,6 +184,8 @@ class ClientConnectionWrapper implements AutoCloseable {
       builder.header("x-altus-client-app", altusClientApp);
     }
 
+    builder.header(HttpHeaders.USER_AGENT, buildUserAgent());
+
     return builder.post(Entity.entity(requestBody, MediaType.APPLICATION_JSON));
   }
 
@@ -155,5 +194,14 @@ class ClientConnectionWrapper implements AutoCloseable {
     if (httpClient != null) {
       httpClient.close();
     }
+  }
+
+  @VisibleForTesting
+  String buildUserAgent() {
+      return String.format("ALTUSSDK/%s Java/%s %s/%s",
+                           VERSION_PROPERTIES.get("version"),
+                           System.getProperty("java.version"),
+                           System.getProperty("os.name"),
+                           System.getProperty("os.version"));
   }
 }

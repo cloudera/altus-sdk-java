@@ -61,7 +61,7 @@
     <!-- Random jboss pollution -->
     <rule groupId="org.apache.maven" artifactId="maven-compiler-plugin">
       <ignoreVersions>
-        <ignoreVersion>3.7.0-jboss-1</ignoreVersion>
+        <ignoreVersion type="regex">.*-jboss-.*</ignoreVersion>
       </ignoreVersions>
     </rule>
     <!-- Cloudera pollution! -->
@@ -82,6 +82,12 @@
         <!-- 3.x releases are way slower than 2.x -->
         <ignoreVersion>3.0.0</ignoreVersion>
         <ignoreVersion>3.1.0</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <!-- How did we publish a spotbugs plugin release? -->
+    <rule groupId="com.github.spotbugs" artifactId="spotbugs-maven-plugin">
+      <ignoreVersions>
+        <ignoreVersion>3.1.9-cloudera.1</ignoreVersion>
       </ignoreVersions>
     </rule>
   </rules>

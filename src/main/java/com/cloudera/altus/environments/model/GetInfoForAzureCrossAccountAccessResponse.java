@@ -28,7 +28,7 @@ import com.cloudera.altus.environments.model.InfoForAzureCrossAccountAccess;
 /**
  * Response object for a GetInfoForAzureCrossAccountAccess request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.760-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.320-08:00")
 public class GetInfoForAzureCrossAccountAccessResponse extends AltusResponse {
 
   /**

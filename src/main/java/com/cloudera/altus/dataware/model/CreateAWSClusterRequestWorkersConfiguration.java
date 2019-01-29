@@ -28,7 +28,7 @@ import com.cloudera.altus.dataware.model.EbsConfigurationRequest;
 /**
  * Defines workers group configuration, such as, custom volume configurations.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2018-11-16T18:04:32.139-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:12.733-08:00")
 public class CreateAWSClusterRequestWorkersConfiguration  {
 
   /**

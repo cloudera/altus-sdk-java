@@ -19,9 +19,23 @@
 
 package com.cloudera.altus.client;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import com.cloudera.altus.AltusClientException;
+import com.google.common.collect.Maps;
+
+import java.util.Map;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.Invocation.Builder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.HttpHeaders;
 
 import org.junit.jupiter.api.Test;
 
@@ -32,5 +46,32 @@ public class ClientConnectionWrapperTest {
     assertThrows(AltusClientException.class, () -> {
       new ClientConnectionWrapper(null);
     });
+  }
+
+  @Test
+  public void testUserAgent() throws Exception {
+    AltusClientConfiguration mockConfig = mock(AltusClientConfiguration.class);
+
+    Map<String, String> headers = Maps.newHashMap();
+
+    Builder builder = mock(Builder.class);
+    when(builder.accept(any(String.class))).thenReturn(builder);
+    when(builder.header(anyString(), anyString())).thenAnswer(invocation -> {
+      headers.put(invocation.getArgument(0), invocation.getArgument(1));
+      return builder;
+    });
+
+    WebTarget target = mock(WebTarget.class);
+    when(target.request()).thenReturn(builder);
+
+    Client mockClient = mock(Client.class);
+    when(mockClient.target(anyString())).thenReturn(target);
+
+    ClientConnectionWrapper wrapper = new ClientConnectionWrapper(mockConfig, mockClient);
+    wrapper.doPost("http://www.example.com", "/path", "auth", "my birthday", "{}");
+    wrapper.close();
+
+    assertTrue(headers.containsKey(HttpHeaders.USER_AGENT));
+    assertEquals(wrapper.buildUserAgent(), headers.get(HttpHeaders.USER_AGENT));
   }
 }
