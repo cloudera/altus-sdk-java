@@ -26,6 +26,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Maps;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -35,18 +36,22 @@ import java.security.SignatureException;
 import java.util.SortedMap;
 
 import org.apache.commons.codec.binary.Base64;
-
-import net.i2p.crypto.eddsa.EdDSAEngine;
-import net.i2p.crypto.eddsa.EdDSAPrivateKey;
+import org.bouncycastle.asn1.ASN1OctetString;
+import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
+import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
+import org.bouncycastle.crypto.signers.Ed25519Signer;
 
 /**
  * An request signer appropriate for use with the Altus Client.
  */
 public class Signer {
 
+  private static final String RSA_ALGORITHM = "RSA";
   private static final String RSA_AUTH_METHOD = "rsav1";
   private static final String RSA_SIGNATURE_ALGORITHM = "SHA256withRSA";
+  private static final String ED25519_ALGORITHM = "Ed25519";
   private static final String ED25519_AUTH_METHOD = "ed25519v1";
+  private static final String ED25519_SIGNATURE_ALGORITHM = "Ed25519";
 
   /**
    * Computes the value for the x-altus-auth header for a request.
@@ -74,19 +79,19 @@ public class Signer {
     String authMethod;
     String sigAlgo;
     switch (privateKey.getAlgorithm()) {
-    case "RSA":
+    case RSA_ALGORITHM:
       authMethod = RSA_AUTH_METHOD;
       sigAlgo = RSA_SIGNATURE_ALGORITHM;
       break;
-    case EdDSAPrivateKey.KEY_ALGORITHM:
+    case ED25519_ALGORITHM:
       authMethod = ED25519_AUTH_METHOD;
-      sigAlgo = EdDSAEngine.SIGNATURE_ALGORITHM;
+      sigAlgo = ED25519_SIGNATURE_ALGORITHM;
       break;
     default:
-      throw new AltusClientException("Unsupported Key Algorithm: " +
+      throw new AltusClientException("Unsupported key algorithm: " +
                                      privateKey.getAlgorithm());
     }
-    String stringToSign = new StringBuilder()
+    byte[] bytesToSign = new StringBuilder()
       .append(httpMethod)
       .append("\n")
       .append(contentType)
@@ -96,17 +101,43 @@ public class Signer {
       .append(path)
       .append("\n")
       .append(authMethod)
-      .toString();
+      .toString()
+      .getBytes(StandardCharsets.UTF_8);
 
     String signatureString;
     try {
-      Signature signature = Signature.getInstance(sigAlgo);
-      signature.initSign(privateKey);
-      signature.update(stringToSign.getBytes(StandardCharsets.UTF_8));
-      signatureString = Base64.encodeBase64URLSafeString(signature.sign());
+      byte[] sig;
+      switch (sigAlgo) {
+      case RSA_SIGNATURE_ALGORITHM:
+        Signature signature = Signature.getInstance(sigAlgo);
+        signature.initSign(privateKey);
+        signature.update(bytesToSign);
+        sig = signature.sign();
+        break;
+      case ED25519_SIGNATURE_ALGORITHM:
+        // This labourious process is necessary because we're trying to avoid
+        // relying on the BouncyCastle provider to be registered with the
+        // security subsystem. And the only way to get a Signature class is
+        // through the provider. The BC SignatureSpi implementation cannot
+        // be used directly.
+        PrivateKeyInfo info = PrivateKeyInfo.getInstance(privateKey.getEncoded());
+        ASN1OctetString asn1Seed = ASN1OctetString.getInstance(info.parsePrivateKey());
+        byte[] seed = asn1Seed.getOctets();
+
+        Ed25519Signer signer = new Ed25519Signer();
+        signer.init(true, new Ed25519PrivateKeyParameters(seed, 0));
+        signer.update(bytesToSign, 0, bytesToSign.length);
+        sig = signer.generateSignature();
+        break;
+      default:
+        throw new AltusClientException("Unsupported key algorithm: " +
+                                       privateKey.getAlgorithm());
+      }
+      signatureString = Base64.encodeBase64URLSafeString(sig);
     } catch (NoSuchAlgorithmException |
              InvalidKeyException |
-             SignatureException e) {
+             SignatureException |
+             IOException e) {
       throw new RuntimeException(e);
     }
 

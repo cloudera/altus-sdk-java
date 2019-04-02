@@ -31,8 +31,6 @@ import com.cloudera.altus.environments.model.CreateAzureEnvironmentResponse;
 import com.cloudera.altus.environments.model.DeleteEnvironmentRequest;
 import com.cloudera.altus.environments.model.DeleteEnvironmentResponse;
 import com.cloudera.altus.environments.model.Error;
-import com.cloudera.altus.environments.model.GetClientAccountSetupCloudFormationTemplateRequest;
-import com.cloudera.altus.environments.model.GetClientAccountSetupCloudFormationTemplateResponse;
 import com.cloudera.altus.environments.model.GetInfoForAWSCrossAccountAccessRequest;
 import com.cloudera.altus.environments.model.GetInfoForAWSCrossAccountAccessResponse;
 import com.cloudera.altus.environments.model.GetInfoForAzureCrossAccountAccessRequest;
@@ -40,7 +38,7 @@ import com.cloudera.altus.environments.model.GetInfoForAzureCrossAccountAccessRe
 import com.cloudera.altus.environments.model.ListEnvironmentsRequest;
 import com.cloudera.altus.environments.model.ListEnvironmentsResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.320-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:32.131-07:00")
 public class EnvironmentsClient extends AltusClient {
 
   public static final String SERVICE_NAME = "environments";
@@ -86,18 +84,6 @@ public class EnvironmentsClient extends AltusClient {
         throw new AltusClientException("Missing the required parameter 'input' when calling deleteEnvironment");
      }
     return this.invokeAPI("/environments/deleteEnvironment", input, new GenericType<DeleteEnvironmentResponse>(){});
-  }
-
-  /**
-   * Retrieves the CloudFormation template that creates all necessary resources in client&#39;s account.
-   * @param input
-   * @return GetClientAccountSetupCloudFormationTemplateResponse
-   */
-  public GetClientAccountSetupCloudFormationTemplateResponse getClientAccountSetupCloudFormationTemplate(GetClientAccountSetupCloudFormationTemplateRequest input) {
-     if (input == null) {
-        throw new AltusClientException("Missing the required parameter 'input' when calling getClientAccountSetupCloudFormationTemplate");
-     }
-    return this.invokeAPI("/environments/getClientAccountSetupCloudFormationTemplate", input, new GenericType<GetClientAccountSetupCloudFormationTemplateResponse>(){});
   }
 
   /**

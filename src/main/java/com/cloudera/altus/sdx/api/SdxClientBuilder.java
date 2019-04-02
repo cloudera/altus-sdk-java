@@ -24,7 +24,7 @@ import com.cloudera.altus.client.AltusClientBuilder;
 /**
 * This class can be used to build a SdxClient object.
 **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.430-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:32.273-07:00")
 public class SdxClientBuilder extends AltusClientBuilder<SdxClientBuilder> {
 
   private SdxClientBuilder() {

@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * AWS-specific Cloudera Navigator integration configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.086-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:31.936-07:00")
 public class ClusterNavigatorConfigurationAwsDetails  {
 
   /**

@@ -29,4 +29,10 @@
     <Class name="~com\.cloudera\.altus\..*\.model\..*" />
     <Method name="toIndentedString" />
   </Match>
+
+  <Match>
+    <Bug pattern="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE" />
+    <Class name="com.cloudera.altus.client.AltusClient" />
+    <Method name="invokeAPI" />
+  </Match>
 </FindBugsFilter>

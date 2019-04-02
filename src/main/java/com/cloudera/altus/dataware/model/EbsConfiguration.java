@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * An EBS configuration for an instance. Any EBS disks configured are added in addition to the root volume.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:12.733-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:31.625-07:00")
 public class EbsConfiguration  {
 
   /**

@@ -20,7 +20,6 @@
 package com.cloudera.altus.client;
 
 import static com.cloudera.altus.ValidationUtils.checkNotNullAndThrow;
-import static net.i2p.crypto.eddsa.spec.EdDSANamedCurveTable.ED_25519;
 
 import com.cloudera.altus.AltusClientException;
 
@@ -29,19 +28,16 @@ import java.io.StringReader;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
-import java.security.Security;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
 
+import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
+import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
+import org.bouncycastle.crypto.util.PrivateKeyInfoFactory;
+import org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
-
-import net.i2p.crypto.eddsa.EdDSAPrivateKey;
-import net.i2p.crypto.eddsa.EdDSASecurityProvider;
-import net.i2p.crypto.eddsa.spec.EdDSANamedCurveSpec;
-import net.i2p.crypto.eddsa.spec.EdDSANamedCurveTable;
-import net.i2p.crypto.eddsa.spec.EdDSAPrivateKeySpec;
 
 /**
  * Utility methods for interacting with Altus credentials.
@@ -50,8 +46,6 @@ public class CredentialUtilities {
 
   /** The Ed25519 key is 44 bytes long (32 bytes encoded in base 64). */
   private static final int ED25519_KEY_LENGTH = 44;
-  private static final EdDSANamedCurveSpec ED25519 =
-      EdDSANamedCurveTable.getByName(ED_25519);
 
   private CredentialUtilities() {}
 
@@ -89,23 +83,15 @@ public class CredentialUtilities {
   }
 
   private static PrivateKey decodeEd25519PrivateKey(String privateKey) {
-    /*
-     * Security providers are funny beasts. Java does careful checking to
-     * ensure you don't add a provider twice, but it does so by name only.
-     * So if you have a weird situation where you're doing class reloading,
-     * you might find yourself getting errors where the provider says a
-     * key class is unrecognised, even though it's clearly the right type.
-     * In such a situation, you need to remove the provider as part of the
-     * class reloading exercise.
-     */
-    Security.addProvider(new EdDSASecurityProvider());
-
     byte[] seed = Base64.getDecoder().decode(privateKey);
     try {
-      EdDSAPrivateKeySpec privateKeySpec = new EdDSAPrivateKeySpec(seed, ED25519);
-      KeyFactory factory = KeyFactory.getInstance(EdDSAPrivateKey.KEY_ALGORITHM);
-      return factory.generatePrivate(privateKeySpec);
-    } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+      // We instantiate the KeyFactorySpi directly to avoid having to register
+      // the BouncyCastle provider, and even if we did, this parameter based
+      // instantiation is not exposed through the provider interfaces.
+      Ed25519PrivateKeyParameters params = new Ed25519PrivateKeyParameters(seed, 0);
+      PrivateKeyInfo info = PrivateKeyInfoFactory.createPrivateKeyInfo(params);
+      return new KeyFactorySpi.ED25519().generatePrivate(info);
+    } catch (IOException e) {
       throw new AltusClientException(
           "Unable to generate private key " + e.getMessage(), e);
     }

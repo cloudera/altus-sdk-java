@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.086-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:31.936-07:00")
 public class ClusterSummary  {
 
   /**
@@ -91,6 +91,11 @@ public class ClusterSummary  {
    * The CRN of the cluster's Altus SDX namespace.
    **/
   private String namespaceCrn = null;
+
+  /**
+   * The public IP address of the instance. This will be set to 'none' if the instance was created as part of a cluster without public IP addresses.
+   **/
+  private Boolean publicIpsAssociated = null;
 
   /**
    * Getter for clusterName.
@@ -296,6 +301,23 @@ public class ClusterSummary  {
     this.namespaceCrn = namespaceCrn;
   }
 
+  /**
+   * Getter for publicIpsAssociated.
+   * The public IP address of the instance. This will be set to &#39;none&#39; if the instance was created as part of a cluster without public IP addresses.
+   **/
+  @JsonProperty("publicIpsAssociated")
+  public Boolean getPublicIpsAssociated() {
+    return publicIpsAssociated;
+  }
+
+  /**
+   * Setter for publicIpsAssociated.
+   * The public IP address of the instance. This will be set to &#39;none&#39; if the instance was created as part of a cluster without public IP addresses.
+   **/
+  public void setPublicIpsAssociated(Boolean publicIpsAssociated) {
+    this.publicIpsAssociated = publicIpsAssociated;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -341,12 +363,15 @@ public class ClusterSummary  {
     if (!Objects.equals(this.namespaceCrn, clusterSummary.namespaceCrn)) {
       return false;
     }
+    if (!Objects.equals(this.publicIpsAssociated, clusterSummary.publicIpsAssociated)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, workersGroupSize, serviceType, environmentType, environmentCrn, securityConfiguration, namespaceCrn);
+    return Objects.hash(clusterName, crn, creationDate, status, cdhVersion, instanceType, workersGroupSize, serviceType, environmentType, environmentCrn, securityConfiguration, namespaceCrn, publicIpsAssociated);
   }
 
   @Override
@@ -365,6 +390,7 @@ public class ClusterSummary  {
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    securityConfiguration: ").append(toIndentedString(securityConfiguration)).append("\n");
     sb.append("    namespaceCrn: ").append(toIndentedString(namespaceCrn)).append("\n");
+    sb.append("    publicIpsAssociated: ").append(toIndentedString(publicIpsAssociated)).append("\n");
     sb.append("}");
     return sb.toString();
   }

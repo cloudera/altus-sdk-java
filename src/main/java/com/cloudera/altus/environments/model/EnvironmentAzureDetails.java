@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Azure-specific environment information.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.320-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:32.131-07:00")
 public class EnvironmentAzureDetails  {
 
   /**
@@ -86,7 +86,7 @@ public class EnvironmentAzureDetails  {
   private String userAssignedMsiName = null;
 
   /**
-   * The full URL of the ADLS folder in which cluster logs will be stored.
+   * The full URL of the ADLS / ADLS Gen2 folder in which cluster logs will be stored.
    **/
   private String logArchiveFolderPath = null;
 
@@ -279,7 +279,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Getter for logArchiveFolderPath.
-   * The full URL of the ADLS folder in which cluster logs will be stored.
+   * The full URL of the ADLS / ADLS Gen2 folder in which cluster logs will be stored.
    **/
   @JsonProperty("logArchiveFolderPath")
   public String getLogArchiveFolderPath() {
@@ -288,7 +288,7 @@ public class EnvironmentAzureDetails  {
 
   /**
    * Setter for logArchiveFolderPath.
-   * The full URL of the ADLS folder in which cluster logs will be stored.
+   * The full URL of the ADLS / ADLS Gen2 folder in which cluster logs will be stored.
    **/
   public void setLogArchiveFolderPath(String logArchiveFolderPath) {
     this.logArchiveFolderPath = logArchiveFolderPath;

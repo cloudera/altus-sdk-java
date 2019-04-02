@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for a CreateAWSEnvironment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.320-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:32.131-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -98,6 +98,11 @@ public class CreateAWSEnvironmentRequest  {
    * The ARN of the KMS key to use to encrypt non-root cluster EBS volumes. Leave this empty to use the default AWS managed CMK for EBS. This option may only be used when securedClusters is true.
    **/
   private String ebsEncryptionKmsKey = null;
+
+  /**
+   * If true the clusters created with this environment will have public IP addresses assigned to them.  If false, no public IPs will be assigned.
+   **/
+  private Boolean associatePublicIps = null;
 
   /**
    * Getter for name.
@@ -320,6 +325,23 @@ public class CreateAWSEnvironmentRequest  {
     this.ebsEncryptionKmsKey = ebsEncryptionKmsKey;
   }
 
+  /**
+   * Getter for associatePublicIps.
+   * If true the clusters created with this environment will have public IP addresses assigned to them.  If false, no public IPs will be assigned.
+   **/
+  @JsonProperty("associatePublicIps")
+  public Boolean getAssociatePublicIps() {
+    return associatePublicIps;
+  }
+
+  /**
+   * Setter for associatePublicIps.
+   * If true the clusters created with this environment will have public IP addresses assigned to them.  If false, no public IPs will be assigned.
+   **/
+  public void setAssociatePublicIps(Boolean associatePublicIps) {
+    this.associatePublicIps = associatePublicIps;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -368,12 +390,15 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.ebsEncryptionKmsKey, createAWSEnvironmentRequest.ebsEncryptionKmsKey)) {
       return false;
     }
+    if (!Objects.equals(this.associatePublicIps, createAWSEnvironmentRequest.associatePublicIps)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, delegatedRoleArn, instanceProfileName, subnets, securityGroups, region, logArchiveBucketName, autoRegisterClusterSshKeys, s3GuardConfiguration, workloadAnalyticsConfiguration, navigatorConfiguration, securedClusters, ebsEncryptionKmsKey);
+    return Objects.hash(name, delegatedRoleArn, instanceProfileName, subnets, securityGroups, region, logArchiveBucketName, autoRegisterClusterSshKeys, s3GuardConfiguration, workloadAnalyticsConfiguration, navigatorConfiguration, securedClusters, ebsEncryptionKmsKey, associatePublicIps);
   }
 
   @Override
@@ -393,6 +418,7 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    navigatorConfiguration: ").append(toIndentedString(navigatorConfiguration)).append("\n");
     sb.append("    securedClusters: ").append(toIndentedString(securedClusters)).append("\n");
     sb.append("    ebsEncryptionKmsKey: ").append(toIndentedString(ebsEncryptionKmsKey)).append("\n");
+    sb.append("    associatePublicIps: ").append(toIndentedString(associatePublicIps)).append("\n");
     sb.append("}");
     return sb.toString();
   }

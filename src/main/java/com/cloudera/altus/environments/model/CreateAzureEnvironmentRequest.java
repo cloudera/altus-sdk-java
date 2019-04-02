@@ -28,7 +28,7 @@ import com.cloudera.altus.environments.model.WorkloadAnalyticsConfigurationReque
 /**
  * Request object for a CreateAzureEnvironment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.320-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:32.131-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -42,7 +42,7 @@ public class CreateAzureEnvironmentRequest  {
   private String subscriptionId = null;
 
   /**
-   * Supported Azure regions. Altus Data Engineering supports Azure regions with the Azure Data Lake Store service.
+   * Supported Azure regions.
    **/
   private String region = null;
 
@@ -97,7 +97,7 @@ public class CreateAzureEnvironmentRequest  {
   private WorkloadAnalyticsConfigurationRequest workloadAnalyticsConfiguration = null;
 
   /**
-   * The full URL of the ADLS folder in which cluster logs will be stored.
+   * The full URL of the ADLS / ADLS Gen2 folder in which cluster logs will be stored.
    **/
   private String logArchiveFolderPath = null;
 
@@ -105,6 +105,11 @@ public class CreateAzureEnvironmentRequest  {
    * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled.
    **/
   private Boolean securedClusters = null;
+
+  /**
+   * If true the clusters created with this environment will have public IP addresses assigned to them.  If false, no public IPs will be assigned.
+   **/
+  private Boolean associatePublicIps = null;
 
   /**
    * Getter for name.
@@ -142,7 +147,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for region.
-   * Supported Azure regions. Altus Data Engineering supports Azure regions with the Azure Data Lake Store service.
+   * Supported Azure regions.
    **/
   @JsonProperty("region")
   public String getRegion() {
@@ -151,7 +156,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for region.
-   * Supported Azure regions. Altus Data Engineering supports Azure regions with the Azure Data Lake Store service.
+   * Supported Azure regions.
    **/
   public void setRegion(String region) {
     this.region = region;
@@ -329,7 +334,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for logArchiveFolderPath.
-   * The full URL of the ADLS folder in which cluster logs will be stored.
+   * The full URL of the ADLS / ADLS Gen2 folder in which cluster logs will be stored.
    **/
   @JsonProperty("logArchiveFolderPath")
   public String getLogArchiveFolderPath() {
@@ -338,7 +343,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for logArchiveFolderPath.
-   * The full URL of the ADLS folder in which cluster logs will be stored.
+   * The full URL of the ADLS / ADLS Gen2 folder in which cluster logs will be stored.
    **/
   public void setLogArchiveFolderPath(String logArchiveFolderPath) {
     this.logArchiveFolderPath = logArchiveFolderPath;
@@ -359,6 +364,23 @@ public class CreateAzureEnvironmentRequest  {
    **/
   public void setSecuredClusters(Boolean securedClusters) {
     this.securedClusters = securedClusters;
+  }
+
+  /**
+   * Getter for associatePublicIps.
+   * If true the clusters created with this environment will have public IP addresses assigned to them.  If false, no public IPs will be assigned.
+   **/
+  @JsonProperty("associatePublicIps")
+  public Boolean getAssociatePublicIps() {
+    return associatePublicIps;
+  }
+
+  /**
+   * Setter for associatePublicIps.
+   * If true the clusters created with this environment will have public IP addresses assigned to them.  If false, no public IPs will be assigned.
+   **/
+  public void setAssociatePublicIps(Boolean associatePublicIps) {
+    this.associatePublicIps = associatePublicIps;
   }
 
   @Override
@@ -415,12 +437,15 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.securedClusters, createAzureEnvironmentRequest.securedClusters)) {
       return false;
     }
+    if (!Objects.equals(this.associatePublicIps, createAzureEnvironmentRequest.associatePublicIps)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, subscriptionId, region, aadTenantId, vnetResourceGroup, vnetName, subnetName, networkSecurityGroupResourceGroup, networkSecurityGroupName, clusterNodeResourceGroup, userAssignedMsiResourceGroup, userAssignedMsiName, workloadAnalyticsConfiguration, logArchiveFolderPath, securedClusters);
+    return Objects.hash(name, subscriptionId, region, aadTenantId, vnetResourceGroup, vnetName, subnetName, networkSecurityGroupResourceGroup, networkSecurityGroupName, clusterNodeResourceGroup, userAssignedMsiResourceGroup, userAssignedMsiName, workloadAnalyticsConfiguration, logArchiveFolderPath, securedClusters, associatePublicIps);
   }
 
   @Override
@@ -442,6 +467,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    workloadAnalyticsConfiguration: ").append(toIndentedString(workloadAnalyticsConfiguration)).append("\n");
     sb.append("    logArchiveFolderPath: ").append(toIndentedString(logArchiveFolderPath)).append("\n");
     sb.append("    securedClusters: ").append(toIndentedString(securedClusters)).append("\n");
+    sb.append("    associatePublicIps: ").append(toIndentedString(associatePublicIps)).append("\n");
     sb.append("}");
     return sb.toString();
   }

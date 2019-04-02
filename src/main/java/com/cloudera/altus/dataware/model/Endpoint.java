@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * A network endpoint that has both a public and a private IP address.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:12.733-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:31.625-07:00")
 public class Endpoint  {
 
   /**
@@ -36,7 +36,7 @@ public class Endpoint  {
   private String privateIpAddress = null;
 
   /**
-   * A public IP address. This is internet routable.
+   * A public IP address. This is internet routable. 'none' if the cluster was created without public IP addresses.
    **/
   private String publicIpAddress = null;
 
@@ -64,7 +64,7 @@ public class Endpoint  {
 
   /**
    * Getter for publicIpAddress.
-   * A public IP address. This is internet routable.
+   * A public IP address. This is internet routable. &#39;none&#39; if the cluster was created without public IP addresses.
    **/
   @JsonProperty("publicIpAddress")
   public String getPublicIpAddress() {
@@ -73,7 +73,7 @@ public class Endpoint  {
 
   /**
    * Setter for publicIpAddress.
-   * A public IP address. This is internet routable.
+   * A public IP address. This is internet routable. &#39;none&#39; if the cluster was created without public IP addresses.
    **/
   public void setPublicIpAddress(String publicIpAddress) {
     this.publicIpAddress = publicIpAddress;

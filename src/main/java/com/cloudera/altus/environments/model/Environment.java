@@ -32,7 +32,7 @@ import java.time.ZonedDateTime;
 /**
  * Container for the environment access data.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:13.320-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:32.131-07:00")
 public class Environment  {
 
   /**
@@ -84,6 +84,11 @@ public class Environment  {
    * If true all clusters created with this environment will be secured. Cluster services will require authentication and wire encryption will be enabled. Cluster volumes will be encrypted in a cloud provider specific manner.
    **/
   private Boolean securedClusters = null;
+
+  /**
+   * If true the clusters created with this environment will have public IP addresses assigned to them.  If false, no public IPs will be assigned.
+   **/
+  private Boolean associatePublicIps = null;
 
   /**
    * Getter for environmentName.
@@ -255,6 +260,23 @@ public class Environment  {
     this.securedClusters = securedClusters;
   }
 
+  /**
+   * Getter for associatePublicIps.
+   * If true the clusters created with this environment will have public IP addresses assigned to them.  If false, no public IPs will be assigned.
+   **/
+  @JsonProperty("associatePublicIps")
+  public Boolean getAssociatePublicIps() {
+    return associatePublicIps;
+  }
+
+  /**
+   * Setter for associatePublicIps.
+   * If true the clusters created with this environment will have public IP addresses assigned to them.  If false, no public IPs will be assigned.
+   **/
+  public void setAssociatePublicIps(Boolean associatePublicIps) {
+    this.associatePublicIps = associatePublicIps;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -294,12 +316,15 @@ public class Environment  {
     if (!Objects.equals(this.securedClusters, environment.securedClusters)) {
       return false;
     }
+    if (!Objects.equals(this.associatePublicIps, environment.associatePublicIps)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, creationDate, type, creatorCrn, workloadAnalyticsConfiguration, azureDetails, awsDetails, navigatorConfiguration, securedClusters);
+    return Objects.hash(environmentName, crn, creationDate, type, creatorCrn, workloadAnalyticsConfiguration, azureDetails, awsDetails, navigatorConfiguration, securedClusters, associatePublicIps);
   }
 
   @Override
@@ -316,6 +341,7 @@ public class Environment  {
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
     sb.append("    navigatorConfiguration: ").append(toIndentedString(navigatorConfiguration)).append("\n");
     sb.append("    securedClusters: ").append(toIndentedString(securedClusters)).append("\n");
+    sb.append("    associatePublicIps: ").append(toIndentedString(associatePublicIps)).append("\n");
     sb.append("}");
     return sb.toString();
   }

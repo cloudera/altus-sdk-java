@@ -38,7 +38,7 @@ import com.cloudera.altus.dataware.model.GetClusterAccessTokensResponse;
 import com.cloudera.altus.dataware.model.ListClustersRequest;
 import com.cloudera.altus.dataware.model.ListClustersResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-01-29T13:30:12.733-08:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:31.625-07:00")
 public class DatawareClient extends AltusClient {
 
   public static final String SERVICE_NAME = "dataware";
