@@ -33,16 +33,13 @@ import java.util.Map;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junitpioneer.jupiter.TempDirectory;
-import org.junitpioneer.jupiter.TempDirectory.TempDir;
+import org.junit.jupiter.api.io.TempDir;
 
 public class AltusProfileCredentialsProviderTest {
 
   private String originalUserHome = null;
 
   @BeforeEach
-  @ExtendWith(TempDirectory.class)
   public void setEnvVariables(@TempDir Path folder) {
     originalUserHome = System.getProperty("user.home");
     System.setProperty("user.home",
@@ -57,7 +54,6 @@ public class AltusProfileCredentialsProviderTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void readFromDefaultLocationDefaultProfileName(@TempDir Path folder) {
     AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileCredentialsProvider credentialsProvider =
@@ -69,7 +65,6 @@ public class AltusProfileCredentialsProviderTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void readFromDefaultLocationSpecifiedProfileName(@TempDir Path folder) {
     AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileCredentialsProvider credentialsProvider =
@@ -81,7 +76,6 @@ public class AltusProfileCredentialsProviderTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void invalidProfile(@TempDir Path folder) {
     AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileCredentialsProvider credentialsProvider =
@@ -94,7 +88,6 @@ public class AltusProfileCredentialsProviderTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void invalidEnvVarProfile(@TempDir Path folder) {
     AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     Map<String, String> newEnvironment = Maps.newHashMap();
@@ -111,7 +104,6 @@ public class AltusProfileCredentialsProviderTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void readFromEnvVar(@TempDir Path folder) {
     Map<String, String> newEnvironment = Maps.newHashMap();
     newEnvironment.put(AltusProfileCredentialsProvider.ALTUS_DEFAULT_PROFILE,
@@ -127,7 +119,6 @@ public class AltusProfileCredentialsProviderTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void readFromSpecifiedPath(@TempDir Path folder) {
     Path credentialsPath = AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileCredentialsProvider credentialsProvider =

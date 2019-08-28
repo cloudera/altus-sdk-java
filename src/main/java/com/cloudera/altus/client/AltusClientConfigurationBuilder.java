@@ -28,6 +28,7 @@ import com.cloudera.altus.http.RetryHandler;
 import com.cloudera.altus.http.SimpleRetryHandler;
 import com.google.common.base.MoreObjects;
 
+import javax.annotation.Nullable;
 import java.time.Duration;
 
 /**
@@ -36,6 +37,9 @@ import java.time.Duration;
 public class AltusClientConfigurationBuilder {
 
   private String clientApplicationName = null;
+  private String proxyUri = null;
+  private String proxyUsername = null;
+  private String proxyPassword = null;
   private Duration readTimeout = Duration.ofMinutes(1);
   private Duration connectionTimeout = Duration.ofMinutes(1);
   private RetryHandler retryHandler = new SimpleRetryHandler(
@@ -132,6 +136,69 @@ public class AltusClientConfigurationBuilder {
   }
 
   /**
+   * Sets the value of the proxy URI. If not set or explicitly set to null, then
+   * no proxy will be used for connections.
+   *
+   * The string should be of the form: http(s)://hostname:port/
+   * @param proxyUri The Proxy URI
+   * @return a reference to the AltusClientConfiguration object so
+   * that method calls can be chained together
+   */
+  public AltusClientConfigurationBuilder withProxyUri(@Nullable String proxyUri) {
+    this.proxyUri = proxyUri;
+    return this;
+  }
+
+  /**
+   * Gets the current proxy URI.
+   * @return the proxy URI
+   */
+  public String getProxyUri() {
+    return this.proxyUri;
+  }
+
+  /**
+   * Sets the value of the proxy username. If not set or explicitly set to null,
+   * the connection to the proxy will not be authenticated
+   *
+   * @param proxyUsername The Proxy Username
+   * @return a reference to the AltusClientConfiguration object so
+   * that method calls can be chained together
+   */
+  public AltusClientConfigurationBuilder withProxyUsername(@Nullable String proxyUsername) {
+    this.proxyUsername = proxyUsername;
+    return this;
+  }
+
+  /**
+   * Gets the current proxy username.
+   * @return the proxy username
+   */
+  public String getProxyUsername() {
+    return this.proxyUsername;
+  }
+
+  /**
+   * Sets the value of the proxy password.
+   *
+   * @param proxyPassword The Proxy Password
+   * @return a reference to the AltusClientConfiguration object so
+   * that method calls can be chained together
+   */
+  public AltusClientConfigurationBuilder withProxyPassword(@Nullable String proxyPassword) {
+    this.proxyPassword = proxyPassword;
+    return this;
+  }
+
+  /**
+   * Gets the current proxy password.
+   * @return the proxy password
+   */
+  public String getProxyPassword() {
+    return this.proxyPassword;
+  }
+
+  /**
    * Gets an AltusClientConfigurationBuilder object with all the default values set.
    * @return an AltusClientConfiguration object with default values for each property
    */
@@ -157,6 +224,9 @@ public class AltusClientConfigurationBuilder {
         .add("readTimeout", this.getReadTimeout())
         .add("connectionTimeout", this.getConnectionTimeout())
         .add("clientApplicationName", this.getClientApplicationName())
+        .add("Proxy URI", this.getProxyUri())
+        .add("Proxy Username", this.getProxyUsername())
+        .add("Proxy Password", "<hidden>")
         .toString();
   }
 

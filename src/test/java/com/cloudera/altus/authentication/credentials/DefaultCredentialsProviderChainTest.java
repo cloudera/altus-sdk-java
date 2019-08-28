@@ -34,16 +34,13 @@ import java.util.UUID;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junitpioneer.jupiter.TempDirectory;
-import org.junitpioneer.jupiter.TempDirectory.TempDir;
+import org.junit.jupiter.api.io.TempDir;
 
 public class DefaultCredentialsProviderChainTest {
 
   private String originalUserHome = null;
 
   @BeforeEach
-  @ExtendWith(TempDirectory.class)
   public void setEnvVariables(@TempDir Path folder) {
     //override user home in case server has existing altus credentials file
     originalUserHome = System.getProperty("user.home");
@@ -56,18 +53,14 @@ public class DefaultCredentialsProviderChainTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void testNoCredentials() {
     DefaultAltusCredentialProviderChain cp = new DefaultAltusCredentialProviderChain();
 
-    Throwable e = assertThrows(AltusClientException.class, () -> {
-      cp.getCredentials();
-    });
+    Throwable e = assertThrows(AltusClientException.class, cp::getCredentials);
     assertEquals("Unable to load credentials from provider files", e.getMessage());
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void testValidEnvironmentVariableCredentials() {
     Map<String, String> newEnvironment = Maps.newHashMap();
     String accessKeyId = UUID.randomUUID().toString();
@@ -90,7 +83,6 @@ public class DefaultCredentialsProviderChainTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void testValidSystemPropertiesCredentials() {
     String accessKeyId = UUID.randomUUID().toString();
     System.setProperty(
@@ -113,7 +105,6 @@ public class DefaultCredentialsProviderChainTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void testValidProfileCredentials(@TempDir Path folder) {
     AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     DefaultAltusCredentialProviderChain cp = new DefaultAltusCredentialProviderChain();

@@ -34,6 +34,9 @@ public class AltusClientConfiguration {
   private final Duration connectionTimeout;
   private final RetryHandler retryHandler;
   private final String clientApplicationName;
+  private final String proxyUri;
+  private final String proxyUsername;
+  private final String proxyPassword;
 
   /**
    * Constructor.
@@ -45,6 +48,9 @@ public class AltusClientConfiguration {
     connectionTimeout = builder.getConnectionTimeout();
     retryHandler = builder.getRetryHandler();
     clientApplicationName = builder.getClientApplicationName();
+    proxyUri = builder.getProxyUri();
+    proxyUsername = builder.getProxyUsername();
+    proxyPassword = builder.getProxyPassword();
   }
 
   /**
@@ -74,4 +80,26 @@ public class AltusClientConfiguration {
   public String getClientApplicationName() {
     return this.clientApplicationName;
   }
+
+  /**
+   * see: {@link AltusClientConfigurationBuilder#getProxyUri()}.
+   */
+  public String getProxyUri() {
+    return this.proxyUri;
+  }
+
+  /**
+   * see: {@link AltusClientConfigurationBuilder#getProxyUsername()}.
+   */
+  public String getProxyUsername() {
+    return this.proxyUsername;
+  }
+
+  /**
+   * see: {@link AltusClientConfigurationBuilder#getProxyPassword()}.
+   */
+  public String getProxyPassword() {
+    return this.proxyPassword;
+  }
 }
+

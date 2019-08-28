@@ -34,9 +34,7 @@ import java.io.File;
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junitpioneer.jupiter.TempDirectory;
-import org.junitpioneer.jupiter.TempDirectory.TempDir;
+import org.junit.jupiter.api.io.TempDir;
 
 public class AltusProfileConfigFileTest {
 
@@ -57,7 +55,6 @@ public class AltusProfileConfigFileTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void testNonExistantFileName(@TempDir Path folder) {
     Throwable e = assertThrows(AltusClientException.class, () -> {
       new AltusProfileConfigFile(folder.toAbsolutePath() + "/junk.txt");
@@ -67,7 +64,6 @@ public class AltusProfileConfigFileTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void testNonExistantFileHandle(@TempDir Path folder) {
     Throwable e = assertThrows(AltusClientException.class, () -> {
       new AltusProfileConfigFile(
@@ -78,7 +74,6 @@ public class AltusProfileConfigFileTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void testNonExistantProfileName(@TempDir Path folder) {
     Path credentialsPath = AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileConfigFile config =
@@ -90,7 +85,6 @@ public class AltusProfileConfigFileTest {
   }
 
   @Test
-  @ExtendWith(TempDirectory.class)
   public void testValidProfile(@TempDir Path folder) {
     Path credentialsPath = AltusSDKTestUtils.copyTestCredentialsFileToFolder(folder);
     AltusProfileCredentialsProvider credentialsProvider =

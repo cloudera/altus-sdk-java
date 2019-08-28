@@ -56,6 +56,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.apache.http.conn.ssl.DefaultHostnameVerifier;
+import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
 import org.slf4j.Logger;
@@ -108,20 +109,24 @@ class ClientConnectionWrapper implements AutoCloseable {
     this.altusClientConfiguration =
         checkNotNullAndThrow(altusClientConfiguration);
 
-    ObjectMapper objectMapper = new ObjectMapper();
-    objectMapper.registerModule(new JavaTimeModule());
-    objectMapper.setDateFormat(new StdDateFormat());
-    objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
-    objectMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
-    objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-    objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-
-    JacksonJsonProvider jsonProvider = new JacksonJsonProvider(objectMapper);
-
-    ClientConfig config = new ClientConfig();
-    config.register(jsonProvider);
-
     if (httpClient == null) {
+      ObjectMapper objectMapper = new ObjectMapper();
+      objectMapper.registerModule(new JavaTimeModule());
+      objectMapper.setDateFormat(new StdDateFormat());
+      objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+      objectMapper.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+      objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+      objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
+      JacksonJsonProvider jsonProvider = new JacksonJsonProvider(objectMapper);
+
+      ClientConfig config = new ClientConfig();
+      config.register(jsonProvider);
+      config.connectorProvider(new ApacheConnectorProvider());
+      config.property(ClientProperties.PROXY_URI, altusClientConfiguration.getProxyUri());
+      config.property(ClientProperties.PROXY_USERNAME, altusClientConfiguration.getProxyUsername());
+      config.property(ClientProperties.PROXY_PASSWORD, altusClientConfiguration.getProxyPassword());
+
       TrustManager[] trustManagers = null;
       try {
         TrustManagerFactory trustManagerFactory =

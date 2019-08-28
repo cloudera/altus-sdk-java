@@ -28,19 +28,24 @@ import com.cloudera.altus.util.AltusSDKTestUtils;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 public class AltusEnvironmentVariableCredentialsProviderTest {
 
+  @AfterEach
+  public void resetEnvVariables() {
+    AltusSDKTestUtils.setEnv(new HashMap<>());
+  }
+
   @Test
   public void testGetCredentialsWithNullIdAndPrivateKeys() {
-    Map<String, String> newenv = new HashMap<String, String>();
+    Map<String, String> newenv = new HashMap<>();
     AltusSDKTestUtils.setEnv(newenv);
     AltusEnvironmentVariableCredentialsProvider aenvcp =
         new AltusEnvironmentVariableCredentialsProvider();
-    Throwable e = assertThrows(IllegalArgumentException.class, () -> {
-      aenvcp.getCredentials();
-    });
+    Throwable e = assertThrows(IllegalArgumentException.class,
+                               aenvcp::getCredentials);
     assertEquals("Invalid values for Altus credentials environment " +
                  "variables ALTUS_ACCESS_KEY_ID and ALTUS_PRIVATE_KEY",
                  e.getMessage());
@@ -48,15 +53,14 @@ public class AltusEnvironmentVariableCredentialsProviderTest {
 
   @Test
   public void testGetCredentialsForAltusKeyIdMissing() {
-    Map<String, String> newenv = new HashMap<String, String>();
+    Map<String, String> newenv = new HashMap<>();
     newenv.put(AltusEnvironmentVariableCredentialsProvider.ALTUS_PRIVATE_KEY,
         "");
     AltusSDKTestUtils.setEnv(newenv);
     AltusEnvironmentVariableCredentialsProvider aenvcp =
         new AltusEnvironmentVariableCredentialsProvider();
-    Throwable e = assertThrows(IllegalArgumentException.class, () -> {
-      aenvcp.getCredentials();
-    });
+    Throwable e = assertThrows(IllegalArgumentException.class,
+                               aenvcp::getCredentials);
     assertEquals("Invalid values for Altus credentials environment " +
                  "variables ALTUS_ACCESS_KEY_ID and ALTUS_PRIVATE_KEY",
                  e.getMessage());
@@ -64,15 +68,14 @@ public class AltusEnvironmentVariableCredentialsProviderTest {
 
   @Test
   public void testGetCredentialsForAltusPrivateKeyMissing() {
-    Map<String, String> newenv = new HashMap<String, String>();
+    Map<String, String> newenv = new HashMap<>();
     newenv.put(AltusEnvironmentVariableCredentialsProvider.ALTUS_ACCESS_KEY_ID,
         "c2cf4ffb-9f0a-42bf-938b-f50085e63883");
     AltusSDKTestUtils.setEnv(newenv);
     AltusEnvironmentVariableCredentialsProvider aenvcp =
         new AltusEnvironmentVariableCredentialsProvider();
-    Throwable e = assertThrows(IllegalArgumentException.class, () -> {
-      aenvcp.getCredentials();
-    });
+    Throwable e = assertThrows(IllegalArgumentException.class,
+                               aenvcp::getCredentials);
     assertEquals("Invalid values for Altus credentials environment " +
                  "variables ALTUS_ACCESS_KEY_ID and ALTUS_PRIVATE_KEY",
                  e.getMessage());
@@ -80,7 +83,7 @@ public class AltusEnvironmentVariableCredentialsProviderTest {
 
   @Test
   public void testValidCredentials() {
-    Map<String, String> newenv = new HashMap<String, String>();
+    Map<String, String> newenv = new HashMap<>();
     newenv.put(AltusEnvironmentVariableCredentialsProvider.ALTUS_ACCESS_KEY_ID,
         "somekey");
     newenv.put(AltusEnvironmentVariableCredentialsProvider.ALTUS_PRIVATE_KEY,

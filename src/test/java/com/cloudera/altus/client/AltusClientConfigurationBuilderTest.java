@@ -88,4 +88,27 @@ public class AltusClientConfigurationBuilderTest {
     });
   }
 
+  @Test
+  public void testDefaultProxyConfig() {
+    AltusClientConfigurationBuilder builder = AltusClientConfigurationBuilder.defaultBuilder();
+    assertEquals(null, builder.getProxyUri());
+    assertEquals(null, builder.getProxyUsername());
+    assertEquals(null, builder.getProxyPassword());
+  }
+
+  @Test
+  public void testProxyClientConfiguration() {
+    final String proxyUri = "https://foobar.com:1234/";
+    final String proxyUsername = "foo";
+    final String proxyPassword = "bar";
+    AltusClientConfiguration cc = AltusClientConfigurationBuilder
+        .defaultBuilder()
+        .withProxyUri(proxyUri)
+        .withProxyUsername(proxyUsername)
+        .withProxyPassword(proxyPassword)
+        .build();
+    assertEquals(proxyUri, cc.getProxyUri());
+    assertEquals(proxyUsername, cc.getProxyUsername());
+    assertEquals(proxyPassword, cc.getProxyPassword());
+  }
 }

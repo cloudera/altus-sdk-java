@@ -88,7 +88,15 @@ public class AltusClientBuilderTest {
     assertEquals(
         defaultConfig.getRetryHandler().getClass(),
         config.getRetryHandler().getClass());
-
+    assertEquals(
+        defaultConfig.getProxyUri(),
+        config.getProxyUri());
+    assertEquals(
+        defaultConfig.getProxyUsername(),
+        config.getProxyUsername());
+    assertEquals(
+        defaultConfig.getProxyPassword(),
+        config.getProxyPassword());
   }
 
   @Test

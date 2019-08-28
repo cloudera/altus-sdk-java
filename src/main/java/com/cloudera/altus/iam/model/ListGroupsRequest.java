@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for a list groups request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:32.365-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-08-28T09:14:05.486-07:00")
 public class ListGroupsRequest  {
 
   /**

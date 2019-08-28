@@ -21,7 +21,6 @@ package com.cloudera.altus.authentication.credentials;
 
 import static com.cloudera.altus.ValidationUtils.checkNotNullAndThrow;
 
-
 /**
  * Simple implementation of AltusCredentialsProvider that just wraps static
  * AltusCredentials.

@@ -28,7 +28,7 @@ import com.cloudera.altus.dataeng.model.Job;
 /**
  * Response object for a describe job request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-04-02T14:15:31.936-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-08-28T09:14:05.003-07:00")
 public class DescribeJobResponse extends AltusResponse {
 
   /**
