@@ -110,7 +110,7 @@ import com.cloudera.altus.iam.model.UnassignUserRoleResponse;
 import com.cloudera.altus.iam.model.UpdateAccessKeyRequest;
 import com.cloudera.altus.iam.model.UpdateAccessKeyResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-08-28T09:14:05.486-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-09-05T21:19:11.877-07:00")
 public class IamClient extends AltusClient {
 
   public static final String SERVICE_NAME = "iam";

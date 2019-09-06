@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Defines configurations required to enable S3 consistent view (S3Guard).
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-08-28T09:14:05.210-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-09-05T21:19:11.637-07:00")
 public class S3GuardConfigurationRequest  {
 
   /**

@@ -28,7 +28,7 @@ import com.cloudera.altus.dataware.model.EbsConfiguration;
 /**
  * AWS-specific instance configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-08-28T09:14:04.689-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-09-05T21:19:10.984-07:00")
 public class AWSInstanceConfiguration  {
 
   /**

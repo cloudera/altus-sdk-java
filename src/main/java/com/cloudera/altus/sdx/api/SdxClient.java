@@ -32,7 +32,7 @@ import com.cloudera.altus.sdx.model.Error;
 import com.cloudera.altus.sdx.model.ListNamespacesRequest;
 import com.cloudera.altus.sdx.model.ListNamespacesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-08-28T09:14:05.375-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-09-05T21:19:11.757-07:00")
 public class SdxClient extends AltusClient {
 
   public static final String SERVICE_NAME = "sdx";

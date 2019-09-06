@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * Response object for an unassign user role request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-08-28T09:14:05.486-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-09-05T21:19:11.877-07:00")
 public class UnassignUserRoleResponse extends AltusResponse {
 
   @Override

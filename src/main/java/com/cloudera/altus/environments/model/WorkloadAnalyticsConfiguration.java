@@ -27,7 +27,7 @@ import com.cloudera.altus.client.AltusResponse;
 /**
  * The configuration for integration with Altus Workload Analytics.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-08-28T09:14:05.210-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-09-05T21:19:11.637-07:00")
 public class WorkloadAnalyticsConfiguration  {
 
   /**

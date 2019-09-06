@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-08-28T09:14:05.003-07:00")
+@javax.annotation.Generated(value = "com.cloudera.altus.client.codegen.AltusSDKJavaCodegen", date = "2019-09-05T21:19:11.397-07:00")
 public class ClusterSummary  {
 
   /**
